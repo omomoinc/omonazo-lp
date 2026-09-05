@@ -3214,11 +3214,20 @@ header:not(.site-header){
   font-weight:900;
 }
 .reason-problem p{
-  margin:0;
-  color:#18324c !important;
-  font-size:16px;
-  line-height:1.65;
+  margin:8px 0 0;
+  color:#5d7185 !important;
+  font-size:14px;
+  line-height:1.7;
+  text-align:left;
+}
+.reason-problem h3{
+  margin:2px 0 0;
+  color:#18324c;
+  font-size:18px;
+  line-height:1.5;
+  font-weight:900;
   text-align:center;
+  text-wrap:balance;
 }
 .reason-solution{
   margin-top:30px;
@@ -3469,9 +3478,8 @@ header:not(.site-header){
   display:block;
 }
 .reason-problem p{
-  font-size:15px !important;
-  line-height:1.55 !important;
-  text-wrap:balance;
+  font-size:14px !important;
+  line-height:1.7 !important;
 }
 
 /* Solution intro headline */
@@ -3497,6 +3505,9 @@ header:not(.site-header){
   }
   .reason-problem p{
     font-size:14px !important;
+  }
+  .reason-problem h3{
+    font-size:17px;
   }
   .reason-solution-intro span{
     font-size:21px !important;
@@ -3770,6 +3781,86 @@ html{
 .case-body p{
   margin-top:0;
 }
+
+/* ---- Hero underline and CTA emphasis ---- */
+.hero h1:after{
+  display:none !important;
+}
+.hero .actions{
+  gap:14px !important;
+  margin-top:36px !important;
+}
+.hero .actions .btn{
+  min-height:62px;
+  padding:17px 30px;
+  font-size:17px;
+  line-height:1.25;
+}
+.hero .actions .btn.primary{
+  padding-inline:36px;
+  box-shadow:none;
+}
+
+/* Bottom fixed CTA: buttons take the full width */
+.fixed-cta{
+  width:min(820px,calc(100% - 24px)) !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  backdrop-filter:none !important;
+}
+.fixed-actions{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
+  width:100% !important;
+}
+.fixed-actions .btn{
+  width:100% !important;
+  min-height:62px !important;
+  padding:16px 24px !important;
+  font-size:19px !important;
+  line-height:1.25 !important;
+}
+.fixed-cta .btn.secondary{
+  background:#1667d9 !important;
+  color:#ffffff !important;
+  border:2px solid #1667d9 !important;
+}
+
+@media(max-width:620px){
+  .hero h1:after{
+    width:76px !important;
+    height:6px !important;
+    margin-top:16px !important;
+  }
+  .hero .actions{
+    gap:10px !important;
+    margin-top:28px !important;
+  }
+  .hero .actions .btn{
+    min-height:54px;
+    padding:14px 18px;
+    font-size:15px;
+  }
+  .hero .actions .btn.primary{
+    padding-inline:22px;
+  }
+  .fixed-cta{
+    bottom:10px !important;
+    width:calc(100% - 20px) !important;
+    padding:0 !important;
+  }
+  .fixed-actions{
+    gap:8px !important;
+  }
+  .fixed-actions .btn{
+    min-height:54px !important;
+    padding:12px 8px !important;
+    font-size:15px !important;
+  }
+}
+
 @media(prefers-reduced-motion:reduce){
   .hero-slide{
     transition:none;
@@ -3805,7 +3896,7 @@ html{
   <div class="wrap hero-inner">
     
     <h1><span class="hero-line">謎解きで、人と地域の</span><span class="hero-line">「面白い」を引き出す。</span></h1>
-    <p class="hero-copy"><strong>集客・交流・学び・回遊。</strong><br>人や地域が持つ魅力を謎解きという体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</p>
+    <p class="hero-copy"><strong>集客・交流・学び・回遊。</strong><br>人や地域が持つ魅力を謎解きという体験に変え、目的に合わせた<br>オリジナル謎解きを企画・制作します。</p>
     
 <div class="actions"><a class="btn primary" href="#contact">制作について相談する</a><a class="btn secondary" href="#cases">導入実績を見る</a></div>
   </div>
@@ -3835,25 +3926,29 @@ html{
   <article class="reason-problem">
     <span class="reason-category">集客</span>
     <div class="reason-illust has-photo ri-attraction" role="img" aria-label="集客の課題を表す人物のイラスト"></div>
-    <p>もっと人を呼びたい</p>
+    <h3>イベントを企画しても<br>人が集まらない</h3>
+    <p>告知だけでは参加のきっかけをつくれない。</p>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">交流</span>
     <div class="reason-illust has-photo ri-communication" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
-    <p>自然に交流してほしい</p>
+    <h3>交流会を開いても<br>会話が生まれない</h3>
+    <p>初対面同士が自然に打ち解けるきっかけがない。</p>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">学び</span>
     <div class="reason-illust has-photo ri-learning" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
-    <p>楽しく学べる体験にしたい</p>
+    <h3>説明や講義では<br>興味が続かない</h3>
+    <p>伝えたい内容が記憶に残りにくい。</p>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">回遊</span>
     <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
-    <p>もっと巡ってほしい</p>
+    <h3>見どころがあっても<br>巡ってもらえない</h3>
+    <p>目的地だけで帰られ、滞在時間が伸びない。</p>
   </article>
 </div>
 <div class="reason-solution">
@@ -3886,7 +3981,7 @@ html{
 </section>
 
 
-<section class="photo-break photo"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong>目的に合わせた、<br>オリジナルの謎解き体験を。</strong></div></div></div></section>
+<section class="photo-break photo"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><span>オモ謎がつくる</span><strong>目的に合わせた、<br>オリジナルの謎解き体験を。</strong></div></div></div></section>
 
 
 <section class="section mint" id="about">
@@ -3904,7 +3999,7 @@ html{
       <article class="feature">
         <div class="n">2</div>
         <h3>学生も制作に参加</h3>
-        <p>信州大学の謎解きサークルをルーツに、学生も制作に関わります。学生ならではの柔軟な発想を取り入れながら、OMOMOが企画・品質を管理します。</p>
+        <p>信州大学の謎解きサークルをルーツに、学生も制作に関わります。学生ならではの柔軟な発想を取り入れながら、制作チームが企画から品質管理まで一貫して担います。</p>
       </article>
 
       <article class="feature">
@@ -4068,8 +4163,7 @@ html{
   </div>
 </footer>
 
-<div class="fixed-cta"><div><strong>オモ謎に相談してみる</strong><small>内容未定でもOK。目的から一緒に考えます。</small></div>
-<div class="fixed-actions">
+<div class="fixed-cta"><div class="fixed-actions">
   <a class="btn primary" href="#contact">制作について相談する</a>
   <a class="btn secondary" href="#cases">導入実績を見る</a>
 </div></div>
