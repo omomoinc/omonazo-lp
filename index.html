@@ -3862,17 +3862,17 @@ html{
 @media(hover:hover){
   .hero .actions .btn.primary:hover,
   .fixed-actions .btn.primary:hover{
-    background:#18324c !important;
-    color:#ffd43b !important;
-    border-color:#18324c !important;
+    background:#ffe47a !important;
+    color:#365069 !important;
+    border-color:#365069 !important;
     filter:none !important;
     transform:translateY(-2px);
   }
   .hero .actions .btn.secondary:hover,
   .fixed-actions .btn.secondary:hover{
-    background:#0f4fae !important;
-    color:#ffffff !important;
-    border-color:#0f4fae !important;
+    background:#f3f8ff !important;
+    color:#4d7fc4 !important;
+    border-color:#4d7fc4 !important;
     filter:none !important;
     transform:translateY(-2px);
   }
@@ -3917,6 +3917,100 @@ html{
 }
 
 /* Connect the problem cards to their solutions */
+.site-header{
+  position:sticky !important;
+  top:0;
+  z-index:100;
+  padding:0 !important;
+  background:rgba(255,255,255,.96) !important;
+  border-bottom:1px solid #d9e6f4 !important;
+  backdrop-filter:blur(12px) !important;
+}
+.site-header .nav{
+  min-height:74px !important;
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:24px !important;
+  padding:8px 0 !important;
+}
+.site-header .logo{
+  flex:0 0 auto;
+  color:#18324c !important;
+  font-size:30px !important;
+  line-height:1;
+}
+.site-header .logo b{
+  color:#1667d9 !important;
+}
+.global-nav{
+  display:flex !important;
+  align-items:center;
+  justify-content:flex-end;
+  gap:18px;
+  width:auto;
+}
+.header-links{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.global-nav .header-links a{
+  padding:8px 0;
+  color:#18324c;
+  border-bottom:2px solid transparent;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.2;
+  white-space:nowrap;
+}
+.header-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px 20px !important;
+  border:2px solid #18324c !important;
+  border-radius:999px;
+  background:#ffd43b;
+  color:#18324c !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+  line-height:1.2 !important;
+  white-space:nowrap;
+  transition:background-color .2s ease,transform .2s ease;
+}
+@media(hover:hover){
+  .global-nav .header-links a:hover{
+    color:#1667d9;
+    border-bottom-color:#1667d9;
+  }
+  .header-cta:hover{
+    background:#ffe47a !important;
+    color:#18324c !important;
+    border-color:#18324c !important;
+    transform:translateY(-1px);
+  }
+}
+@media(max-width:760px){
+  .site-header .nav{
+    min-height:64px !important;
+    gap:12px !important;
+  }
+  .site-header .logo{
+    font-size:26px !important;
+  }
+  .header-links{
+    display:none;
+  }
+  .header-cta{
+    min-height:40px;
+    padding:8px 15px !important;
+    font-size:13px !important;
+  }
+}
+
 .reason-bridge-marker{
   width:104px;
   height:34px;
@@ -3931,6 +4025,10 @@ html{
 .reason-bridge-marker path{
   fill:currentColor;
 }
+.reason-problem h3 .reason-line{
+  display:inline-block;
+  white-space:nowrap;
+}
 .reason-bridge-marker + .reason-solution{
   margin-top:14px;
 }
@@ -3943,6 +4041,65 @@ html{
   font-size:clamp(28px,3vw,36px) !important;
   line-height:1.4 !important;
 }
+.cases-carousel{
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) 52px;
+  align-items:center;
+  gap:14px;
+  margin-top:40px;
+}
+.cases-wrap{
+  overflow-x:auto !important;
+  overflow-y:hidden;
+  margin-top:0 !important;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.cases-wrap::-webkit-scrollbar{
+  display:none;
+}
+.cases{
+  animation:none !important;
+}
+.cases .case{
+  flex:0 0 var(--case-width,350px);
+  scroll-snap-align:start;
+}
+.cases-nav{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  padding:0;
+  border:2px solid #1667d9;
+  border-radius:50%;
+  background:#ffd43b;
+  color:#1667d9;
+  cursor:pointer;
+  transition:background-color .2s ease,color .2s ease,transform .2s ease;
+}
+.cases-nav svg{
+  width:26px;
+  height:26px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+@media(hover:hover){
+  .cases-nav:hover{
+    background:#1667d9;
+    color:#ffffff;
+    transform:scale(1.06);
+  }
+}
+.cases-nav:focus-visible{
+  outline:3px solid #ffd43b;
+  outline-offset:3px;
+}
 @media(max-width:620px){
   .reason-bridge-marker{
     width:88px;
@@ -3952,9 +4109,25 @@ html{
   .reason-solution-intro span{
     font-size:26px !important;
   }
+  .cases-carousel{
+    grid-template-columns:42px minmax(0,1fr) 42px;
+    gap:6px;
+    margin-top:30px;
+  }
+  .cases-nav{
+    width:42px;
+    height:42px;
+  }
+  .cases-nav svg{
+    width:22px;
+    height:22px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
+  .cases-wrap{
+    scroll-behavior:auto;
+  }
   .hero-line{
     opacity:1;
     transform:none;
@@ -3974,16 +4147,246 @@ html{
   }
 }
 
+/* White / navy / mint theme */
+:root{
+  --blue:#08078F;
+  --green:#A1F9A1;
+  --ink:#08078F;
+  --muted:#08078F;
+  --sky:#A1F9A1;
+  --mint:#A1F9A1;
+  --cream:#ffffff;
+  --white:#ffffff;
+  --line:#08078F;
+}
+html{
+  scroll-padding-top:0 !important;
+}
+body{
+  background:#ffffff !important;
+  color:#08078F !important;
+}
+.section,
+.challenge-solution{
+  background:#ffffff !important;
+}
+.section.sky,
+.section.mint{
+  background:#ffffff !important;
+}
+#scene,
+#problem,
+#format,
+#price,
+#faq{
+  background:#ffffff !important;
+  background-image:none !important;
+}
+#about,
+#cases,
+#flow{
+  background:#ffffff !important;
+  background-image:none !important;
+}
+#contact{
+  background:#08078F !important;
+  background-image:none !important;
+}
+h2,
+h3,
+.lead,
+.eyebrow,
+.reason-problem h3,
+.reason-point strong,
+.format-card-copy h3,
+.flow-content h3,
+.q,
+.a,
+.case-body,
+.price,
+.note{
+  color:#08078F !important;
+}
+.lead,
+.reason-point p,
+.format-card-copy p,
+.flow-content small,
+.case-body p,
+.site-footer small{
+  color:rgba(8,7,143,.72) !important;
+}
+.hero-overlay{
+  background:linear-gradient(90deg,rgba(8,7,143,.92) 0%,rgba(8,7,143,.72) 42%,rgba(8,7,143,.30) 72%,rgba(8,7,143,.16) 100%) !important;
+}
+.hero h1,
+.hero-copy{
+  color:#ffffff !important;
+}
+.hero-char.is-highlight{
+  color:#A1F9A1 !important;
+}
+.logo-strip{
+  background:#ffffff !important;
+  border-color:#08078F !important;
+}
+.logo-pill{
+  background:#ffffff !important;
+  border-color:#08078F !important;
+  color:#08078F !important;
+}
+.section h2:after,
+.challenge-solution h2:after{
+  background:#A1F9A1 !important;
+  box-shadow:18px 13px 0 #08078F,4px 28px 0 #A1F9A1 !important;
+}
+.use-card:before,
+.feature:before,
+.case:before{
+  background:#A1F9A1 !important;
+  box-shadow:-16px 0 0 #08078F !important;
+}
+.use-card,
+.reason-problem,
+.reason-point,
+.feature,
+.format-card,
+.format-card-last,
+.case,
+.price,
+.flow-item,
+.qa,
+.contact-card{
+  background:#ffffff !important;
+  border-color:#08078F !important;
+}
+.tag,
+.format-tags span{
+  background:#ffffff !important;
+  color:#08078F !important;
+  border-color:#08078F !important;
+}
+.reason-category,
+.flow-step-tag{
+  background:#08078F !important;
+  color:#ffffff !important;
+}
+.reason-illust{
+  background-color:#ffffff !important;
+  border-color:#08078F !important;
+}
+.reason-solution{
+  background:#ffffff !important;
+  border:2px solid #08078F !important;
+}
+.reason-solution-intro span,
+.reason-point span,
+.format-card-no,
+.price b,
+.footer-link{
+  color:#08078F !important;
+}
+.reason-bridge-marker{
+  color:#08078F !important;
+}
+.feature,
+.feature:nth-child(2n){
+  border-color:#08078F !important;
+  border-top-color:#08078F !important;
+}
+.price,
+.price:nth-child(2n),
+.step,
+.step:nth-child(2n){
+  border-top-color:#08078F !important;
+}
+.qa{
+  border-left-color:#08078F !important;
+}
+.feature .n{
+  background:#08078F !important;
+  color:#ffffff !important;
+}
+.format-card-photo,
+.format-card-last .format-card-photo{
+  border-color:#08078F !important;
+}
+.flow-arrow{
+  border-top-color:#08078F !important;
+}
+.photo-break-overlay{
+  background:linear-gradient(to top,rgba(8,7,143,.94),rgba(8,7,143,.08) 70%) !important;
+}
+.photo-break-copy,
+.photo-break-copy strong,
+.photo-break-copy p{
+  color:#ffffff !important;
+}
+.contact-section{
+  background:#08078F !important;
+}
+.contact-section .contact-card{
+  border-color:#A1F9A1 !important;
+}
+.field{
+  background:#ffffff !important;
+  border-color:#08078F !important;
+  color:#08078F !important;
+}
+.submit-btn{
+  background:#08078F !important;
+  border-color:#08078F !important;
+  color:#ffffff !important;
+}
+.submit-btn span{
+  color:#ffffff !important;
+}
+.submit-icon{
+  color:#A1F9A1 !important;
+}
+.hero .actions .btn.primary,
+.fixed-actions .btn.primary{
+  background:#A1F9A1 !important;
+  color:#08078F !important;
+  border-color:#08078F !important;
+}
+.hero .actions .btn.secondary,
+.fixed-actions .btn.secondary{
+  background:#ffffff !important;
+  color:#08078F !important;
+  border-color:#08078F !important;
+}
+@media(hover:hover){
+  .hero .actions .btn:hover,
+  .fixed-actions .btn:hover,
+  .submit-btn:hover{
+    filter:brightness(1.06) !important;
+    opacity:.88;
+  }
+}
+.cases-nav{
+  background:#A1F9A1 !important;
+  color:#08078F !important;
+  border-color:#08078F !important;
+}
+@media(hover:hover){
+  .cases-nav:hover{
+    background:#08078F !important;
+    color:#ffffff !important;
+  }
+}
+.cases-nav:focus-visible,
+.hero .actions .btn:focus-visible,
+.fixed-actions .btn:focus-visible{
+  outline-color:#A1F9A1 !important;
+}
+.site-footer{
+  background:#ffffff !important;
+  border-color:#08078F !important;
+}
+
 </style>
 </head>
 <body>
-
-
-<header class="site-header simple-header">
-  <div class="wrap nav">
-    <a class="logo" href="#top">オモ<b>謎</b></a>
-  </div>
-</header>
 
 
 <main>
@@ -4029,28 +4432,28 @@ html{
   <article class="reason-problem">
     <span class="reason-category">集客</span>
     <div class="reason-illust has-photo ri-attraction" role="img" aria-label="集客の課題を表す人物のイラスト"></div>
-    <h3>告知してもイベントに<br>人が集まらない</h3>
+    <h3><span class="reason-line">イベントを告知しても</span><br><span class="reason-line">人が集まらない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">交流</span>
     <div class="reason-illust has-photo ri-communication" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
-    <h3>交流会で初対面同士の<br>会話が生まれない</h3>
+    <h3><span class="reason-line">初対面同士では</span><br><span class="reason-line">会話が生まれない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">学び</span>
     <div class="reason-illust has-photo ri-learning" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
-    <h3>講義では興味が続かず<br>内容が記憶に残らない</h3>
+    <h3><span class="reason-line">講義では興味が続かず</span><br><span class="reason-line">内容が記憶に残らない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">回遊</span>
     <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
-    <h3>見どころを巡らず<br>目的地だけで帰ってしまう</h3>
+    <h3><span class="reason-line">見どころを巡らず</span><br><span class="reason-line">目的地だけで帰ってしまう</span></h3>
   </article>
 </div>
-<div class="reason-bridge-marker" aria-hidden="true"><svg viewBox="0 0 120 40" focusable="false"><path d="M10 4H110C116 4 118 10 113 14L67 36C63 39 57 39 53 36L7 14C2 10 4 4 10 4Z"/></svg></div>
+<div class="reason-bridge-marker" aria-hidden="true"><svg viewBox="0 0 120 40" focusable="false"><path d="M0 0H120L60 40Z"/></svg></div>
 <div class="reason-solution">
       <div class="reason-solution-intro"><span>そのお悩み、謎解きが解決します。</span></div>
 
@@ -4182,7 +4585,7 @@ html{
 
 
 
-<section class="section sky" id="cases"><div class="wrap"><div class="eyebrow">CASE</div><h2>導入実績</h2><p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。目的や参加者に合わせて、その場所だからこそ楽しめる体験を設計しています。</p><div class="cases-wrap"><div class="cases" id="casesSlider"></div></div></div></section>
+<section class="section sky" id="cases"><div class="wrap"><div class="eyebrow">CASE</div><h2>導入実績</h2><p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。目的や参加者に合わせて、その場所だからこそ楽しめる体験を設計しています。</p><div class="cases-carousel"><button class="cases-nav cases-nav-prev" type="button" aria-label="前の導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><div class="cases-wrap" tabindex="0" aria-label="導入実績。左右にスクロールできます"><div class="cases" id="casesSlider"></div></div><button class="cases-nav cases-nav-next" type="button" aria-label="次の導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div></div></section>
 
 <section class="section" id="price"><div class="wrap"><div class="eyebrow">PRICE</div><h2>料金の目安</h2><div class="prices"><div class="price"><h3>周遊型</h3><b>○万円〜</b></div><div class="price"><h3>会場・公演型</h3><b>○万円〜</b></div><div class="price"><h3>ルーム型</h3><b>○万円〜</b></div><div class="price"><h3>冊子・キット型</h3><b>○万円〜</b></div><div class="price"><h3>Web・スマホ型</h3><b>○万円〜</b></div></div><p class="note">※謎の数、開催規模、参加人数、デザイン物、システム開発、運営対応などによって料金は変動します。</p></div></section>
 
@@ -4270,7 +4673,7 @@ html{
 <script>
 const data=[["学校法人 A","校内探究ミッション","学校現場"],["観光協会 B","まち歩き謎めぐり","観光・地域"],["企業 C","周年チームミッション","企業・団体"],["商業施設 D","館内ヒミツ探索","イベント・施設"],["自治体 E","地域の魅力再発見ラリー","観光・地域"],["団体 F","交流謎解きナイト","企業・団体"],["学校 G","校外学習クエスト","学校現場"],["観光施設 H","歴史発見ミステリー","観光・地域"],["企業 I","新人研修パズル","企業・団体"],["イベント J","ファミリー謎解き","イベント・施設"]];
 const cards=data.map(c=>`<article class="case"><div class="case-pic photo"></div><div class="case-body"><small>${c[0]}</small><h3>${c[1]}</h3><span class="tag">${c[2]}</span><p>参加者が自然に会話し、地域や施設を巡りながら楽しめる体験として実施しました。</p></div></article>`).join("");
-document.getElementById("casesSlider").innerHTML=cards+cards;
+document.getElementById("casesSlider").innerHTML=cards.repeat(3);
 
 const heroHeading = document.querySelector('.hero h1');
 if (heroHeading) {
@@ -4300,6 +4703,125 @@ if (heroHeading) {
 
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const casesWrap = document.querySelector('.cases-wrap');
+const casesTrack = document.querySelector('#casesSlider');
+const casesPrev = document.querySelector('.cases-nav-prev');
+const casesNext = document.querySelector('.cases-nav-next');
+let casesAutoTimer;
+let casesResumeTimer;
+let casesResizeTimer;
+let casesNormalizeTimer;
+
+const getCasesStep = () => {
+  const firstCard = casesTrack?.querySelector('.case');
+  if (!firstCard) return 0;
+  const styles = window.getComputedStyle(casesTrack);
+  const gap = parseFloat(styles.columnGap || styles.gap) || 20;
+  return firstCard.getBoundingClientRect().width + gap;
+};
+
+const getCasesSetWidth = () => getCasesStep() * data.length;
+
+const jumpToCasesPosition = left => {
+  if (!casesWrap) return;
+  casesWrap.style.scrollBehavior = 'auto';
+  casesWrap.scrollLeft = left;
+  window.requestAnimationFrame(() => {
+    casesWrap.style.removeProperty('scroll-behavior');
+  });
+};
+
+const updateCasesLayout = () => {
+  if (!casesWrap || !casesTrack) return;
+  const visibleCards = window.matchMedia('(max-width: 620px)').matches ? 1 : 3;
+  const styles = window.getComputedStyle(casesTrack);
+  const gap = parseFloat(styles.columnGap || styles.gap) || 20;
+  const cardWidth = (casesWrap.clientWidth - gap * (visibleCards - 1)) / visibleCards;
+  casesWrap.style.setProperty('--case-width', `${cardWidth}px`);
+  window.requestAnimationFrame(() => {
+    jumpToCasesPosition(getCasesSetWidth());
+  });
+};
+
+const normalizeCasesPosition = () => {
+  if (!casesWrap) return;
+  const setWidth = getCasesSetWidth();
+  if (!setWidth) return;
+  if (casesWrap.scrollLeft < setWidth) {
+    jumpToCasesPosition(casesWrap.scrollLeft + setWidth);
+  } else if (casesWrap.scrollLeft >= setWidth * 2) {
+    jumpToCasesPosition(casesWrap.scrollLeft - setWidth);
+  }
+};
+
+const queueCasesNormalization = () => {
+  window.clearTimeout(casesNormalizeTimer);
+  casesNormalizeTimer = window.setTimeout(normalizeCasesPosition, 140);
+};
+
+const moveCases = direction => {
+  if (!casesWrap || !casesTrack) return;
+  const step = getCasesStep();
+  if (!step) return;
+  casesWrap.scrollTo({
+    left: casesWrap.scrollLeft + direction * step,
+    behavior: reduceMotion.matches ? 'auto' : 'smooth'
+  });
+};
+
+const stopCasesAuto = () => {
+  window.clearInterval(casesAutoTimer);
+  casesAutoTimer = undefined;
+};
+
+const startCasesAuto = () => {
+  stopCasesAuto();
+  if (!casesWrap || reduceMotion.matches || document.hidden) return;
+  casesAutoTimer = window.setInterval(() => moveCases(1), 4500);
+};
+
+const pauseCasesTemporarily = () => {
+  stopCasesAuto();
+  window.clearTimeout(casesResumeTimer);
+  casesResumeTimer = window.setTimeout(startCasesAuto, 6000);
+};
+
+if (casesWrap && casesPrev && casesNext) {
+  [...casesTrack.children].forEach((card, index) => {
+    if (index < data.length || index >= data.length * 2) {
+      card.setAttribute('aria-hidden', 'true');
+    }
+  });
+  casesPrev.addEventListener('click', () => {
+    moveCases(-1);
+    pauseCasesTemporarily();
+  });
+  casesNext.addEventListener('click', () => {
+    moveCases(1);
+    pauseCasesTemporarily();
+  });
+  casesWrap.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    moveCases(event.key === 'ArrowLeft' ? -1 : 1);
+    pauseCasesTemporarily();
+  });
+  casesWrap.addEventListener('wheel', pauseCasesTemporarily, { passive:true });
+  casesWrap.addEventListener('touchstart', pauseCasesTemporarily, { passive:true });
+  casesWrap.addEventListener('pointerdown', pauseCasesTemporarily);
+  casesWrap.addEventListener('scroll', queueCasesNormalization, { passive:true });
+  casesWrap.addEventListener('mouseenter', stopCasesAuto);
+  casesWrap.addEventListener('mouseleave', pauseCasesTemporarily);
+  window.addEventListener('resize', () => {
+    window.clearTimeout(casesResizeTimer);
+    casesResizeTimer = window.setTimeout(updateCasesLayout, 120);
+  });
+  document.addEventListener('visibilitychange', startCasesAuto);
+  reduceMotion.addEventListener?.('change', startCasesAuto);
+  updateCasesLayout();
+  startCasesAuto();
+}
+
 let heroSlideIndex = 0;
 let heroSlideTimer;
 
