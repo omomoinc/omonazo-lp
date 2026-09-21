@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>オモ謎｜謎解きで、人と地域の「面白い」を引き出す。</title>
+<title>オモ謎｜長野の人とまちの「面白い」を引き出す謎解き制作</title>
+<meta name="description" content="オモ謎は、長野県に根ざした謎解き制作会社です。信州の地域・企業・学校・観光施設の魅力を、目的に合わせたオリジナルの謎解き体験に変えます。">
 <style>
 :root{--blue:#ef4b2d;--green:#ff9f1c;--ink:#3b1f1a;--muted:#6b5d58;--sky:#fff0e8;--mint:#fff4df;--cream:#fffaf6;--white:#fff;--line:#f0d5cc;--shadow:none}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--cream);line-height:1.8;font-size:18px}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}.section{padding:108px 0}.sky{background:var(--sky)}.mint{background:var(--mint)}
@@ -3757,16 +3758,16 @@ html{
   background-repeat:no-repeat !important;
 }
 .reason-illust.ri-attraction{
-  background-image:url("assets/images/solution_01.png") !important;
+  background-image:url("assets/images/06_problem_attraction_lineart.png") !important;
 }
 .reason-illust.ri-communication{
-  background-image:url("assets/images/solution_02.png") !important;
+  background-image:url("assets/images/07_problem_communication_lineart.png") !important;
 }
 .reason-illust.ri-learning{
-  background-image:url("assets/images/solution_03.png") !important;
+  background-image:url("assets/images/08_problem_learning_lineart.png") !important;
 }
 .reason-illust.ri-circulation{
-  background-image:url("assets/images/solution_04.png") !important;
+  background-image:url("assets/images/09_problem_circulation_lineart.png") !important;
 }
 .case-body .tag{
   display:inline-flex;
@@ -4075,7 +4076,7 @@ html{
   padding:0;
   border:2px solid #1667d9;
   border-radius:50%;
-  background:#ffd43b;
+  background:#ffffff;
   color:#1667d9;
   cursor:pointer;
   transition:background-color .2s ease,color .2s ease,transform .2s ease;
@@ -4147,241 +4148,109 @@ html{
   }
 }
 
-/* White / navy / mint theme */
-:root{
-  --blue:#08078F;
-  --green:#A1F9A1;
-  --ink:#08078F;
-  --muted:#08078F;
-  --sky:#A1F9A1;
-  --mint:#A1F9A1;
-  --cream:#ffffff;
-  --white:#ffffff;
-  --line:#08078F;
-}
+/* Compact problem cards and an in-hero logo */
 html{
   scroll-padding-top:0 !important;
 }
 body{
-  background:#ffffff !important;
-  color:#08078F !important;
+  word-break:normal;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:normal;
 }
-.section,
-.challenge-solution{
-  background:#ffffff !important;
-}
-.section.sky,
-.section.mint{
-  background:#ffffff !important;
-}
-#scene,
-#problem,
-#format,
-#price,
-#faq{
-  background:#ffffff !important;
-  background-image:none !important;
-}
-#about,
-#cases,
-#flow{
-  background:#ffffff !important;
-  background-image:none !important;
-}
-#contact{
-  background:#08078F !important;
-  background-image:none !important;
-}
-h2,
-h3,
+p,
 .lead,
-.eyebrow,
-.reason-problem h3,
-.reason-point strong,
-.format-card-copy h3,
-.flow-content h3,
-.q,
-.a,
 .case-body,
-.price,
-.note{
-  color:#08078F !important;
-}
-.lead,
-.reason-point p,
-.format-card-copy p,
 .flow-content small,
-.case-body p,
-.site-footer small{
-  color:rgba(8,7,143,.72) !important;
+.a,
+.note{
+  text-wrap:pretty;
 }
-.hero-overlay{
-  background:linear-gradient(90deg,rgba(8,7,143,.92) 0%,rgba(8,7,143,.72) 42%,rgba(8,7,143,.30) 72%,rgba(8,7,143,.16) 100%) !important;
+.hero-logo{
+  position:absolute;
+  z-index:4;
+  top:24px;
+  left:max(24px,calc((100% - 1180px) / 2));
+  color:#ffffff;
+  font-size:30px;
+  font-weight:900;
+  line-height:1;
 }
-.hero h1,
-.hero-copy{
-  color:#ffffff !important;
+.hero-logo b{
+  color:#ffd43b;
 }
-.hero-char.is-highlight{
-  color:#A1F9A1 !important;
+.reason-problems{
+  width:100%;
+  max-width:1180px;
+  margin:28px auto 0 !important;
+  gap:12px !important;
 }
-.logo-strip{
-  background:#ffffff !important;
-  border-color:#08078F !important;
+.reason-problem{
+  padding:0 10px 12px !important;
+  border-radius:12px;
 }
-.logo-pill{
-  background:#ffffff !important;
-  border-color:#08078F !important;
-  color:#08078F !important;
-}
-.section h2:after,
-.challenge-solution h2:after{
-  background:#A1F9A1 !important;
-  box-shadow:18px 13px 0 #08078F,4px 28px 0 #A1F9A1 !important;
-}
-.use-card:before,
-.feature:before,
-.case:before{
-  background:#A1F9A1 !important;
-  box-shadow:-16px 0 0 #08078F !important;
-}
-.use-card,
-.reason-problem,
-.reason-point,
-.feature,
-.format-card,
-.format-card-last,
-.case,
-.price,
-.flow-item,
-.qa,
-.contact-card{
-  background:#ffffff !important;
-  border-color:#08078F !important;
-}
-.tag,
-.format-tags span{
-  background:#ffffff !important;
-  color:#08078F !important;
-  border-color:#08078F !important;
-}
-.reason-category,
-.flow-step-tag{
-  background:#08078F !important;
-  color:#ffffff !important;
+.reason-category{
+  margin:0 -10px 8px !important;
+  padding:8px 10px !important;
+  font-size:20px !important;
 }
 .reason-illust{
+  width:min(100%,210px) !important;
+  aspect-ratio:4 / 3 !important;
+  margin:0 auto 6px !important;
+}
+.reason-illust.ri-attraction,
+.reason-illust.ri-communication,
+.reason-illust.ri-learning,
+.reason-illust.ri-circulation{
   background-color:#ffffff !important;
-  border-color:#08078F !important;
+  background-size:contain !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
 }
-.reason-solution{
+.reason-problem h3{
+  margin:0 !important;
+  font-size:16px !important;
+  line-height:1.45 !important;
+}
+.reason-points{
+  gap:12px !important;
+}
+.reason-point{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
+  padding:0 10px 12px !important;
+  border:2px solid #d9e6f4 !important;
+  border-radius:12px !important;
   background:#ffffff !important;
-  border:2px solid #08078F !important;
 }
-.reason-solution-intro span,
-.reason-point span,
-.format-card-no,
-.price b,
-.footer-link{
-  color:#08078F !important;
-}
-.reason-bridge-marker{
-  color:#08078F !important;
-}
-.feature,
-.feature:nth-child(2n){
-  border-color:#08078F !important;
-  border-top-color:#08078F !important;
-}
-.price,
-.price:nth-child(2n),
-.step,
-.step:nth-child(2n){
-  border-top-color:#08078F !important;
-}
-.qa{
-  border-left-color:#08078F !important;
-}
-.feature .n{
-  background:#08078F !important;
+.reason-point span{
+  align-self:stretch;
+  margin:0 -10px 8px !important;
+  padding:8px 10px !important;
+  background:#1667d9 !important;
   color:#ffffff !important;
+  font-size:20px !important;
+  line-height:1.2 !important;
+  text-align:center;
 }
-.format-card-photo,
-.format-card-last .format-card-photo{
-  border-color:#08078F !important;
+.reason-point strong{
+  margin-top:4px !important;
 }
-.flow-arrow{
-  border-top-color:#08078F !important;
-}
-.photo-break-overlay{
-  background:linear-gradient(to top,rgba(8,7,143,.94),rgba(8,7,143,.08) 70%) !important;
-}
-.photo-break-copy,
-.photo-break-copy strong,
-.photo-break-copy p{
-  color:#ffffff !important;
-}
-.contact-section{
-  background:#08078F !important;
-}
-.contact-section .contact-card{
-  border-color:#A1F9A1 !important;
-}
-.field{
-  background:#ffffff !important;
-  border-color:#08078F !important;
-  color:#08078F !important;
-}
-.submit-btn{
-  background:#08078F !important;
-  border-color:#08078F !important;
-  color:#ffffff !important;
-}
-.submit-btn span{
-  color:#ffffff !important;
-}
-.submit-icon{
-  color:#A1F9A1 !important;
-}
-.hero .actions .btn.primary,
-.fixed-actions .btn.primary{
-  background:#A1F9A1 !important;
-  color:#08078F !important;
-  border-color:#08078F !important;
-}
-.hero .actions .btn.secondary,
-.fixed-actions .btn.secondary{
-  background:#ffffff !important;
-  color:#08078F !important;
-  border-color:#08078F !important;
-}
-@media(hover:hover){
-  .hero .actions .btn:hover,
-  .fixed-actions .btn:hover,
-  .submit-btn:hover{
-    filter:brightness(1.06) !important;
-    opacity:.88;
+@media(max-width:620px){
+  .hero-logo{
+    top:18px;
+    left:14px;
+    font-size:26px;
   }
-}
-.cases-nav{
-  background:#A1F9A1 !important;
-  color:#08078F !important;
-  border-color:#08078F !important;
-}
-@media(hover:hover){
-  .cases-nav:hover{
-    background:#08078F !important;
-    color:#ffffff !important;
+  .reason-problems{
+    max-width:100%;
   }
-}
-.cases-nav:focus-visible,
-.hero .actions .btn:focus-visible,
-.fixed-actions .btn:focus-visible{
-  outline-color:#A1F9A1 !important;
-}
-.site-footer{
-  background:#ffffff !important;
-  border-color:#08078F !important;
+  .reason-illust{
+    width:min(100%,220px) !important;
+  }
 }
 
 </style>
@@ -4399,10 +4268,11 @@ h3,
     <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.png')"></div>
   </div>
   <div class="hero-overlay"></div>
+  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ">オモ<b>謎</b></a>
   <div class="wrap hero-inner">
     
-    <h1><span class="hero-line">謎解きで、人と地域の</span><span class="hero-line">「面白い」を引き出す。</span></h1>
-    <p class="hero-copy"><strong>集客・交流・学び・回遊。</strong><br>人や地域が持つ魅力を謎解きという体験に変え、目的に合わせた<br>オリジナル謎解きを企画・制作します。</p>
+    <h1><span class="hero-line">謎解きで、長野の</span><span class="hero-line">「面白い」を引き出す。</span></h1>
+    <p class="hero-copy"><strong>長野県に根ざす謎解き制作会社です。</strong><br>集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</p>
     
 <div class="actions"><a class="btn primary" href="#contact">制作について相談する</a><a class="btn secondary" href="#cases">導入実績を見る</a></div>
   </div>
@@ -4411,7 +4281,7 @@ h3,
 
 <section class="logo-strip"><div class="marquee"><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div></div></section>
 
-<section class="section" id="scene"><div class="wrap"><div class="eyebrow">USE CASE</div><h2 class="balanced-copy">こんな場面で活用できます</h2><p class="lead">「謎解きをやる」と決めていなくても大丈夫。目的や課題に合わせて、その場に合う体験をつくります。</p>
+<section class="section" id="scene"><div class="wrap"><div class="eyebrow">USE CASE</div><h2 class="balanced-copy">こんな場面で活用できます</h2><p class="lead">「謎解きをやる」と決めていなくても大丈夫。地域性や現場の課題に合わせて、その場所らしさが伝わる体験をつくります。</p>
 <div class="use-grid">
 <article class="use-card"><div class="use-photo" style="background-image:url('assets/images/02_usecase_school.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>学校現場</h3><div class="tags"><span class="tag">探究学習</span><span class="tag">地域学習</span><span class="tag">校外学習</span><span class="tag">チーム学習</span></div></div></article>
 <article class="use-card"><div class="use-photo" style="background-image:url('assets/images/03_usecase_company.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>企業・団体</h3><div class="tags"><span class="tag">交流会</span><span class="tag">研修</span><span class="tag">レクリエーション</span><span class="tag">周年企画</span></div></div></article>
@@ -4475,8 +4345,8 @@ h3,
         </article>
         <article class="reason-point">
           <span>回遊</span>
-          <strong>次へ進みたくなる</strong>
-          <p>次の謎を追う流れが、そのまま自然な移動のきっかけになります。</p>
+          <strong>立ち寄りが増える</strong>
+          <p>謎を追うことで、目的地以外の見どころにも自然と立ち寄ってもらえます。</p>
         </article>
       </div>
     </div>
@@ -4484,7 +4354,7 @@ h3,
 </section>
 
 
-<section class="photo-break photo"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong>目的に合わせた、<br>オリジナルの謎解き体験を。</strong><p>オモ謎は、地域や企業の魅力をひも解き、その場所・その目的だからこそ<br>生まれる体験をつくります。</p></div></div></div></section>
+<section class="photo-break photo"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong>目的に合わせた、<br>オリジナルの謎解き体験を。</strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
 
 
 <section class="section mint" id="about">
@@ -4496,12 +4366,12 @@ h3,
       <article class="feature">
         <div class="n">1</div>
         <h3>長野県に根ざした謎解き制作</h3>
-        <p>地域・文化・観光・教育の現場に触れながら、その場所ならではの魅力を謎解きに落とし込みます。長野発のサービスとして、県外の案件にも対応します。</p>
+        <p>長野県内の地域・文化・観光・教育の現場に触れながら、その土地ならではの魅力を謎解きに落とし込みます。長野発のサービスとして、県外の案件にも対応します。</p>
       </article>
 
       <article class="feature">
         <div class="n">2</div>
-        <h3>学生も制作に参加</h3>
+        <h3>信州大学生も制作に参加</h3>
         <p>信州大学の謎解きサークルをルーツに、学生も制作に関わります。学生ならではの柔軟な発想を取り入れながら、制作チームが企画から品質管理まで一貫して担います。</p>
       </article>
 
@@ -4585,11 +4455,11 @@ h3,
 
 
 
-<section class="section sky" id="cases"><div class="wrap"><div class="eyebrow">CASE</div><h2>導入実績</h2><p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。目的や参加者に合わせて、その場所だからこそ楽しめる体験を設計しています。</p><div class="cases-carousel"><button class="cases-nav cases-nav-prev" type="button" aria-label="前の導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><div class="cases-wrap" tabindex="0" aria-label="導入実績。左右にスクロールできます"><div class="cases" id="casesSlider"></div></div><button class="cases-nav cases-nav-next" type="button" aria-label="次の導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div></div></section>
+<section class="section sky" id="cases"><div class="wrap"><div class="eyebrow">CASE</div><h2>長野県内の導入実績</h2><p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。県内での実施目的や参加者に合わせて、その土地だからこそ楽しめる体験を設計しています。</p><div class="cases-carousel"><button class="cases-nav cases-nav-prev" type="button" aria-label="前の長野県内導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><div class="cases-wrap" tabindex="0" aria-label="長野県内の導入実績。左右にスクロールできます"><div class="cases" id="casesSlider"></div></div><button class="cases-nav cases-nav-next" type="button" aria-label="次の長野県内導入実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div></div></section>
 
 <section class="section" id="price"><div class="wrap"><div class="eyebrow">PRICE</div><h2>料金の目安</h2><div class="prices"><div class="price"><h3>周遊型</h3><b>○万円〜</b></div><div class="price"><h3>会場・公演型</h3><b>○万円〜</b></div><div class="price"><h3>ルーム型</h3><b>○万円〜</b></div><div class="price"><h3>冊子・キット型</h3><b>○万円〜</b></div><div class="price"><h3>Web・スマホ型</h3><b>○万円〜</b></div></div><p class="note">※謎の数、開催規模、参加人数、デザイン物、システム開発、運営対応などによって料金は変動します。</p></div></section>
 
-<section class="section mint" id="flow"><div class="wrap"><div class="eyebrow">FLOW</div><h2 class="balanced-copy">ご相談から開催まで</h2><p class="lead">企画内容が決まっていなくても、ヒアリングから一緒に組み立てます。</p>
+<section class="section mint" id="flow"><div class="wrap"><div class="eyebrow">FLOW</div><h2 class="balanced-copy">ご相談から開催まで</h2><p class="lead">企画内容が決まっていない段階でも、ヒアリングから一緒に組み立てます。</p>
 <div class="flow">
   <div class="flow-item">
     <div class="flow-step-tag">STEP 1</div>
@@ -4645,9 +4515,9 @@ h3,
   </div>
 </div></div></section>
 
-<section class="section" id="faq"><div class="wrap"><div class="eyebrow">FAQ</div><h2>よくある質問</h2><div class="faq"><div class="qa"><div class="q">Q. 制作にはどれくらいの期間がかかりますか？</div><div class="a">内容・形式・規模によって異なります。開催時期を伺い、制作スケジュールをご提案します。</div></div><div class="qa"><div class="q">Q. 料金はいくらくらいかかりますか？</div><div class="a">謎の数、デザイン物、システム、運営有無などによって変動します。</div></div><div class="qa"><div class="q">Q. 企画内容が決まっていなくても相談できますか？</div><div class="a">はい。「何を実現したいか」という段階からご相談いただけます。</div></div><div class="qa"><div class="q">Q. 長野県外でも対応できますか？</div><div class="a">はい。長野発のサービスですが、全国の案件に対応可能です。</div></div><div class="qa"><div class="q">Q. 子ども向け・大人向けなど、難易度は調整できますか？</div><div class="a">対象年齢や参加者像に合わせて難易度・ヒント設計を調整します。</div></div><div class="qa"><div class="q">Q. 何人くらいまで参加できますか？</div><div class="a">少人数から大規模イベントまで、人数に合う形式をご提案します。</div></div><div class="qa"><div class="q">Q. 冊子や印刷物などのデザインもお願いできますか？</div><div class="a">はい。必要な冊子・パネル・ツールなども含めてご相談いただけます。</div></div><div class="qa"><div class="q">Q. 当日の運営もお願いできますか？</div><div class="a">案件内容に応じて運営対応もご相談可能です。</div></div></div></div></section>
+<section class="section" id="faq"><div class="wrap"><div class="eyebrow">FAQ</div><h2>よくある質問</h2><div class="faq"><div class="qa"><div class="q">Q. 制作にはどれくらいの期間がかかりますか？</div><div class="a">内容・形式・規模によって異なります。開催時期を伺い、制作スケジュールをご提案します。</div></div><div class="qa"><div class="q">Q. 料金はいくらくらいかかりますか？</div><div class="a">謎の数、デザイン物、システム、運営有無などによって変動します。</div></div><div class="qa"><div class="q">Q. 企画内容が決まっていなくても相談できますか？</div><div class="a">はい。「何を実現したいか」という段階からご相談いただけます。</div></div><div class="qa"><div class="q">Q. 長野県外でも対応できますか？</div><div class="a">はい。長野県に根ざした制作会社として、信州で培った企画力を活かし、県外の案件にも対応可能です。</div></div><div class="qa"><div class="q">Q. 子ども向け・大人向けなど、難易度は調整できますか？</div><div class="a">対象年齢や参加者像に合わせて難易度・ヒント設計を調整します。</div></div><div class="qa"><div class="q">Q. 何人くらいまで参加できますか？</div><div class="a">少人数から大規模イベントまで、人数に合う形式をご提案します。</div></div><div class="qa"><div class="q">Q. 冊子や印刷物などのデザインもお願いできますか？</div><div class="a">はい。必要な冊子・パネル・ツールなども含めてご相談いただけます。</div></div><div class="qa"><div class="q">Q. 当日の運営もお願いできますか？</div><div class="a">長野県内の案件内容に応じて、現地での設営や当日運営もご相談可能です。</div></div></div></div></section>
 
-<section class="section contact-section" id="contact"><div class="wrap"><div class="contact-card"><div class="contact-photo" style="background-image:url('assets/images/16_contact_meeting.png');background-size:cover;background-position:center"></div><div class="cta-panel"><div><div class="eyebrow">CONTACT</div><h2 class="balanced-copy">「こんなことをしてみたい」から、<br>一緒に考えます。</h2><p>企画内容がまだ決まっていない段階でも大丈夫です。目的・対象・場所・予算に合わせて、最適な謎解き体験をご提案します。</p></div></div><div class="form-preview"><div class="field">お名前</div><div class="field">会社・団体名</div><div class="field">メールアドレス</div><div class="field">電話番号（任意）</div><div class="field">実施予定時期（未定可）</div><div class="field">実施予定場所（未定可）</div><div class="field">想定参加人数（未定可）</div><div class="field full">お問い合わせ内容</div>
+<section class="section contact-section" id="contact"><div class="wrap"><div class="contact-card"><div class="contact-photo" style="background-image:url('assets/images/16_contact_meeting.png');background-size:cover;background-position:center"></div><div class="cta-panel"><div><div class="eyebrow">CONTACT</div><h2 class="balanced-copy">「こんなことをしてみたい」から、<br>一緒に考えます。</h2><p>長野県内で「何かしたい」という段階でも大丈夫です。目的・対象・場所・予算に合わせて、地域の魅力が伝わる謎解き体験をご提案します。</p></div></div><div class="form-preview"><div class="field">お名前</div><div class="field">会社・団体名</div><div class="field">メールアドレス</div><div class="field">電話番号（任意）</div><div class="field">実施予定時期（未定可）</div><div class="field">実施予定場所（未定可）</div><div class="field">想定参加人数（未定可）</div><div class="field full">お問い合わせ内容</div>
 
 <div class="form-submit">
   <button class="submit-btn" type="button">
@@ -4679,7 +4549,7 @@ const heroHeading = document.querySelector('.hero h1');
 if (heroHeading) {
   const heroLines = [...heroHeading.querySelectorAll('.hero-line')];
   const heroText = heroLines.map(line => line.textContent).join('');
-  const highlightedText = '面白い';
+  const highlightedText = '長野';
   const highlightStart = heroText.indexOf(highlightedText);
   heroHeading.setAttribute('aria-label', heroText);
   let heroCharIndex = 0;
