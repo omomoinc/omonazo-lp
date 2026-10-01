@@ -3249,7 +3249,7 @@ header:not(.site-header){
 .reason-solution-intro strong{
   display:block;
   color:#193d2d;
-  font-size:26px;
+  font-size:28px;
   line-height:1.55;
   font-weight:900;
 }
@@ -3579,16 +3579,16 @@ html{
   content:none;
 }
 .reason-illust.ri-attraction{
-  background:#e9eef5 url("assets/images/06_problem_attraction_lineart.png") center/cover no-repeat !important;
+  background:#e9eef5 url("assets/images/06_problem_attraction_lineart.png?v=20261001") center/cover no-repeat !important;
 }
 .reason-illust.ri-communication{
-  background:#e9eef5 url("assets/images/07_problem_communication_lineart.png") center/cover no-repeat !important;
+  background:#e9eef5 url("assets/images/07_problem_communication_lineart.png?v=20261001") center/cover no-repeat !important;
 }
 .reason-illust.ri-learning{
-  background:#e9eef5 url("assets/images/08_problem_learning_lineart.png") center/cover no-repeat !important;
+  background:#e9eef5 url("assets/images/08_problem_learning_lineart.png?v=20261001") center/cover no-repeat !important;
 }
 .reason-illust.ri-circulation{
-  background:#e9eef5 url("assets/images/09_problem_circulation_lineart.png") center/cover no-repeat !important;
+  background:#e9eef5 url("assets/images/09_problem_circulation_lineart.png?v=20261001") center/cover no-repeat !important;
 }
 .reason-solution-intro{
   margin-bottom:20px;
@@ -3758,16 +3758,16 @@ html{
   background-repeat:no-repeat !important;
 }
 .reason-illust.ri-attraction{
-  background-image:url("assets/images/06_problem_attraction_lineart.png") !important;
+  background-image:url("assets/images/06_problem_attraction_lineart.png?v=20261001") !important;
 }
 .reason-illust.ri-communication{
-  background-image:url("assets/images/07_problem_communication_lineart.png") !important;
+  background-image:url("assets/images/07_problem_communication_lineart.png?v=20261001") !important;
 }
 .reason-illust.ri-learning{
-  background-image:url("assets/images/08_problem_learning_lineart.png") !important;
+  background-image:url("assets/images/08_problem_learning_lineart.png?v=20261001") !important;
 }
 .reason-illust.ri-circulation{
-  background-image:url("assets/images/09_problem_circulation_lineart.png") !important;
+  background-image:url("assets/images/09_problem_circulation_lineart.png?v=20261001") !important;
 }
 .case-body .tag{
   display:inline-flex;
@@ -4306,132 +4306,120 @@ p,
 }
 
 /* Interactive Nagano case map */
+#cases{
+  padding:52px 0 96px;
+}
+#cases h2{
+  margin-bottom:14px;
+  font-size:clamp(36px,4vw,52px);
+}
+#cases .lead{
+  font-size:18px;
+  line-height:1.65;
+}
 .case-map-layout{
   display:grid;
-  grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);
-  gap:32px;
+  grid-template-columns:minmax(260px,.6fr) minmax(0,1.4fr);
+  gap:28px;
   align-items:stretch;
-  margin-top:44px;
+  max-width:1180px;
+  margin-top:24px;
+  margin-inline:auto;
 }
 .case-map-board{
   position:relative;
-  min-height:640px;
+  height:clamp(390px,calc(100vh - 300px),430px);
+  min-height:390px;
   overflow:hidden;
   border:2px solid #d7e8dc;
   border-radius:22px;
-  background-color:#f8fcf9;
-  background-image:radial-gradient(circle at 1px 1px,rgba(37,134,83,.10) 1.2px,transparent 1.3px);
-  background-size:22px 22px;
+  background:#ffffff;
 }
 .case-map-outline{
   position:absolute;
   inset:4% 8%;
   width:84%;
   height:92%;
+  filter:drop-shadow(0 12px 18px rgba(23,99,65,.14));
 }
-.case-map-silhouette{
-  fill:#d8f1df;
-  stroke:#86cfa0;
-  stroke-width:4;
-  stroke-linejoin:round;
-}
-.case-map-route{
-  fill:none;
-  stroke:#258653;
-  stroke-width:3;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:7 9;
-  opacity:.42;
+.case-map-area-central,
+.case-map-area-north,
+.case-map-area-east,
+.case-map-area-south{
+  fill:#ffffff;
 }
 .case-map-region{
-  position:absolute;
-  top:7%;
-  left:18%;
-  color:#176341;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.15em;
-}
-.case-map-pin{
-  position:absolute;
-  z-index:2;
-  left:var(--pin-x);
-  top:var(--pin-y);
-  width:1px;
-  height:1px;
-  padding:0;
-  border:0;
-  background:transparent;
-  color:#193d2d;
   cursor:pointer;
+  stroke:none;
+  outline:none !important;
+  -webkit-tap-highlight-color:transparent;
+  transition:fill .2s ease;
 }
-.case-pin-marker{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:25px;
-  height:25px;
-  border:5px solid #258653;
-  border-radius:50% 50% 50% 0;
-  background:#ffd43b;
-  box-shadow:0 0 0 5px rgba(255,255,255,.72);
-  transform:translate(-50%,-72%) rotate(-45deg);
-  transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease;
+.case-map-region:hover,
+.case-map-region:focus-visible,
+.case-map-region.is-active{
+  fill:#f0f8ef;
+  filter:none;
+  stroke:none;
 }
-.case-pin-marker::after{
-  content:"";
-  position:absolute;
-  inset:5px;
-  border-radius:50%;
-  background:#258653;
+.case-map-region:focus,
+.case-map-region:focus-visible{
+  outline:none !important;
+  stroke:none !important;
 }
-.case-pin-label{
-  position:absolute;
-  left:50%;
-  top:13px;
-  min-width:max-content;
-  padding:4px 9px;
-  border:1px solid #cadfce;
-  border-radius:999px;
-  background:rgba(255,255,255,.94);
-  color:#193d2d;
-  font-size:13px;
+.case-map-border{
+  fill:none;
+  stroke:#15963b;
+  stroke-width:7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.case-map-area-line{
+  fill:none;
+  stroke:#15963b;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.96;
+}
+.case-map-area-label{
+  fill:#148d38;
+  stroke:rgba(255,255,255,.92);
+  stroke-width:4;
+  paint-order:stroke fill;
+  font-size:26px;
   font-weight:900;
-  line-height:1.35;
-  transform:translateX(calc(-50% + var(--label-shift,0px)));
-  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+  letter-spacing:.04em;
+  text-anchor:middle;
+  opacity:1;
+  pointer-events:none;
 }
-.case-map-pin:hover .case-pin-marker,
-.case-map-pin:focus-visible .case-pin-marker,
-.case-map-pin.is-active .case-pin-marker{
-  background:#ffffff;
-  box-shadow:0 0 0 7px rgba(255,212,59,.42);
-  transform:translate(-50%,-72%) rotate(-45deg) scale(1.15);
+.case-map-area-label.is-central{
+  fill:#148d38;
+  stroke:rgba(255,255,255,.92);
+  stroke-width:4;
 }
-.case-map-pin:hover .case-pin-label,
-.case-map-pin:focus-visible .case-pin-label,
-.case-map-pin.is-active .case-pin-label{
-  border-color:#258653;
-  background:#258653;
-  color:#ffffff;
-}
-.case-map-pin:focus-visible{
-  outline:none;
+.case-map-border,
+.case-map-area-line{
+  pointer-events:none;
 }
 .case-map-detail{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  min-height:100%;
-  padding:38px;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(180px,42%) minmax(0,1fr);
+  grid-template-rows:1fr;
+  gap:20px;
+  align-items:stretch;
+  height:clamp(390px,calc(100vh - 300px),430px);
+  min-height:390px;
+  margin-inline:52px;
+  padding:16px;
   border:2px solid #d7e8dc;
   border-top:9px solid #258653;
   border-radius:22px;
   background:#ffffff;
 }
-.case-map-detail-image,
-.case-map-mobile-image{
+.case-map-detail-image{
   display:grid;
   place-items:center;
   overflow:hidden;
@@ -4449,34 +4437,42 @@ p,
 }
 .case-map-detail-image{
   width:100%;
-  aspect-ratio:16 / 10;
-  margin-bottom:26px;
+  height:100%;
+  min-height:0;
+  aspect-ratio:auto;
+  margin:0;
 }
-.case-map-detail-image.has-image,
-.case-map-mobile-image.has-image{
+.case-map-detail-image.has-image{
   background-size:cover;
   background-repeat:no-repeat;
 }
-.case-map-detail-image.has-image span,
-.case-map-mobile-image.has-image span{
+.case-map-detail-image.has-image span{
   display:none;
+}
+.case-map-detail-copy{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:0;
+  align-self:stretch;
+  padding-block:8px 2px;
 }
 .case-map-detail-label{
   margin-bottom:8px;
   color:#258653;
-  font-size:12px;
+  font-size:18px;
   font-weight:900;
-  letter-spacing:.15em;
+  letter-spacing:.08em;
 }
 .case-map-detail h3{
-  margin:0 0 14px;
-  font-size:clamp(32px,4vw,48px);
+  margin:0 0 8px;
+  font-size:clamp(28px,3.4vw,40px);
   line-height:1.2;
 }
 .case-map-detail-type{
   align-self:flex-start;
-  margin-bottom:22px;
-  padding:7px 13px;
+  margin-bottom:12px;
+  padding:5px 11px;
   border-radius:999px;
   background:#e7f6eb;
   color:#176341;
@@ -4486,138 +4482,170 @@ p,
 .case-map-detail p{
   margin:0;
   color:#5d7185;
-  font-size:17px;
+  font-size:15px;
 }
-.case-map-help{
+.case-map-controls{
   display:flex;
   align-items:center;
-  gap:8px;
-  margin-top:28px;
-  padding-top:22px;
-  border-top:1px solid #d7e8dc;
+  justify-content:center;
+  gap:12px;
+  margin-top:auto;
+  padding-top:0;
+}
+.case-map-counter{
   color:#66766d;
   font-size:13px;
-  font-weight:700;
+  font-weight:900;
+  letter-spacing:.08em;
 }
-.case-map-help::before{
-  content:"";
-  width:10px;
-  height:10px;
+.case-map-side-nav{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  padding:0;
+  border:2px solid #258653;
   border-radius:50%;
-  background:#ffd43b;
-  box-shadow:0 0 0 3px #258653;
+  background:#ffffff;
+  color:#258653;
+  font-size:22px;
+  font-weight:900;
+  line-height:1;
+  cursor:pointer;
+  transform:translateY(-50%);
+  box-shadow:0 4px 14px rgba(23,99,65,.16);
+  transition:background-color .2s ease,color .2s ease,opacity .2s ease,transform .2s ease;
 }
-.case-map-mobile-detail{
-  display:none;
+.case-map-side-nav:first-of-type{
+  left:-50px;
+}
+.case-map-side-nav:last-of-type{
+  right:-50px;
+}
+.case-map-side-nav:hover,
+.case-map-side-nav:focus-visible{
+  background:#258653;
+  color:#ffffff;
+  outline:none;
+  transform:translateY(-50%) scale(1.06);
+}
+.case-map-side-nav:disabled{
+  opacity:.32;
+  cursor:default;
+}
+.case-map-side-nav:disabled:hover{
+  background:#ffffff;
+  color:#258653;
+  transform:translateY(-50%);
 }
 @media(max-width:900px){
   .case-map-layout{
     grid-template-columns:1fr;
   }
   .case-map-board{
-    min-height:620px;
+    height:auto;
+    min-height:400px;
   }
   .case-map-detail{
-    min-height:280px;
+    height:auto;
+    min-height:230px;
   }
 }
+/* Mobile case map: compact map with a separate detail card below */
 @media(max-width:620px){
+  #cases{
+    padding:46px 0 82px;
+  }
+  #cases h2{
+    margin-bottom:10px;
+    font-size:31px;
+  }
+  #cases .lead{
+    font-size:15px;
+    line-height:1.55;
+  }
   .case-map-layout{
-    gap:16px;
-    margin-top:30px;
+    gap:10px;
+    max-width:100%;
+    margin-top:18px;
   }
   .case-map-board{
-    min-height:520px;
-    border-radius:16px;
+    min-height:260px;
+    border-radius:14px;
   }
   .case-map-outline{
-    inset:5% 2%;
-    width:96%;
-    height:90%;
+    inset:3% 4%;
+    width:92%;
+    height:94%;
   }
-  .case-pin-marker{
-    width:21px;
-    height:21px;
-    border-width:4px;
-  }
-  .case-pin-marker::after{
-    inset:4px;
-  }
-  .case-pin-label{
-    top:11px;
-    padding:3px 7px;
-    font-size:11px;
+  .case-map-area-label{
+    font-size:32px;
+    stroke-width:4;
   }
   .case-map-detail{
-    display:none;
-  }
-  .case-map-mobile-detail{
-    position:absolute;
-    right:12px;
-    bottom:12px;
-    z-index:4;
-    display:grid;
-    grid-template-columns:minmax(0,42%) minmax(0,1fr);
-    gap:12px;
-    width:calc(100% - 24px);
-    min-height:168px;
+    display:grid !important;
+    grid-template-columns:minmax(0,38%) minmax(0,1fr);
+    grid-template-rows:1fr;
+    gap:11px;
+    min-height:160px;
+    margin-inline:38px;
     padding:10px;
-    border:2px solid #258653;
+    border-top-width:5px;
     border-radius:14px;
-    background:rgba(255,255,255,.96);
-    box-shadow:0 8px 24px rgba(25,61,45,.14);
-    pointer-events:none;
   }
-  .case-map-mobile-detail.is-top{
-    top:12px;
-    bottom:auto;
-  }
-  .case-map-mobile-detail.is-left{
-    right:auto;
-    left:12px;
-  }
-  .case-map-mobile-detail-label{
-    display:block;
-    margin-bottom:2px;
-    color:#258653;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:.12em;
-  }
-  .case-map-mobile-image{
-    width:100%;
-    min-height:146px;
+  .case-map-detail-image{
+    height:100%;
+    min-height:138px;
+    aspect-ratio:auto;
     border-radius:10px;
-    font-size:11px;
-  }
-  .case-map-mobile-copy{
-    align-self:center;
-    min-width:0;
-  }
-  .case-map-mobile-detail h3{
-    margin:0 0 5px;
-    font-size:24px;
-    line-height:1.2;
-  }
-  .case-map-mobile-detail-type{
-    display:inline-block;
-    margin-bottom:7px;
-    padding:3px 7px;
-    border-radius:999px;
-    background:#e7f6eb;
-    color:#176341;
     font-size:10px;
-    font-weight:900;
   }
-  .case-map-mobile-detail p{
+  .case-map-detail-label{
+    display:block;
+    margin-bottom:1px;
+    font-size:14px;
+  }
+  .case-map-detail h3{
+    margin:0 0 4px;
+    font-size:22px;
+  }
+  .case-map-detail-type{
+    display:inline-block;
+    margin-bottom:6px;
+    padding:3px 7px;
+    font-size:9px;
+  }
+  .case-map-detail p{
     display:-webkit-box;
     overflow:hidden;
     margin:0;
-    color:#5d7185;
-    font-size:12px;
-    line-height:1.55;
+    font-size:11px;
+    line-height:1.5;
     -webkit-box-orient:vertical;
-    -webkit-line-clamp:4;
+    -webkit-line-clamp:3;
+  }
+  .case-map-controls{
+    margin-top:auto;
+    padding-top:0;
+  }
+  .case-map-counter{
+    font-size:9px;
+  }
+  .case-map-side-nav{
+    top:50%;
+    width:34px;
+    height:34px;
+    border-width:1px;
+    font-size:16px;
+  }
+  .case-map-side-nav:first-of-type{
+    left:-38px;
+  }
+  .case-map-side-nav:last-of-type{
+    right:-38px;
   }
 }
 
@@ -4640,7 +4668,7 @@ p,
   <div class="wrap hero-inner">
     
     <h1><span class="hero-line">謎解きで、長野の</span><span class="hero-line">「面白い」を引き出す。</span></h1>
-    <p class="hero-copy"><strong>長野県に根ざす謎解き制作会社です。</strong><br>集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</p>
+    <p class="hero-copy"><strong>私たちは長野県に根ざす謎解き制作会社です。</strong><br>集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</p>
     
 <div class="actions"><a class="btn primary" href="#contact">制作について相談する</a><a class="btn secondary" href="#cases">導入実績を見る</a></div>
   </div>
@@ -4713,8 +4741,8 @@ p,
         </article>
         <article class="reason-point">
           <span>回遊</span>
-          <strong>立ち寄りが増える</strong>
-          <p>謎を追うことで、目的地以外の見どころにも自然と立ち寄ってもらえます。</p>
+          <strong>発見や出会いが増える</strong>
+          <p>目的地以外の見どころにも自然と立ち寄ってもらえます。</p>
         </article>
       </div>
     </div>
@@ -4785,7 +4813,7 @@ p,
           <p>同じ会場で参加者が一斉に謎へ挑戦する形式です。チームで相談する場面をつくりやすく、交流会や社内イベントに向いています。</p>
           <div class="format-tags"><span>交流会</span><span>研修</span><span>イベント</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/12_format_venue_performance.png');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo" style="background-image:url('assets/images/12_format_venue_performance.png?v=20261001');background-size:cover;background-position:center"></div>
       </article>
 
       <article class="format-card">
@@ -4827,39 +4855,43 @@ p,
   <div class="wrap">
     <div class="eyebrow">CASE</div>
     <h2>長野県内の導入実績</h2>
-    <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。地図上のピンから、各地域での実績をご覧いただけます。</p>
+    <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
     <div class="case-map-layout">
       <div class="case-map-board" aria-label="長野県内の開催実績マップ">
-        <svg class="case-map-outline" viewBox="0 0 500 650" aria-hidden="true">
-          <path class="case-map-silhouette" transform="matrix(1.122 0 0 1.268 -61.4 -28.2)" d="M377 38C359 38 351 49 348 63C346 76 340 85 333 87C327 89 317 82 306 86C293 89 281 101 274 100C268 99 274 88 274 83C272 73 262 68 250 69C241 70 243 80 240 91C237 101 226 105 221 109C217 114 223 132 222 140C221 151 212 157 206 160C201 164 198 179 194 190C191 199 185 209 184 210C187 220 197 226 196 236C195 247 182 253 181 261C179 269 188 278 187 286C186 293 177 298 179 305C181 312 187 317 184 324C180 332 169 337 164 338C153 338 146 334 139 340C134 344 131 352 127 358C137 359 143 360 151 367C163 375 168 387 173 400C177 410 170 416 171 421C173 430 184 438 188 446C193 456 194 460 188 470C181 481 177 493 176 504C179 509 185 515 190 517C197 515 201 506 214 507C225 507 232 516 241 514C250 512 252 505 262 504C274 502 281 490 290 484C298 479 305 478 307 473C309 468 301 464 300 459C299 454 306 451 306 444C306 435 301 433 305 424C308 416 318 408 320 402C322 396 312 389 312 383C312 377 321 376 322 371C323 365 312 361 312 356C313 349 319 338 322 335C327 336 332 345 337 346C342 342 343 324 348 317C353 314 363 319 368 325C374 334 374 341 381 341C387 340 390 332 400 333C410 334 414 344 419 344C425 344 432 336 427 323C423 312 409 308 406 300C404 294 408 287 404 281C401 276 393 275 393 269C394 264 403 263 404 257C405 251 396 248 396 240C396 232 406 224 408 211C409 205 410 201 405 199C397 195 386 197 379 201C371 204 362 207 355 203C350 200 348 194 349 187C350 177 358 169 358 159C359 151 367 143 375 141C381 138 378 130 384 127C391 125 406 125 414 118C418 114 412 106 412 101C412 96 418 93 417 88C415 83 408 80 406 74C403 66 402 56 398 49C394 42 386 38 377 38Z"/>
-          <path class="case-map-route" d="M309 130 354 149 348 213 242 295 213 244M242 295 191 416 292 435 292 542"/>
+        <svg class="case-map-outline" viewBox="0 0 500 650" role="group" aria-label="長野県のエリア別導入実績">
+          <defs>
+            <path id="nagano-map-shape" transform="matrix(1.24 0 0 1.268 -102 -28.2)" d="M377 38C359 38 351 49 348 63C346 76 340 85 333 87C327 89 317 82 306 86C293 89 281 101 274 100C268 99 274 88 274 83C272 73 262 68 250 69C241 70 243 80 240 91C237 101 226 105 221 109C217 114 223 132 222 140C221 151 212 157 206 160C201 164 198 179 194 190C191 199 185 209 184 210C187 220 197 226 196 236C195 247 182 253 181 261C179 269 188 278 187 286C186 293 177 298 179 305C181 312 187 317 184 324C180 332 169 337 164 338C153 338 146 334 139 340C134 344 131 352 127 358C137 359 143 360 151 367C163 375 168 387 173 400C177 410 170 416 171 421C173 430 184 438 188 446C193 456 194 460 188 470C181 481 177 493 176 504C179 509 185 515 190 517C197 515 201 506 214 507C225 507 232 516 241 514C250 512 252 505 262 504C274 502 281 490 290 484C298 479 305 478 307 473C309 468 301 464 300 459C299 454 306 451 306 444C306 435 301 433 305 424C308 416 318 408 320 402C322 396 312 389 312 383C312 377 321 376 322 371C323 365 312 361 312 356C313 349 319 338 322 335C327 336 332 345 337 346C342 342 343 324 348 317C353 314 363 319 368 325C374 334 374 341 381 341C387 340 390 332 400 333C410 334 414 344 419 344C425 344 432 336 427 323C423 312 409 308 406 300C404 294 408 287 404 281C401 276 393 275 393 269C394 264 403 263 404 257C405 251 396 248 396 240C396 232 406 224 408 211C409 205 410 201 405 199C397 195 386 197 379 201C371 204 362 207 355 203C350 200 348 194 349 187C350 177 358 169 358 159C359 151 367 143 375 141C381 138 378 130 384 127C391 125 406 125 414 118C418 114 412 106 412 101C412 96 418 93 417 88C415 83 408 80 406 74C403 66 402 56 398 49C394 42 386 38 377 38Z"/>
+            <clipPath id="nagano-map-clip"><use href="#nagano-map-shape"/></clipPath>
+          </defs>
+          <g clip-path="url(#nagano-map-clip)">
+            <rect class="case-map-region case-map-area-central is-active" data-region="central" x="0" y="0" width="500" height="650" tabindex="0" role="button" aria-label="中信エリアの実績を表示" aria-pressed="true"/>
+            <path class="case-map-region case-map-area-north" data-region="north" tabindex="0" role="button" aria-label="北信エリアの実績を表示" aria-pressed="false" d="M238 0H500V216C445 205 392 202 347 211C319 216 297 229 278 248C258 237 250 219 237 201C223 181 215 163 225 146C234 132 228 116 238 99V0Z"/>
+            <path class="case-map-region case-map-area-east" data-region="east" tabindex="0" role="button" aria-label="東信エリアの実績を表示" aria-pressed="false" d="M500 216C445 205 392 202 347 211C319 216 297 229 278 248C284 276 284 309 304 345C328 362 350 382 371 405C411 412 457 424 500 438V216Z"/>
+            <path class="case-map-region case-map-area-south" data-region="south" tabindex="0" role="button" aria-label="南信エリアの実績を表示" aria-pressed="false" d="M0 520C69 510 124 499 174 482C190 458 199 439 214 420C230 398 251 375 269 352C280 339 292 338 304 345C328 362 350 382 371 405C411 412 457 424 500 438V650H0V520Z"/>
+          </g>
+          <use class="case-map-border" href="#nagano-map-shape"/>
+          <path class="case-map-area-line" clip-path="url(#nagano-map-clip)" d="M238 99C228 116 234 132 225 146C215 163 223 181 237 201C250 219 258 237 278 248C297 229 319 216 347 211C392 202 445 205 500 216M278 248C284 276 284 309 304 345M0 520C69 510 124 499 174 482C190 458 199 439 214 420C230 398 251 375 269 352C280 339 292 338 304 345C328 362 350 382 371 405C411 412 457 424 500 438"/>
+          <g clip-path="url(#nagano-map-clip)">
+            <text class="case-map-area-label" x="300" y="142">北信</text>
+            <text class="case-map-area-label" x="340" y="322">東信</text>
+            <text class="case-map-area-label is-central" x="195" y="326">中信</text>
+            <text class="case-map-area-label" x="210" y="535">南信</text>
+          </g>
         </svg>
-        <span class="case-map-region">北信</span>
-        <button class="case-map-pin" type="button" style="--pin-x:60%;--pin-y:20%;--label-shift:-10px" data-area="長野市" data-type="地域周遊・イベント型" data-description="地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。" data-image="" aria-label="長野市の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">長野市</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:68%;--pin-y:23%;--label-shift:10px" data-area="須坂" data-type="まち歩き・観光型" data-description="まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。" data-image="" aria-label="須坂の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">須坂</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:67%;--pin-y:33%" data-area="上田" data-type="歴史・まち歩き型" data-description="地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。" data-image="" aria-label="上田の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">上田</span></button>
-        <button class="case-map-pin is-active" type="button" style="--pin-x:47%;--pin-y:45%;--label-shift:14px" data-area="松本" data-type="地域・施設イベント型" data-description="地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。" data-image="" aria-label="松本の実績を表示" aria-pressed="true"><span class="case-pin-marker"></span><span class="case-pin-label">松本</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:42%;--pin-y:37%;--label-shift:-14px" data-area="安曇野" data-type="観光周遊型" data-description="自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。" data-image="" aria-label="安曇野の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">安曇野</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:38%;--pin-y:63%" data-area="木曽" data-type="地域資源活用型" data-description="地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。" data-image="" aria-label="木曽の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">木曽</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:56%;--pin-y:67%" data-area="伊那" data-type="学校・探究学習型" data-description="自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。" data-image="" aria-label="伊那の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">伊那</span></button>
-        <button class="case-map-pin" type="button" style="--pin-x:57%;--pin-y:83%" data-area="飯田" data-type="地域交流イベント型" data-description="世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。" data-image="" aria-label="飯田の実績を表示" aria-pressed="false"><span class="case-pin-marker"></span><span class="case-pin-label">飯田</span></button>
-        <article class="case-map-mobile-detail" id="caseMapMobileDetail" aria-live="polite">
-          <div class="case-map-mobile-image" id="caseMapMobileImage" role="img" aria-label="松本の実績画像"><span>実績画像</span></div>
-          <div class="case-map-mobile-copy">
-            <span class="case-map-mobile-detail-label">開催地</span>
-            <h3 id="caseMapMobileArea">松本</h3>
-            <span class="case-map-mobile-detail-type" id="caseMapMobileType">地域・施設イベント型</span>
-            <p id="caseMapMobileDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
-          </div>
-        </article>
       </div>
-      <article class="case-map-detail" id="caseMapDetail" aria-live="polite">
-        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="松本の実績画像"><span>実績画像</span></div>
-        <span class="case-map-detail-label">開催地</span>
-        <h3 id="caseMapArea">松本</h3>
-        <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
-        <p id="caseMapDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
-        <div class="case-map-help">ピンにカーソルを合わせるか、タップしてご覧ください</div>
+      <article class="case-map-detail" aria-live="polite">
+        <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る">‹</button>
+        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="松本市の導入実績画像"><span>実績画像</span></div>
+        <div class="case-map-detail-copy">
+          <span class="case-map-detail-label" id="caseMapLocation">松本市</span>
+          <h3 id="caseMapTitle">イベント名</h3>
+          <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
+          <p id="caseMapDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
+          <div class="case-map-controls">
+            <span class="case-map-counter" id="caseMapCounter">1 / 3</span>
+          </div>
+        </div>
+        <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る">›</button>
       </article>
     </div>
   </div>
@@ -4978,55 +5010,86 @@ if (heroHeading) {
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-const caseMapPins = [...document.querySelectorAll('.case-map-pin')];
-const caseMapArea = document.querySelector('#caseMapArea');
+const caseMapData = {
+  north:[
+    {location:'長野市',title:'イベント名',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:''},
+    {location:'須坂市',title:'イベント名',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:''}
+  ],
+  east:[
+    {location:'上田市',title:'イベント名',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:''}
+  ],
+  central:[
+    {location:'松本市',title:'イベント名',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:''},
+    {location:'安曇野市',title:'イベント名',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:''},
+    {location:'木曽地域',title:'イベント名',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:''}
+  ],
+  south:[
+    {location:'伊那市',title:'イベント名',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:''},
+    {location:'飯田市',title:'イベント名',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:''}
+  ]
+};
+const caseMapRegions = [...document.querySelectorAll('.case-map-region')];
+const caseMapImage = document.querySelector('#caseMapImage');
+const caseMapLocation = document.querySelector('#caseMapLocation');
+const caseMapTitle = document.querySelector('#caseMapTitle');
 const caseMapType = document.querySelector('#caseMapType');
 const caseMapDescription = document.querySelector('#caseMapDescription');
-const caseMapImage = document.querySelector('#caseMapImage');
-const caseMapMobileDetail = document.querySelector('#caseMapMobileDetail');
-const caseMapMobileArea = document.querySelector('#caseMapMobileArea');
-const caseMapMobileType = document.querySelector('#caseMapMobileType');
-const caseMapMobileDescription = document.querySelector('#caseMapMobileDescription');
-const caseMapMobileImage = document.querySelector('#caseMapMobileImage');
+const caseMapCounter = document.querySelector('#caseMapCounter');
+const caseMapPrev = document.querySelector('#caseMapPrev');
+const caseMapNext = document.querySelector('#caseMapNext');
+let activeCaseRegion = 'central';
+let activeCaseIndex = 0;
 
-const updateCaseMapImage = (element, pin) => {
-  if (!element || !pin) return;
-  const imagePath = pin.dataset.image?.trim();
-  element.classList.toggle('has-image', Boolean(imagePath));
-  element.style.backgroundImage = imagePath ? `url("${imagePath}")` : '';
-  element.setAttribute('aria-label', `${pin.dataset.area}の実績画像`);
+const renderCaseMapDetail = () => {
+  const cases = caseMapData[activeCaseRegion] || [];
+  const currentCase = cases[activeCaseIndex];
+  if (!currentCase) return;
+  caseMapLocation.textContent = currentCase.location;
+  caseMapTitle.textContent = currentCase.title;
+  caseMapType.textContent = currentCase.type;
+  caseMapDescription.textContent = currentCase.description;
+  caseMapCounter.textContent = `${activeCaseIndex + 1} / ${cases.length}`;
+  const hasImage = Boolean(currentCase.image);
+  caseMapImage.classList.toggle('has-image',hasImage);
+  caseMapImage.style.backgroundImage = hasImage ? `url("${currentCase.image}")` : '';
+  caseMapImage.setAttribute('aria-label',`${currentCase.location}の導入実績画像`);
+  caseMapPrev.disabled = cases.length < 2;
+  caseMapNext.disabled = cases.length < 2;
 };
 
-const showCaseMapDetail = pin => {
-  if (!pin || !caseMapArea || !caseMapType || !caseMapDescription) return;
-  caseMapPins.forEach(item => {
-    const isActive = item === pin;
-    item.classList.toggle('is-active', isActive);
-    item.setAttribute('aria-pressed', String(isActive));
+const selectCaseMapRegion = region => {
+  if (!caseMapData[region]) return;
+  activeCaseRegion = region;
+  activeCaseIndex = 0;
+  caseMapRegions.forEach(element => {
+    const isActive = element.dataset.region === region;
+    element.classList.toggle('is-active',isActive);
+    element.setAttribute('aria-pressed',String(isActive));
   });
-  caseMapArea.textContent = pin.dataset.area;
-  caseMapType.textContent = pin.dataset.type;
-  caseMapDescription.textContent = pin.dataset.description;
-  updateCaseMapImage(caseMapImage, pin);
-  if (caseMapMobileDetail && caseMapMobileArea && caseMapMobileType && caseMapMobileDescription) {
-    caseMapMobileArea.textContent = pin.dataset.area;
-    caseMapMobileType.textContent = pin.dataset.type;
-    caseMapMobileDescription.textContent = pin.dataset.description;
-    updateCaseMapImage(caseMapMobileImage, pin);
-    const pinStyles = window.getComputedStyle(pin);
-    const pinX = parseFloat(pinStyles.getPropertyValue('--pin-x')) || 50;
-    const pinY = parseFloat(pinStyles.getPropertyValue('--pin-y')) || 50;
-    caseMapMobileDetail.classList.toggle('is-left', pinX > 50);
-    caseMapMobileDetail.classList.toggle('is-top', pinY > 50);
-  }
+  renderCaseMapDetail();
 };
 
-caseMapPins.forEach(pin => {
-  pin.addEventListener('mouseenter', () => showCaseMapDetail(pin));
-  pin.addEventListener('focus', () => showCaseMapDetail(pin));
-  pin.addEventListener('click', () => showCaseMapDetail(pin));
+const moveCaseSlide = direction => {
+  const cases = caseMapData[activeCaseRegion] || [];
+  if (cases.length < 2) return;
+  activeCaseIndex = (activeCaseIndex + direction + cases.length) % cases.length;
+  renderCaseMapDetail();
+};
+
+caseMapRegions.forEach(element => {
+  const selectRegion = () => selectCaseMapRegion(element.dataset.region);
+  element.addEventListener('mouseenter',selectRegion);
+  element.addEventListener('focus',selectRegion);
+  element.addEventListener('click',selectRegion);
+  element.addEventListener('keydown',event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    selectRegion();
+  });
 });
-showCaseMapDetail(document.querySelector('.case-map-pin.is-active'));
+caseMapPrev?.addEventListener('click',() => moveCaseSlide(-1));
+caseMapNext?.addEventListener('click',() => moveCaseSlide(1));
+renderCaseMapDetail();
 
 let heroSlideIndex = 0;
 let heroSlideTimer;
