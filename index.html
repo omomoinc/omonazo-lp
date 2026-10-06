@@ -5351,6 +5351,363 @@ section.section#flow.mint{
   }
 }
 
+/* ---- OMOMO corporate blue theme and interaction refinements ---- */
+:root{
+  --blue:#0553dd;
+  --green:#0553dd;
+  --blue-strong:#003da8;
+  --blue-soft:#eaf1ff;
+  --blue-dot:#f7f9ff;
+  --ink:#102752;
+  --muted:#5e6f90;
+  --line:#cad8f2;
+}
+
+/* Hero copy and persistent logo */
+.hero-logo{
+  position:fixed !important;
+  z-index:90 !important;
+  transition:width .22s ease,top .22s ease,left .22s ease,filter .22s ease;
+}
+.hero-logo.is-scrolled{
+  top:12px !important;
+  right:18px !important;
+  left:auto !important;
+  width:96px !important;
+  filter:drop-shadow(0 2px 7px rgba(0,29,92,.2));
+}
+.hero-description-break{
+  display:block;
+}
+.hero-overlay{
+  background:rgba(0,34,105,.48) !important;
+}
+
+/* Truly seamless pair of equal marquee tracks. */
+.marquee{
+  display:flex !important;
+  width:max-content !important;
+  animation:clientLogoLoop 24s linear infinite !important;
+}
+.marquee-group{
+  display:flex;
+  flex:0 0 auto;
+  min-width:100vw;
+  justify-content:space-around;
+  gap:16px;
+  padding-right:16px;
+}
+.marquee-group .logo-pill{
+  flex:0 0 auto;
+  margin-right:0;
+}
+@keyframes clientLogoLoop{
+  to{transform:translateX(-50%)}
+}
+
+/* Deliberate copy breaks in the solution cards. */
+.reason-mobile-break{
+  display:none;
+}
+.reason-copy-line{
+  display:block;
+  white-space:nowrap;
+}
+.reason-point p .reason-copy-line{
+  align-self:auto;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  color:var(--muted) !important;
+  font-size:14px !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  text-align:center;
+}
+
+/* Case metadata and optional external link. */
+.case-map-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.case-map-meta .case-map-detail-label,
+.case-map-meta .case-map-detail-type{
+  margin-bottom:0 !important;
+}
+.case-map-detail-client:before{
+  content:none !important;
+}
+.case-map-external{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  align-self:flex-start;
+  margin-top:14px;
+  padding:9px 15px;
+  border:2px solid var(--blue);
+  border-radius:999px;
+  color:var(--blue) !important;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.2;
+}
+.case-map-external[hidden]{
+  display:none !important;
+}
+@media(hover:hover){
+  .case-map-external:hover{
+    background:var(--blue);
+    color:#ffffff !important;
+  }
+}
+
+/* Corporate blue replaces the previous green throughout the interface. */
+body,
+p,
+.a,
+.note,
+.logo-pill,
+.field,
+.case-map-detail p,
+.flow-content small{
+  color:var(--muted) !important;
+}
+h1,
+h2,
+h3,
+strong,
+.q,
+.price h3,
+.step h3,
+.flow-content h3,
+.feature h3,
+.reason-problem h3,
+.reason-point strong{
+  color:var(--ink) !important;
+}
+.eyebrow,
+.tag,
+.price b,
+.format-card-no,
+.reason-solution-intro span,
+.case-map-detail-label,
+.case-map-counter,
+.footer-link{
+  color:var(--blue) !important;
+}
+.tag,
+.format-tags span,
+.case-map-detail-type,
+.case-map-instruction{
+  background:var(--blue-soft) !important;
+  color:var(--blue-strong) !important;
+}
+.btn.primary,
+.submit-btn,
+.fixed-cta,
+.stat,
+.reason-category,
+.reason-point span,
+.feature .n,
+.flow-step-tag{
+  background:var(--blue) !important;
+  color:#ffffff !important;
+}
+.fixed-cta,
+.contact-section{
+  background:var(--blue-strong) !important;
+}
+.btn.secondary,
+.fixed-actions .secondary{
+  color:var(--blue) !important;
+}
+.hero .actions .btn.primary,
+.fixed-actions .btn.primary{
+  background:var(--yellow) !important;
+  color:var(--ink) !important;
+  border-color:var(--ink) !important;
+}
+.hero .actions .btn.secondary,
+.fixed-actions .btn.secondary{
+  background:#ffffff !important;
+  color:var(--blue) !important;
+  border-color:var(--blue) !important;
+}
+.use-card,
+.feature,
+.format-card,
+.price,
+.qa,
+.reason-problem,
+.reason-point,
+.flow-item,
+.case-map-board,
+.case-map-detail,
+.contact-card,
+.field{
+  border-color:var(--line) !important;
+}
+.logo-strip,
+.site-footer,
+.fixed-cta{
+  border-color:var(--line) !important;
+}
+.feature,
+.feature:nth-child(2n),
+.price,
+.price:nth-child(2n),
+.case-map-detail{
+  border-top-color:var(--blue) !important;
+}
+.format-card-photo,
+.format-card-last .format-card-photo,
+.challenge-list,
+.challenge-row,
+.formats,
+.format{
+  border-color:var(--line) !important;
+}
+.reason-solution{
+  background:var(--blue-soft) !important;
+}
+.flow-step-tag:after{
+  border-left-color:var(--blue) !important;
+}
+.flow-arrow{
+  border-top-color:#aebfe2 !important;
+}
+.section h2:after,
+.challenge-solution h2:after{
+  background:var(--yellow) !important;
+  box-shadow:18px 13px 0 var(--blue),4px 28px 0 #89adff !important;
+}
+.section.sky,
+.section.mint,
+#scene,
+#about,
+#cases,
+section.section#flow.mint,
+.logo-strip{
+  background-color:var(--blue-dot) !important;
+  background-image:radial-gradient(circle at 1px 1px,rgba(5,83,221,.12) 1.15px,transparent 1.25px) !important;
+  background-size:22px 22px !important;
+}
+.case-map-detail-image,
+.case-map-instruction{
+  background-color:var(--blue-soft) !important;
+  background-image:radial-gradient(circle at 1px 1px,rgba(5,83,221,.13) 1.15px,transparent 1.25px) !important;
+  color:var(--blue) !important;
+}
+.case-map-border,
+.case-map-area-line{
+  stroke:var(--blue) !important;
+}
+.case-map-area-label,
+.case-map-area-label.is-central{
+  fill:var(--blue) !important;
+}
+.case-map-region:hover,
+.case-map-region:focus-visible,
+.case-map-region.is-active,
+.case-map-region.is-active:hover{
+  fill:var(--blue-soft) !important;
+}
+.reason-illust{
+  filter:hue-rotate(84deg) saturate(1.3);
+}
+.case-map-side-nav{
+  border-color:var(--blue) !important;
+  color:var(--blue) !important;
+}
+.case-map-side-nav:hover,
+.case-map-side-nav:focus-visible{
+  background:var(--blue) !important;
+  color:#ffffff !important;
+}
+.footer-certification{
+  border-color:var(--line);
+  color:var(--blue-strong);
+}
+.site-footer small{
+  color:var(--muted) !important;
+}
+.global-nav .header-links a{
+  color:var(--ink) !important;
+}
+.header-cta{
+  color:var(--ink) !important;
+  border-color:var(--ink) !important;
+}
+@media(hover:hover){
+  .global-nav .header-links a:hover{
+    color:var(--blue) !important;
+    border-bottom-color:var(--blue) !important;
+  }
+}
+.form-preview .field{
+  color:var(--ink) !important;
+  caret-color:var(--blue);
+}
+.form-preview .field:focus{
+  border-color:var(--blue) !important;
+  outline-color:rgba(5,83,221,.16);
+}
+@media(hover:hover){
+  .hero .actions .btn.primary:hover,
+  .fixed-actions .btn.primary:hover{
+    background:var(--blue-strong) !important;
+  }
+  .hero .actions .btn.secondary:hover,
+  .fixed-actions .btn.secondary:hover{
+    background:var(--blue) !important;
+    color:#ffffff !important;
+  }
+  .submit-btn:hover{
+    color:var(--blue) !important;
+    border-color:var(--blue) !important;
+  }
+  .submit-btn:hover span,
+  .submit-btn:hover .submit-icon{
+    color:var(--blue) !important;
+  }
+}
+
+@media(max-width:900px){
+  .hero-description-break{
+    display:none;
+  }
+}
+@media(max-width:620px){
+  .hero-logo.is-scrolled{
+    top:10px !important;
+    right:14px !important;
+    left:auto !important;
+    width:86px !important;
+  }
+  .reason-mobile-break{
+    display:block;
+  }
+  .reason-copy-line{
+    white-space:normal;
+  }
+  .case-map-meta{
+    gap:7px;
+    margin-bottom:7px;
+  }
+  .case-map-external{
+    margin-top:12px;
+    padding:8px 13px;
+    font-size:13px;
+  }
+  .section h2:after,
+  .challenge-solution h2:after{
+    box-shadow:14px 11px 0 var(--blue),3px 23px 0 #89adff !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5370,14 +5727,23 @@ section.section#flow.mint{
   <div class="wrap hero-inner">
     
     <h1><span class="hero-main-line">謎解きで、<em>長野</em>の</span><span class="hero-main-line">「面白い」を引き出す。</span></h1>
-    <p class="hero-copy"><strong><span class="hero-sub-line">私たちは長野県に根ざす</span><span class="hero-sub-line">謎解き制作会社です。</span></strong><span class="hero-description">集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</span></p>
+    <p class="hero-copy"><strong><span class="hero-sub-line">私たちは長野県に根ざす</span><span class="hero-sub-line">謎解き制作会社です。</span></strong><span class="hero-description">集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、<br class="hero-description-break">目的に合わせたオリジナル謎解きを企画・制作します。</span></p>
     
 <div class="actions"><a class="btn primary" href="#contact">制作について相談する</a><a class="btn secondary" href="#cases">導入実績を見る</a></div>
   </div>
 </section>
 
 
-<section class="logo-strip"><div class="marquee"><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div></div></section>
+<section class="logo-strip" id="client-logos" aria-label="取引先・導入先ロゴ一覧">
+  <div class="marquee">
+    <div class="marquee-group">
+      <div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div>
+    </div>
+  </div>
+</section>
 
 <section class="section puzzle-guide" id="puzzle-game">
   <div class="wrap">
@@ -5438,29 +5804,29 @@ section.section#flow.mint{
   </article>
 </div>
 <div class="reason-bridge-marker" aria-hidden="true"><svg viewBox="0 0 120 40" focusable="false"><path d="M0 0H120L60 40Z"/></svg></div>
-<div class="reason-solution">
-      <div class="reason-solution-intro"><span>そのお悩み、謎解きが解決します。</span></div>
+<div class="reason-solution" id="reason-solution">
+      <div class="reason-solution-intro"><span>そのお悩み、<br class="reason-mobile-break">謎解きが解決します。</span></div>
 
       <div class="reason-points">
         <article class="reason-point">
           <span>集客</span>
           <strong>参加したくなる</strong>
-          <p>「解いてみたい」という好奇心が、参加のきっかけになります。</p>
+          <p><span class="reason-copy-line">「解いてみたい」という好奇心が、</span><span class="reason-copy-line">参加のきっかけになります。</span></p>
         </article>
         <article class="reason-point">
           <span>交流</span>
           <strong>会話が生まれる</strong>
-          <p>一緒に考え、相談する過程そのものが自然な交流になります。</p>
+          <p><span class="reason-copy-line">一緒に考え、相談することで、</span><span class="reason-copy-line">自然な会話が生まれます。</span></p>
         </article>
         <article class="reason-point">
           <span>学び</span>
           <strong>主体的に考える</strong>
-          <p>自分で答えを探すことで、知る・考える体験に変わります。</p>
+          <p><span class="reason-copy-line">自分で答えを探すことで、</span><span class="reason-copy-line">知る・考える体験に変わります。</span></p>
         </article>
         <article class="reason-point">
           <span>回遊</span>
           <strong>発見や出会いが増える</strong>
-          <p>目的地以外の見どころにも自然と立ち寄ってもらえます。</p>
+          <p><span class="reason-copy-line">見どころへ足を運ぶことで、</span><span class="reason-copy-line">新しい発見や出会いが増えます。</span></p>
         </article>
       </div>
     </div>
@@ -5613,11 +5979,14 @@ section.section#flow.mint{
         <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
         <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="松本市の導入実績画像"><span>実績画像</span></div>
         <div class="case-map-detail-copy">
-          <span class="case-map-detail-label" id="caseMapLocation">松本市</span>
-          <span class="case-map-detail-client" id="caseMapClient">株式会社〇〇（ダミー）</span>
+          <div class="case-map-meta">
+            <span class="case-map-detail-label" id="caseMapLocation">松本市</span>
+            <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
+          </div>
+          <span class="case-map-detail-client" id="caseMapClient">株式会社〇〇（ダミー）様</span>
           <h3 id="caseMapTitle">イベント名ダミー<br>サブタイトルダミー</h3>
-          <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
           <p id="caseMapDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
+          <a class="case-map-external" id="caseMapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>詳細はこちら<span aria-hidden="true">↗</span></a>
           <div class="case-map-controls">
             <span class="case-map-counter" id="caseMapCounter">1 / 3</span>
           </div>
@@ -5720,20 +6089,20 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 const caseMapData = {
   north:[
-    {location:'長野市',client:'〇〇市観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:''},
-    {location:'須坂市',client:'〇〇実行委員会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:''}
+    {location:'長野市',client:'〇〇市観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:'',url:''},
+    {location:'須坂市',client:'〇〇実行委員会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:'',url:''}
   ],
   east:[
-    {location:'上田市',client:'〇〇文化振興財団（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:''}
+    {location:'上田市',client:'〇〇文化振興財団（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:'',url:''}
   ],
   central:[
-    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:''},
-    {location:'安曇野市',client:'〇〇観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:''},
-    {location:'木曽地域',client:'〇〇地域振興局（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:''}
+    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:'',url:''},
+    {location:'安曇野市',client:'〇〇観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:'',url:''},
+    {location:'木曽地域',client:'〇〇地域振興局（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:'',url:''}
   ],
   south:[
-    {location:'伊那市',client:'〇〇高等学校（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:''},
-    {location:'飯田市',client:'〇〇まちづくり協議会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:''}
+    {location:'伊那市',client:'〇〇高等学校（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:'',url:''},
+    {location:'飯田市',client:'〇〇まちづくり協議会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:'',url:''}
   ]
 };
 const caseMapRegions = [...document.querySelectorAll('.case-map-region')];
@@ -5743,6 +6112,7 @@ const caseMapClient = document.querySelector('#caseMapClient');
 const caseMapTitle = document.querySelector('#caseMapTitle');
 const caseMapType = document.querySelector('#caseMapType');
 const caseMapDescription = document.querySelector('#caseMapDescription');
+const caseMapLink = document.querySelector('#caseMapLink');
 const caseMapCounter = document.querySelector('#caseMapCounter');
 const caseMapPrev = document.querySelector('#caseMapPrev');
 const caseMapNext = document.querySelector('#caseMapNext');
@@ -5754,10 +6124,16 @@ const renderCaseMapDetail = () => {
   const currentCase = cases[activeCaseIndex];
   if (!currentCase) return;
   caseMapLocation.textContent = currentCase.location;
-  caseMapClient.textContent = currentCase.client;
+  const clientName = currentCase.client?.trim() || '';
+  caseMapClient.textContent = clientName ? `${clientName.replace(/様$/,'')}様` : '';
+  caseMapClient.hidden = !clientName;
   caseMapTitle.textContent = currentCase.title;
   caseMapType.textContent = currentCase.type;
   caseMapDescription.textContent = currentCase.description;
+  const hasLink = Boolean(currentCase.url);
+  caseMapLink.hidden = !hasLink;
+  if (hasLink) caseMapLink.href = currentCase.url;
+  else caseMapLink.removeAttribute('href');
   caseMapCounter.textContent = `${activeCaseIndex + 1} / ${cases.length}`;
   const hasImage = Boolean(currentCase.image);
   caseMapImage.classList.toggle('has-image',hasImage);
@@ -5820,6 +6196,30 @@ const startHeroSlideshow = () => {
 document.addEventListener('visibilitychange', startHeroSlideshow);
 reduceMotion.addEventListener?.('change', startHeroSlideshow);
 startHeroSlideshow();
+
+const heroLogo = document.querySelector('.hero-logo');
+if (heroLogo) {
+  const heroSection = document.querySelector('.hero');
+  let logoFrameRequested = false;
+  const updateHeroLogo = () => {
+    heroLogo.classList.toggle('is-scrolled',window.scrollY > window.innerHeight * .45);
+    logoFrameRequested = false;
+  };
+  const requestHeroLogoUpdate = () => {
+    if (logoFrameRequested) return;
+    logoFrameRequested = true;
+    window.requestAnimationFrame(updateHeroLogo);
+  };
+  window.addEventListener('scroll',requestHeroLogoUpdate,{passive:true});
+  window.addEventListener('resize',requestHeroLogoUpdate);
+  if (heroSection) {
+    const logoObserver = new IntersectionObserver(([entry]) => {
+      heroLogo.classList.toggle('is-scrolled',!entry.isIntersecting);
+    }, { threshold:0.05 });
+    logoObserver.observe(heroSection);
+  }
+  updateHeroLogo();
+}
 
 const fixedCta = document.querySelector('.fixed-cta');
 const contactSection = document.querySelector('#contact');
