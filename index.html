@@ -5815,7 +5815,7 @@ section.section#flow.mint,
   height:100%;
   margin:0;
   filter:none !important;
-  transition:width .22s ease,top .22s ease,right .22s ease,filter .22s ease;
+  transition:none !important;
 }
 .hero-logo.is-scrolled{
   position:fixed !important;
@@ -5894,20 +5894,87 @@ section.section#flow.mint,
   display:inline-flex !important;
   align-items:center;
   justify-content:center;
-  padding:6px 10px 4px !important;
-  line-height:1 !important;
+  padding:5px 10px !important;
+  line-height:1.1 !important;
 }
 .reason-category,
 .reason-point > span{
   display:flex !important;
   align-items:center;
   justify-content:center;
-  padding-top:9px !important;
-  padding-bottom:7px !important;
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+
+/* Keep format numbers within the same content inset as their headings. */
+.format-card,
+.format-card-last{
+  grid-template-columns:52px minmax(0,1fr) !important;
+  column-gap:10px;
+  padding:20px 20px 0;
+}
+.format-card-no,
+.format-card-last .format-card-no{
+  padding:3px 0 0 !important;
+  text-align:left !important;
+}
+.format-card-copy,
+.format-card-last .format-card-copy{
+  padding:0 0 18px !important;
+}
+.format-card-photo,
+.format-card-last .format-card-photo{
+  width:auto !important;
+  margin:0 -20px;
 }
 @media(max-width:620px){
   .fixed-cta{
     bottom:calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  #problem .reason-problems{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px !important;
+    margin-top:22px !important;
+  }
+  #problem .reason-problem{
+    min-width:0;
+    padding:0 6px 9px !important;
+  }
+  #problem .reason-category{
+    margin:0 -6px 6px !important;
+    padding:7px 6px !important;
+    font-size:17px !important;
+    line-height:1.1 !important;
+  }
+  #problem .reason-illust{
+    width:100% !important;
+    aspect-ratio:16 / 9 !important;
+    margin:0 auto 6px !important;
+    border-radius:8px;
+  }
+  #problem .reason-problem h3{
+    font-size:clamp(11px,3.35vw,14px) !important;
+    line-height:1.35 !important;
+    letter-spacing:-.04em;
+  }
+  .format-card,
+  .format-card-last{
+    grid-template-columns:40px minmax(0,1fr) !important;
+    column-gap:8px;
+    padding:14px 14px 0;
+  }
+  .format-card-no,
+  .format-card-last .format-card-no{
+    padding-top:2px !important;
+    font-size:24px !important;
+  }
+  .format-card-copy,
+  .format-card-last .format-card-copy{
+    padding:0 0 14px !important;
+  }
+  .format-card-photo,
+  .format-card-last .format-card-photo{
+    margin-inline:-14px;
   }
   .case-map-instruction{
     display:flex;
