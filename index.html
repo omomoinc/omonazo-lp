@@ -5819,7 +5819,7 @@ section.section#flow.mint,
 }
 .hero-logo.is-scrolled{
   position:fixed !important;
-  z-index:90 !important;
+  z-index:1000 !important;
   top:16px !important;
   right:18px !important;
   left:auto !important;
@@ -5863,7 +5863,7 @@ section.section#flow.mint,
   font-weight:900;
 }
 .case-map-note{
-  margin:10px 0 0;
+  margin:18px 0 0;
   color:var(--muted);
   font-size:13px;
   line-height:1.65;
@@ -5912,7 +5912,7 @@ section.section#flow.mint,
   grid-template-columns:auto minmax(0,1fr) !important;
   grid-template-rows:auto auto auto auto !important;
   column-gap:10px;
-  padding:20px 20px 0;
+  padding:24px 24px 0;
 }
 .format-card-no,
 .format-card-last .format-card-no{
@@ -5936,7 +5936,7 @@ section.section#flow.mint,
 .format-card-copy p{
   grid-column:1 / -1 !important;
   grid-row:2 !important;
-  margin-top:10px !important;
+  margin-top:12px !important;
 }
 .format-tags{
   grid-column:1 / -1 !important;
@@ -5947,7 +5947,7 @@ section.section#flow.mint,
   grid-column:1 / -1 !important;
   grid-row:4 !important;
   width:auto !important;
-  margin:18px -20px 0;
+  margin:22px -24px 0;
 }
 @media(max-width:620px){
   .fixed-cta{
@@ -5983,7 +5983,7 @@ section.section#flow.mint,
   .format-card-last{
     grid-template-columns:auto minmax(0,1fr) !important;
     column-gap:8px;
-    padding:14px 14px 0;
+    padding:18px 18px 0;
   }
   .format-card-no,
   .format-card-last .format-card-no{
@@ -5995,11 +5995,11 @@ section.section#flow.mint,
     padding:0 !important;
   }
   .format-card-copy p{
-    margin-top:8px !important;
+    margin-top:10px !important;
   }
   .format-card-photo,
   .format-card-last .format-card-photo{
-    margin:14px -14px 0;
+    margin:18px -18px 0;
   }
   .case-map-instruction{
     display:flex;
@@ -6013,9 +6013,115 @@ section.section#flow.mint,
     margin-top:2px;
   }
   .case-map-note{
-    margin-top:8px;
+    margin-top:14px;
     font-size:12px;
     line-height:1.55;
+  }
+}
+
+/* ---- Final spacing and layering refinements ---- */
+.hero h1{
+  line-height:1.2 !important;
+}
+.case-map-detail{
+  gap:24px;
+  padding:20px;
+}
+.case-map-detail-copy{
+  padding-block:10px 4px;
+}
+.case-map-meta{
+  margin-bottom:10px;
+}
+.case-map-detail-client{
+  margin-bottom:10px;
+}
+.case-map-detail h3{
+  margin-bottom:10px;
+}
+.case-map-detail p{
+  line-height:1.8 !important;
+}
+.case-map-external{
+  margin-top:16px;
+}
+@media(max-width:620px){
+  .hero h1{
+    line-height:1.24 !important;
+  }
+  .case-map-detail{
+    gap:18px 10px;
+    padding:16px;
+  }
+  .case-map-detail-copy{
+    padding:2px 2px 0;
+  }
+}
+
+/* ---- Page entrance and scroll reveal motion ---- */
+.hero-logo-slot{
+  animation:hero-intro-rise .7s cubic-bezier(.22,1,.36,1) .05s both;
+}
+.hero-copy{
+  animation:hero-intro-rise .7s cubic-bezier(.22,1,.36,1) .85s both;
+}
+.hero .actions{
+  animation:hero-intro-rise .7s cubic-bezier(.22,1,.36,1) 1.05s both;
+}
+.hero h1 .hero-char{
+  animation:hero-char-reveal .58s cubic-bezier(.22,1,.36,1) both;
+  animation-delay:calc(.2s + var(--hero-char-index,0) * 42ms);
+}
+@keyframes hero-intro-rise{
+  from{
+    opacity:0;
+    transform:translate3d(0,22px,0);
+  }
+  to{
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+}
+body.reveal-ready .scroll-reveal{
+  opacity:0;
+  transform:translate3d(0,28px,0);
+  transition:
+    opacity .7s cubic-bezier(.22,1,.36,1),
+    transform .7s cubic-bezier(.22,1,.36,1);
+  transition-delay:var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+body.reveal-ready .scroll-reveal.reveal-from-left{
+  transform:translate3d(-24px,0,0);
+}
+body.reveal-ready .scroll-reveal.reveal-from-right{
+  transform:translate3d(24px,0,0);
+}
+body.reveal-ready .scroll-reveal.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+  will-change:auto;
+}
+@media(hover:hover){
+  body.reveal-ready .scroll-reveal.reveal-card.is-visible:hover{
+    transform:translate3d(0,-4px,0);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-logo-slot,
+  .hero-copy,
+  .hero .actions,
+  .hero h1 .hero-char{
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+  body.reveal-ready .scroll-reveal,
+  body.reveal-ready .scroll-reveal.reveal-from-left,
+  body.reveal-ready .scroll-reveal.reveal-from-right{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
   }
 }
 
@@ -6073,10 +6179,10 @@ section.section#flow.mint,
 
 <section class="section" id="scene"><div class="wrap"><div class="eyebrow">USE CASE</div><h2 class="balanced-copy">こんな場面で活用できます</h2><p class="lead">「謎解きをやる」と決めていなくても大丈夫。地域性や現場の課題に合わせて、その場所らしさが伝わる体験をつくります。</p>
 <div class="use-grid">
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/02_usecase_school.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>学校現場</h3><div class="tags"><span class="tag">探究学習</span><span class="tag">地域学習</span><span class="tag">校外学習</span><span class="tag">チーム学習</span></div></div></article>
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/03_usecase_company.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>企業・団体</h3><div class="tags"><span class="tag">交流会</span><span class="tag">研修</span><span class="tag">レクリエーション</span><span class="tag">周年企画</span></div></div></article>
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/04_usecase_tourism_region.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>観光・地域</h3><div class="tags"><span class="tag">まち歩き</span><span class="tag">周遊促進</span><span class="tag">地域理解</span><span class="tag">観光コンテンツ</span></div></div></article>
 <article class="use-card"><div class="use-photo" style="background-image:url('assets/images/05_usecase_event_facility.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>イベント・施設</h3><div class="tags"><span class="tag">集客イベント</span><span class="tag">施設回遊</span><span class="tag">ファミリー企画</span><span class="tag">キャンペーン</span></div></div></article>
+<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/04_usecase_tourism_region.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>観光・地域</h3><div class="tags"><span class="tag">まち歩き</span><span class="tag">周遊促進</span><span class="tag">地域理解</span><span class="tag">観光コンテンツ</span></div></div></article>
+<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/03_usecase_company.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>企業・団体</h3><div class="tags"><span class="tag">交流会</span><span class="tag">研修</span><span class="tag">レクリエーション</span><span class="tag">周年企画</span></div></div></article>
+<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/02_usecase_school.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>教育現場</h3><div class="tags"><span class="tag">探究学習</span><span class="tag">地域学習</span><span class="tag">校外学習</span><span class="tag">チーム学習</span></div></div></article>
 </div></div></section>
 
 
@@ -6096,6 +6202,12 @@ section.section#flow.mint,
   </article>
 
   <article class="reason-problem">
+    <span class="reason-category">回遊</span>
+    <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
+    <h3><span class="problem-line">見どころを巡らず</span><span class="problem-line">目的地だけで帰ってしまう</span></h3>
+  </article>
+
+  <article class="reason-problem">
     <span class="reason-category">交流</span>
     <div class="reason-illust has-photo ri-communication" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">初対面同士では</span><span class="problem-line">会話が生まれない</span></h3>
@@ -6105,12 +6217,6 @@ section.section#flow.mint,
     <span class="reason-category">学び</span>
     <div class="reason-illust has-photo ri-learning" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">講義では興味が続かず</span><span class="problem-line">内容が記憶に残らない</span></h3>
-  </article>
-
-  <article class="reason-problem">
-    <span class="reason-category">回遊</span>
-    <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
-    <h3><span class="problem-line">見どころを巡らず</span><span class="problem-line">目的地だけで帰ってしまう</span></h3>
   </article>
 </div>
 <div class="reason-bridge-marker" aria-hidden="true"><svg viewBox="0 0 120 40" focusable="false"><path d="M0 0H120L60 40Z"/></svg></div>
@@ -6124,6 +6230,11 @@ section.section#flow.mint,
           <p><span class="reason-copy-line">「解いてみたい」という好奇心が、</span><span class="reason-copy-line">参加のきっかけになります。</span></p>
         </article>
         <article class="reason-point">
+          <span>回遊</span>
+          <strong>発見や出会いが増える</strong>
+          <p><span class="reason-copy-line">見どころへ足を運ぶことで、</span><span class="reason-copy-line">新しい発見や出会いが増えます。</span></p>
+        </article>
+        <article class="reason-point">
           <span>交流</span>
           <strong>会話が生まれる</strong>
           <p><span class="reason-copy-line">一緒に考え、相談することで、</span><span class="reason-copy-line">自然な会話が生まれます。</span></p>
@@ -6132,11 +6243,6 @@ section.section#flow.mint,
           <span>学び</span>
           <strong>主体的に考える</strong>
           <p><span class="reason-copy-line">自分で答えを探すことで、</span><span class="reason-copy-line">知る・考える体験に変わります。</span></p>
-        </article>
-        <article class="reason-point">
-          <span>回遊</span>
-          <strong>発見や出会いが増える</strong>
-          <p><span class="reason-copy-line">見どころへ足を運ぶことで、</span><span class="reason-copy-line">新しい発見や出会いが増えます。</span></p>
         </article>
       </div>
     </div>
@@ -6261,7 +6367,6 @@ section.section#flow.mint,
     <div class="eyebrow">CASE</div>
     <h2>長野県内の導入実績</h2>
     <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
-    <p class="case-map-note">※掲載実績は一部です。実績数には、前身企業・前身団体での実績を含みます。</p>
     <p class="case-map-instruction">地図のエリアをクリックすると実績が切り替わります</p>
     <div class="case-map-layout">
       <div class="case-map-board" aria-label="長野県内の開催実績マップ">
@@ -6305,6 +6410,7 @@ section.section#flow.mint,
         <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
       </article>
     </div>
+    <p class="case-map-note">※掲載実績は一部です。前身企業および前身団体での実績を含みます。</p>
   </div>
 </section>
 
@@ -6397,6 +6503,90 @@ section.section#flow.mint,
 <script>
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle) {
+  heroTitle.setAttribute('aria-label',heroTitle.textContent.trim());
+  let heroCharacterIndex = 0;
+  const textNodes = [];
+  const collectTextNodes = node => {
+    node.childNodes.forEach(child => {
+      if (child.nodeType === Node.TEXT_NODE) textNodes.push(child);
+      else collectTextNodes(child);
+    });
+  };
+  collectTextNodes(heroTitle);
+  textNodes.forEach(textNode => {
+    const fragment = document.createDocumentFragment();
+    [...textNode.textContent].forEach(character => {
+      const span = document.createElement('span');
+      span.className = 'hero-char';
+      span.setAttribute('aria-hidden','true');
+      if (textNode.parentElement.closest('em')) span.classList.add('is-highlight');
+      span.style.setProperty('--hero-char-index',heroCharacterIndex);
+      span.textContent = character === ' ' ? '\u00a0' : character;
+      fragment.appendChild(span);
+      heroCharacterIndex += 1;
+    });
+    textNode.replaceWith(fragment);
+  });
+}
+
+const revealElements = new Set();
+const registerReveal = (selector,{direction = ''} = {}) => {
+  document.querySelectorAll(selector).forEach(element => {
+    element.classList.add('scroll-reveal');
+    if (direction) element.classList.add(`reveal-from-${direction}`);
+    revealElements.add(element);
+  });
+};
+
+registerReveal('.section > .wrap > .eyebrow, .section > .wrap > h2, .section > .wrap > .lead');
+registerReveal('.puzzle-guide-copy, .about-overview, .case-map-board',{direction:'left'});
+registerReveal('.puzzle-guide-visual, .about-team-photo, .case-map-detail',{direction:'right'});
+registerReveal('.reason-solution-intro, .photo-break-copy, .case-map-note, .case-map-instruction, .contact-card');
+registerReveal('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa');
+document.querySelectorAll('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa').forEach(element => {
+  element.classList.add('reveal-card');
+});
+
+document.body.classList.add('reveal-ready');
+if (reduceMotion.matches) {
+  revealElements.forEach(element => element.classList.add('is-visible'));
+} else {
+  const orderedRevealElements = [...revealElements].sort((first,second) => {
+    if (first === second) return 0;
+    return first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+  });
+  let revealCursor = 0;
+  let revealFrameRequested = false;
+  let nextRevealTime = performance.now();
+  const revealInDocumentOrder = () => {
+    const triggerLine = window.innerHeight * .9;
+    while (revealCursor < orderedRevealElements.length) {
+      const element = orderedRevealElements[revealCursor];
+      const bounds = element.getBoundingClientRect();
+      if (bounds.top > triggerLine && bounds.bottom > 0) break;
+      if (bounds.bottom < 0) {
+        element.classList.add('is-visible');
+      } else {
+        const currentTime = performance.now();
+        nextRevealTime = Math.max(nextRevealTime,currentTime) + 55;
+        window.setTimeout(() => element.classList.add('is-visible'),nextRevealTime - currentTime);
+      }
+      revealCursor += 1;
+    }
+    revealFrameRequested = false;
+  };
+  const requestOrderedReveal = () => {
+    if (revealFrameRequested) return;
+    revealFrameRequested = true;
+    window.requestAnimationFrame(revealInDocumentOrder);
+  };
+  window.addEventListener('scroll',requestOrderedReveal,{passive:true});
+  window.addEventListener('resize',requestOrderedReveal);
+  requestOrderedReveal();
+}
 
 const caseMapData = {
   north:[
@@ -6510,10 +6700,22 @@ startHeroSlideshow();
 
 const heroLogo = document.querySelector('.hero-logo');
 if (heroLogo) {
+  const heroLogoSlot = document.querySelector('.hero-logo-slot');
   let logoFrameRequested = false;
+  let logoIsFollowing = false;
   const updateHeroLogo = () => {
     const followPoint = Math.min(520,window.innerHeight * .55);
-    heroLogo.classList.toggle('is-scrolled',window.scrollY > followPoint);
+    const shouldFollow = window.scrollY > followPoint;
+    if (shouldFollow !== logoIsFollowing) {
+      if (shouldFollow) {
+        heroLogo.classList.add('is-scrolled');
+        document.body.appendChild(heroLogo);
+      } else if (heroLogoSlot) {
+        heroLogoSlot.appendChild(heroLogo);
+        heroLogo.classList.remove('is-scrolled');
+      }
+      logoIsFollowing = shouldFollow;
+    }
     logoFrameRequested = false;
   };
   const requestHeroLogoUpdate = () => {
