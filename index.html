@@ -5826,6 +5826,55 @@ section.section#flow.mint,
   }
 }
 
+/* ---- Case metadata, mobile map guidance and CTA hover refinement ---- */
+.case-map-meta{
+  align-items:baseline;
+}
+.case-map-meta .case-map-detail-label,
+.case-map-meta .case-map-detail-type{
+  line-height:1.35 !important;
+}
+.case-map-instruction{
+  line-height:1.4 !important;
+}
+.case-map-instruction:before{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+.case-map-note{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.65;
+}
+@media(hover:hover){
+  .hero .actions .btn.primary:hover,
+  .fixed-actions .btn.primary:hover{
+    background:#ffe16a !important;
+    color:#333333 !important;
+    border-color:#333333 !important;
+    filter:none !important;
+  }
+}
+@media(max-width:620px){
+  .case-map-instruction{
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    align-items:flex-start;
+    gap:7px;
+    line-height:1.35 !important;
+  }
+  .case-map-instruction:before{
+    margin-top:2px;
+  }
+  .case-map-note{
+    margin-top:8px;
+    font-size:12px;
+    line-height:1.55;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -6068,6 +6117,7 @@ section.section#flow.mint,
     <div class="eyebrow">CASE</div>
     <h2>長野県内の導入実績</h2>
     <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
+    <p class="case-map-note">※掲載実績は一部です。実績数には、前身企業・前身団体での実績を含みます。</p>
     <p class="case-map-instruction">地図のエリアをクリックすると実績が切り替わります</p>
     <div class="case-map-layout">
       <div class="case-map-board" aria-label="長野県内の開催実績マップ">
