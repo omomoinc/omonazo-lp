@@ -5906,26 +5906,33 @@ section.section#flow.mint,
   padding-bottom:8px !important;
 }
 
-/* Keep format numbers within the same content inset as their headings. */
+/* Stack format numbers above the copy so every text element shares one left edge. */
 .format-card,
 .format-card-last{
-  grid-template-columns:52px minmax(0,1fr) !important;
-  column-gap:10px;
-  padding:20px 20px 0;
+  grid-template-columns:minmax(0,1fr) !important;
+  grid-template-rows:auto auto auto !important;
+  gap:0;
+  padding:0;
 }
 .format-card-no,
 .format-card-last .format-card-no{
-  padding:3px 0 0 !important;
+  grid-column:1 !important;
+  grid-row:1 !important;
+  padding:20px 20px 0 !important;
   text-align:left !important;
 }
 .format-card-copy,
 .format-card-last .format-card-copy{
-  padding:0 0 18px !important;
+  grid-column:1 !important;
+  grid-row:2 !important;
+  padding:6px 20px 18px !important;
 }
 .format-card-photo,
 .format-card-last .format-card-photo{
-  width:auto !important;
-  margin:0 -20px;
+  grid-column:1 !important;
+  grid-row:3 !important;
+  width:100% !important;
+  margin:0;
 }
 @media(max-width:620px){
   .fixed-cta{
@@ -5959,22 +5966,21 @@ section.section#flow.mint,
   }
   .format-card,
   .format-card-last{
-    grid-template-columns:40px minmax(0,1fr) !important;
-    column-gap:8px;
-    padding:14px 14px 0;
+    grid-template-columns:minmax(0,1fr) !important;
+    padding:0;
   }
   .format-card-no,
   .format-card-last .format-card-no{
-    padding-top:2px !important;
+    padding:14px 14px 0 !important;
     font-size:24px !important;
   }
   .format-card-copy,
   .format-card-last .format-card-copy{
-    padding:0 0 14px !important;
+    padding:5px 14px 14px !important;
   }
   .format-card-photo,
   .format-card-last .format-card-photo{
-    margin-inline:-14px;
+    margin:0;
   }
   .case-map-instruction{
     display:flex;
