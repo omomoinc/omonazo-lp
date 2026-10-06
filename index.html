@@ -4650,6 +4650,33 @@ p,
 }
 
 /* ---- Takizawa content update: logo / puzzle guide / about team ---- */
+body,
+button,
+input,
+textarea{
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic","Noto Sans JP",sans-serif !important;
+  font-synthesis:none;
+}
+h1,
+h2,
+h3,
+strong,
+b,
+.eyebrow,
+.btn,
+.tag,
+.case-map-detail-label,
+.case-map-detail-type{
+  font-weight:700 !important;
+}
+.hero h1{
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic","Noto Sans JP",sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+}
+.hero-char.is-highlight{
+  text-shadow:none !important;
+}
 .hero-logo{
   display:block;
   width:176px;
@@ -4683,10 +4710,29 @@ p,
 .puzzle-guide-copy p:last-child{
   margin-bottom:0;
 }
+.puzzle-guide-visual{
+  margin:0;
+}
+.puzzle-guide-visual img{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  object-position:center;
+  border:2px solid var(--line);
+  border-radius:18px;
+}
+.puzzle-guide-visual figcaption{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:13px;
+  text-align:right;
+}
 .puzzle-steps{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:14px;
+  grid-column:1 / -1;
 }
 .puzzle-step{
   min-height:218px;
@@ -4789,6 +4835,42 @@ p,
 .case-map-region.is-active:hover{
   fill:#e7f6eb;
 }
+.case-map-detail-client{
+  display:block;
+  margin:-2px 0 9px;
+  color:#5d7185;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.5;
+}
+.case-map-detail-client:before{
+  content:"CLIENT";
+  margin-right:8px;
+  color:#258653;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.1em;
+}
+.case-map-detail h3{
+  max-width:15em;
+  font-size:clamp(24px,2.7vw,32px) !important;
+  font-weight:700 !important;
+  line-height:1.28 !important;
+  white-space:pre-line;
+}
+.case-map-side-nav{
+  line-height:0 !important;
+}
+.case-map-side-nav svg{
+  display:block;
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
 @media(max-width:900px){
   .puzzle-guide-grid,
   .about-intro{
@@ -4797,6 +4879,9 @@ p,
   }
   .puzzle-guide-copy{
     max-width:760px;
+  }
+  .puzzle-guide-visual figcaption{
+    text-align:left;
   }
 }
 @media(max-width:620px){
@@ -4828,6 +4913,21 @@ p,
   .case-map-instruction{
     border-radius:12px;
     font-size:12px !important;
+  }
+  .case-map-detail-client{
+    margin-bottom:5px;
+    font-size:10px;
+  }
+  .case-map-detail-client:before{
+    margin-right:5px;
+    font-size:8px;
+  }
+  .case-map-detail h3{
+    font-size:18px !important;
+  }
+  .case-map-side-nav svg{
+    width:16px;
+    height:16px;
   }
 }
 
@@ -4868,6 +4968,10 @@ p,
         <p class="guide-definition">物語や場所に散りばめられた手がかりをもとに、自分のひらめきで答えを導く体験型ゲームです。</p>
         <p>知識の多さを競うクイズとは異なり、観察したり、組み合わせたり、仲間と相談したりしながら進めます。年齢や経験を問わず参加しやすく、楽しみながら自然に交流・学び・回遊が生まれることが特徴です。</p>
       </div>
+      <figure class="puzzle-guide-visual">
+        <img src="assets/images/hero_03_mystery_room.png" alt="部屋に隠された手がかりを探し、仲間と相談しながら謎を解く参加者">
+        <figcaption>手がかりを見つけ、仲間と考え、ひらめきで物語を進めます。</figcaption>
+      </figure>
       <div class="puzzle-steps" aria-label="謎解きゲームの進め方">
         <article class="puzzle-step"><span class="puzzle-step-no">STEP 01</span><h3>手がかりを探す</h3><p>会場や冊子、まちの中に隠された情報を観察します。</p></article>
         <article class="puzzle-step"><span class="puzzle-step-no">STEP 02</span><h3>考えて、話す</h3><p>見つけた情報を組み合わせ、仲間と相談しながら答えを考えます。</p></article>
@@ -5093,18 +5197,19 @@ p,
         </svg>
       </div>
       <article class="case-map-detail" aria-live="polite">
-        <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る">‹</button>
+        <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
         <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="松本市の導入実績画像"><span>実績画像</span></div>
         <div class="case-map-detail-copy">
           <span class="case-map-detail-label" id="caseMapLocation">松本市</span>
-          <h3 id="caseMapTitle">イベント名</h3>
+          <span class="case-map-detail-client" id="caseMapClient">株式会社〇〇（ダミー）</span>
+          <h3 id="caseMapTitle">イベント名ダミー<br>サブタイトルダミー</h3>
           <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
           <p id="caseMapDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
           <div class="case-map-controls">
             <span class="case-map-counter" id="caseMapCounter">1 / 3</span>
           </div>
         </div>
-        <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る">›</button>
+        <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
       </article>
     </div>
   </div>
@@ -5225,25 +5330,26 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 const caseMapData = {
   north:[
-    {location:'長野市',title:'イベント名',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:''},
-    {location:'須坂市',title:'イベント名',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:''}
+    {location:'長野市',client:'〇〇市観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:''},
+    {location:'須坂市',client:'〇〇実行委員会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:''}
   ],
   east:[
-    {location:'上田市',title:'イベント名',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:''}
+    {location:'上田市',client:'〇〇文化振興財団（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:''}
   ],
   central:[
-    {location:'松本市',title:'イベント名',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:''},
-    {location:'安曇野市',title:'イベント名',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:''},
-    {location:'木曽地域',title:'イベント名',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:''}
+    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:''},
+    {location:'安曇野市',client:'〇〇観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:''},
+    {location:'木曽地域',client:'〇〇地域振興局（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:''}
   ],
   south:[
-    {location:'伊那市',title:'イベント名',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:''},
-    {location:'飯田市',title:'イベント名',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:''}
+    {location:'伊那市',client:'〇〇高等学校（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:''},
+    {location:'飯田市',client:'〇〇まちづくり協議会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:''}
   ]
 };
 const caseMapRegions = [...document.querySelectorAll('.case-map-region')];
 const caseMapImage = document.querySelector('#caseMapImage');
 const caseMapLocation = document.querySelector('#caseMapLocation');
+const caseMapClient = document.querySelector('#caseMapClient');
 const caseMapTitle = document.querySelector('#caseMapTitle');
 const caseMapType = document.querySelector('#caseMapType');
 const caseMapDescription = document.querySelector('#caseMapDescription');
@@ -5258,6 +5364,7 @@ const renderCaseMapDetail = () => {
   const currentCase = cases[activeCaseIndex];
   if (!currentCase) return;
   caseMapLocation.textContent = currentCase.location;
+  caseMapClient.textContent = currentCase.client;
   caseMapTitle.textContent = currentCase.title;
   caseMapType.textContent = currentCase.type;
   caseMapDescription.textContent = currentCase.description;
