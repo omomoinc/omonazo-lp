@@ -5358,8 +5358,8 @@ section.section#flow.mint{
   --blue-strong:#003da8;
   --blue-soft:#eaf1ff;
   --blue-dot:#f7f9ff;
-  --ink:#102752;
-  --muted:#5e6f90;
+  --ink:#333333;
+  --muted:#555555;
   --line:#cad8f2;
 }
 
@@ -5520,6 +5520,12 @@ strong,
 .contact-section{
   background:var(--blue-strong) !important;
 }
+.fixed-cta{
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+}
 .btn.secondary,
 .fixed-actions .secondary{
   color:var(--blue) !important;
@@ -5553,6 +5559,30 @@ strong,
 .logo-strip,
 .site-footer,
 .fixed-cta{
+  border-color:var(--line) !important;
+}
+.logo-strip .logo-pill{
+  border-color:var(--line) !important;
+}
+#about .feature,
+#about .feature:nth-child(2n){
+  background:#ffffff !important;
+  border:2px solid var(--line) !important;
+  border-top:8px solid var(--blue) !important;
+}
+.reason-bridge-marker{
+  color:var(--blue) !important;
+}
+.contact-section .submit-btn{
+  border:2px solid var(--blue) !important;
+}
+.case-map-detail .case-map-detail-image{
+  border-color:var(--line) !important;
+}
+.section + .section,
+.logo-strip + .section,
+.photo-break + .section,
+.site-footer{
   border-color:var(--line) !important;
 }
 .feature,
@@ -5605,6 +5635,9 @@ section.section#flow.mint,
 .case-map-area-line{
   stroke:var(--blue) !important;
 }
+.case-map-outline{
+  filter:drop-shadow(0 12px 18px rgba(5,83,221,.14)) !important;
+}
 .case-map-area-label,
 .case-map-area-label.is-central{
   fill:var(--blue) !important;
@@ -5621,6 +5654,7 @@ section.section#flow.mint,
 .case-map-side-nav{
   border-color:var(--blue) !important;
   color:var(--blue) !important;
+  box-shadow:0 4px 14px rgba(5,83,221,.16) !important;
 }
 .case-map-side-nav:hover,
 .case-map-side-nav:focus-visible{
@@ -5747,7 +5781,7 @@ section.section#flow.mint,
 
 <section class="section puzzle-guide" id="puzzle-game">
   <div class="wrap">
-    <div class="eyebrow">WHAT IS A PUZZLE GAME?</div>
+    <div class="eyebrow">WHAT IS A NAZOTOKI?</div>
     <h2 class="balanced-copy">謎解きゲームとは？</h2>
     <div class="puzzle-guide-grid">
       <div class="puzzle-guide-copy">
@@ -6096,7 +6130,7 @@ const caseMapData = {
     {location:'上田市',client:'〇〇文化振興財団（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:'',url:''}
   ],
   central:[
-    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:'',url:''},
+    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:'',url:'https://example.com/'},
     {location:'安曇野市',client:'〇〇観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:'',url:''},
     {location:'木曽地域',client:'〇〇地域振興局（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:'',url:''}
   ],
