@@ -5803,14 +5803,29 @@ section.section#flow.mint,
   align-items:flex-start;
   justify-content:center;
 }
-.hero-logo,
-.hero-logo.is-scrolled{
+.hero-logo-slot{
+  width:260px;
+  aspect-ratio:15 / 7;
+  margin:0 0 26px;
+}
+.hero-logo{
   position:static !important;
   z-index:auto !important;
-  width:260px !important;
-  margin:0 0 26px;
+  width:100% !important;
+  height:100%;
+  margin:0;
   filter:none !important;
-  transition:none !important;
+  transition:width .22s ease,top .22s ease,right .22s ease,filter .22s ease;
+}
+.hero-logo.is-scrolled{
+  position:fixed !important;
+  z-index:90 !important;
+  top:16px !important;
+  right:18px !important;
+  left:auto !important;
+  width:110px !important;
+  height:auto;
+  filter:drop-shadow(0 2px 7px rgba(0,29,92,.2)) !important;
 }
 .hero h1{
   margin-top:0 !important;
@@ -5819,10 +5834,14 @@ section.section#flow.mint,
   .hero{
     padding:40px 0 !important;
   }
-  .hero-logo,
-  .hero-logo.is-scrolled{
-    width:180px !important;
+  .hero-logo-slot{
+    width:180px;
     margin-bottom:22px;
+  }
+  .hero-logo.is-scrolled{
+    top:12px !important;
+    right:14px !important;
+    width:92px !important;
   }
 }
 
@@ -5836,10 +5855,12 @@ section.section#flow.mint,
 }
 .case-map-instruction{
   line-height:1.4 !important;
+  font-weight:600 !important;
 }
 .case-map-instruction:before{
   flex:0 0 auto;
   white-space:nowrap;
+  font-weight:900;
 }
 .case-map-note{
   margin:10px 0 0;
@@ -5854,9 +5875,40 @@ section.section#flow.mint,
     color:#333333 !important;
     border-color:#333333 !important;
     filter:none !important;
+    transform:translateY(-2px);
+  }
+  .hero .actions .btn.secondary:hover,
+  .fixed-actions .btn.secondary:hover{
+    background:var(--blue-soft) !important;
+    color:var(--blue) !important;
+    border-color:var(--blue) !important;
+    filter:none !important;
+    transform:translateY(-2px);
   }
 }
+
+/* Optically center Japanese text inside category labels. */
+.tag,
+.format-tags span,
+.case-map-detail-type{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  padding:6px 10px 4px !important;
+  line-height:1 !important;
+}
+.reason-category,
+.reason-point > span{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  padding-top:9px !important;
+  padding-bottom:7px !important;
+}
 @media(max-width:620px){
+  .fixed-cta{
+    bottom:calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
   .case-map-instruction{
     display:flex;
     width:fit-content;
@@ -5891,7 +5943,7 @@ section.section#flow.mint,
   </div>
   <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
-    <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc."></a>
+    <div class="hero-logo-slot"><a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc."></a></div>
     <h1><span class="hero-main-line">謎解きで、<em>長野</em>の</span><span class="hero-main-line">「面白い」を引き出す。</span></h1>
     <p class="hero-copy"><strong><span class="hero-sub-line">私たちは長野県に根ざす</span><span class="hero-sub-line">謎解き制作会社です。</span></strong><span class="hero-description">集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、<br class="hero-description-break">目的に合わせたオリジナル謎解きを企画・制作します。</span></p>
     
@@ -6363,6 +6415,24 @@ const startHeroSlideshow = () => {
 document.addEventListener('visibilitychange', startHeroSlideshow);
 reduceMotion.addEventListener?.('change', startHeroSlideshow);
 startHeroSlideshow();
+
+const heroLogo = document.querySelector('.hero-logo');
+if (heroLogo) {
+  let logoFrameRequested = false;
+  const updateHeroLogo = () => {
+    const followPoint = Math.min(520,window.innerHeight * .55);
+    heroLogo.classList.toggle('is-scrolled',window.scrollY > followPoint);
+    logoFrameRequested = false;
+  };
+  const requestHeroLogoUpdate = () => {
+    if (logoFrameRequested) return;
+    logoFrameRequested = true;
+    window.requestAnimationFrame(updateHeroLogo);
+  };
+  window.addEventListener('scroll',requestHeroLogoUpdate,{passive:true});
+  window.addEventListener('resize',requestHeroLogoUpdate);
+  updateHeroLogo();
+}
 
 const fixedCta = document.querySelector('.fixed-cta');
 const contactSection = document.querySelector('#contact');
