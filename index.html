@@ -5792,6 +5792,40 @@ section.section#flow.mint,
   }
 }
 
+/* ---- Hero logo grouped with the copy ---- */
+.hero{
+  padding:64px 0 !important;
+  align-items:center !important;
+}
+.hero-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.hero-logo,
+.hero-logo.is-scrolled{
+  position:static !important;
+  z-index:auto !important;
+  width:260px !important;
+  margin:0 0 26px;
+  filter:none !important;
+  transition:none !important;
+}
+.hero h1{
+  margin-top:0 !important;
+}
+@media(max-width:620px){
+  .hero{
+    padding:40px 0 !important;
+  }
+  .hero-logo,
+  .hero-logo.is-scrolled{
+    width:180px !important;
+    margin-bottom:22px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5807,9 +5841,8 @@ section.section#flow.mint,
     <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.png')"></div>
   </div>
   <div class="hero-overlay"></div>
-  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc."></a>
   <div class="wrap hero-inner">
-    
+    <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc."></a>
     <h1><span class="hero-main-line">謎解きで、<em>長野</em>の</span><span class="hero-main-line">「面白い」を引き出す。</span></h1>
     <p class="hero-copy"><strong><span class="hero-sub-line">私たちは長野県に根ざす</span><span class="hero-sub-line">謎解き制作会社です。</span></strong><span class="hero-description">集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、<br class="hero-description-break">目的に合わせたオリジナル謎解きを企画・制作します。</span></p>
     
@@ -6280,30 +6313,6 @@ const startHeroSlideshow = () => {
 document.addEventListener('visibilitychange', startHeroSlideshow);
 reduceMotion.addEventListener?.('change', startHeroSlideshow);
 startHeroSlideshow();
-
-const heroLogo = document.querySelector('.hero-logo');
-if (heroLogo) {
-  const heroSection = document.querySelector('.hero');
-  let logoFrameRequested = false;
-  const updateHeroLogo = () => {
-    heroLogo.classList.toggle('is-scrolled',window.scrollY > window.innerHeight * .45);
-    logoFrameRequested = false;
-  };
-  const requestHeroLogoUpdate = () => {
-    if (logoFrameRequested) return;
-    logoFrameRequested = true;
-    window.requestAnimationFrame(updateHeroLogo);
-  };
-  window.addEventListener('scroll',requestHeroLogoUpdate,{passive:true});
-  window.addEventListener('resize',requestHeroLogoUpdate);
-  if (heroSection) {
-    const logoObserver = new IntersectionObserver(([entry]) => {
-      heroLogo.classList.toggle('is-scrolled',!entry.isIntersecting);
-    }, { threshold:0.05 });
-    logoObserver.observe(heroSection);
-  }
-  updateHeroLogo();
-}
 
 const fixedCta = document.querySelector('.fixed-cta');
 const contactSection = document.querySelector('#contact');
