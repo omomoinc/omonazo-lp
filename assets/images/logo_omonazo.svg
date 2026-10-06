@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 72" role="img" aria-labelledby="title desc">
+  <title id="title">オモ謎</title>
+  <desc id="desc">ひらめきを表す黄色いピースと、白いオモ謎の文字を組み合わせたロゴ</desc>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFD43B" d="M13 17.5A7.5 7.5 0 1 1 25.8 12H34v8.2a7.5 7.5 0 1 1 0 12.6V41H25.8A7.5 7.5 0 1 1 13 46.5V38H4v-9h9v-11.5Z"/>
+    <text x="51" y="52" fill="#FFFFFF" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-size="48" font-weight="900" letter-spacing="2">オモ謎</text>
+  </g>
+</svg>

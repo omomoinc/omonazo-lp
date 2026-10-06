@@ -4649,6 +4649,188 @@ p,
   }
 }
 
+/* ---- Takizawa content update: logo / puzzle guide / about team ---- */
+.hero-logo{
+  display:block;
+  width:176px;
+  height:auto;
+}
+.hero-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.puzzle-guide{
+  background:#ffffff !important;
+}
+.puzzle-guide-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:64px;
+  align-items:center;
+  margin-top:36px;
+}
+.puzzle-guide-copy{
+  max-width:540px;
+}
+.puzzle-guide-copy .guide-definition{
+  margin:0 0 20px;
+  color:var(--ink) !important;
+  font-size:clamp(21px,2.2vw,27px);
+  font-weight:900;
+  line-height:1.65;
+}
+.puzzle-guide-copy p:last-child{
+  margin-bottom:0;
+}
+.puzzle-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.puzzle-step{
+  min-height:218px;
+  padding:24px 20px;
+  border:2px solid var(--line);
+  border-top:7px solid var(--blue);
+  border-radius:16px;
+  background:#ffffff;
+}
+.puzzle-step:nth-child(2){
+  border-top-color:#56ad72;
+}
+.puzzle-step:nth-child(3){
+  border-top-color:var(--yellow);
+}
+.puzzle-step-no{
+  display:block;
+  margin-bottom:20px;
+  color:var(--blue);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.puzzle-step h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+.puzzle-step p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+}
+.about-intro{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:48px;
+  align-items:center;
+  margin-top:34px;
+}
+.about-overview{
+  padding:12px 0;
+}
+.about-overview strong{
+  display:block;
+  margin-bottom:16px;
+  color:var(--ink) !important;
+  font-size:clamp(25px,2.8vw,34px);
+  line-height:1.45;
+}
+.about-overview p{
+  margin-bottom:16px;
+  line-height:1.9;
+}
+.about-team-photo{
+  margin:0;
+}
+.about-team-photo img{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  object-position:center;
+  border:2px solid var(--line);
+  border-radius:18px;
+}
+.about-team-photo figcaption{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:13px;
+  text-align:right;
+}
+#about .features{
+  margin-top:48px;
+}
+.case-map-instruction{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:12px 0 0;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#e7f6eb;
+  color:#176341 !important;
+  font-size:14px !important;
+  font-weight:900;
+}
+.case-map-instruction:before{
+  content:"CLICK";
+  padding:2px 6px;
+  border-radius:999px;
+  background:var(--blue);
+  color:#ffffff;
+  font-size:9px;
+  letter-spacing:.08em;
+}
+.case-map-region:hover{
+  fill:#f8fbf9;
+}
+.case-map-region.is-active,
+.case-map-region.is-active:hover{
+  fill:#e7f6eb;
+}
+@media(max-width:900px){
+  .puzzle-guide-grid,
+  .about-intro{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+  .puzzle-guide-copy{
+    max-width:760px;
+  }
+}
+@media(max-width:620px){
+  .hero-logo{
+    width:142px;
+  }
+  .puzzle-guide-grid{
+    margin-top:26px;
+  }
+  .puzzle-steps{
+    grid-template-columns:1fr;
+  }
+  .puzzle-step{
+    min-height:0;
+    padding:20px 18px;
+  }
+  .puzzle-step-no{
+    margin-bottom:8px;
+  }
+  .about-intro{
+    margin-top:24px;
+  }
+  .about-team-photo figcaption{
+    text-align:left;
+  }
+  #about .features{
+    margin-top:34px;
+  }
+  .case-map-instruction{
+    border-radius:12px;
+    font-size:12px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4664,7 +4846,7 @@ p,
     <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.png')"></div>
   </div>
   <div class="hero-overlay"></div>
-  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ">オモ<b>謎</b></a>
+  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.svg" alt="オモ謎"></a>
   <div class="wrap hero-inner">
     
     <h1><span class="hero-line">謎解きで、長野の</span><span class="hero-line">「面白い」を引き出す。</span></h1>
@@ -4676,6 +4858,24 @@ p,
 
 
 <section class="logo-strip"><div class="marquee"><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div><div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div></div></section>
+
+<section class="section puzzle-guide" id="puzzle-game">
+  <div class="wrap">
+    <div class="eyebrow">WHAT IS A PUZZLE GAME?</div>
+    <h2 class="balanced-copy">謎解きゲームとは？</h2>
+    <div class="puzzle-guide-grid">
+      <div class="puzzle-guide-copy">
+        <p class="guide-definition">物語や場所に散りばめられた手がかりをもとに、自分のひらめきで答えを導く体験型ゲームです。</p>
+        <p>知識の多さを競うクイズとは異なり、観察したり、組み合わせたり、仲間と相談したりしながら進めます。年齢や経験を問わず参加しやすく、楽しみながら自然に交流・学び・回遊が生まれることが特徴です。</p>
+      </div>
+      <div class="puzzle-steps" aria-label="謎解きゲームの進め方">
+        <article class="puzzle-step"><span class="puzzle-step-no">STEP 01</span><h3>手がかりを探す</h3><p>会場や冊子、まちの中に隠された情報を観察します。</p></article>
+        <article class="puzzle-step"><span class="puzzle-step-no">STEP 02</span><h3>考えて、話す</h3><p>見つけた情報を組み合わせ、仲間と相談しながら答えを考えます。</p></article>
+        <article class="puzzle-step"><span class="puzzle-step-no">STEP 03</span><h3>ひらめいて進む</h3><p>謎が解ける達成感とともに、次の物語や場所へ進みます。</p></article>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="scene"><div class="wrap"><div class="eyebrow">USE CASE</div><h2 class="balanced-copy">こんな場面で活用できます</h2><p class="lead">「謎解きをやる」と決めていなくても大丈夫。地域性や現場の課題に合わせて、その場所らしさが伝わる体験をつくります。</p>
 <div class="use-grid">
@@ -4755,8 +4955,20 @@ p,
 
 <section class="section mint" id="about">
   <div class="wrap">
-    <div class="eyebrow">WHY OMONAZO</div>
-    <h2 class="balanced-copy">なぜオモ謎なのか？</h2>
+    <div class="eyebrow">ABOUT OMONAZO</div>
+    <h2 class="balanced-copy">オモ謎とは？</h2>
+
+    <div class="about-intro">
+      <div class="about-overview">
+        <strong>長野の「面白い」を、<br>心に残る謎解き体験へ。</strong>
+        <p>オモ謎は、長野県に根ざした謎解き制作チームです。地域・企業・学校・観光施設が持つ魅力を丁寧にひも解き、参加する人が楽しみながらその価値に出会える体験へと変えていきます。</p>
+        <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
+      </div>
+      <figure class="about-team-photo">
+        <img src="assets/images/hero_01_group_puzzle.png" alt="謎解き制作チームのイメージ">
+        <figcaption>制作チーム（イメージ）</figcaption>
+      </figure>
+    </div>
 
     <div class="features">
       <article class="feature">
@@ -4856,6 +5068,7 @@ p,
     <div class="eyebrow">CASE</div>
     <h2>長野県内の導入実績</h2>
     <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
+    <p class="case-map-instruction">地図のエリアをクリックすると実績が切り替わります</p>
     <div class="case-map-layout">
       <div class="case-map-board" aria-label="長野県内の開催実績マップ">
         <svg class="case-map-outline" viewBox="0 0 500 650" role="group" aria-label="長野県のエリア別導入実績">
@@ -5078,8 +5291,6 @@ const moveCaseSlide = direction => {
 
 caseMapRegions.forEach(element => {
   const selectRegion = () => selectCaseMapRegion(element.dataset.region);
-  element.addEventListener('mouseenter',selectRegion);
-  element.addEventListener('focus',selectRegion);
   element.addEventListener('click',selectRegion);
   element.addEventListener('keydown',event => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
