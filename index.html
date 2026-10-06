@@ -5031,6 +5031,150 @@ p,
   }
 }
 
+/* ---- Takizawa hero, section lead, results and footer update ---- */
+.hero{
+  min-height:100vh !important;
+  min-height:100svh !important;
+}
+.hero-logo img{
+  object-fit:contain;
+  filter:none;
+}
+.hero-logo{
+  width:198px;
+  padding:8px 12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.94);
+}
+.hero-main-line,
+.hero-sub-line{
+  display:block;
+  white-space:nowrap;
+}
+.hero-copy strong{
+  margin-bottom:10px;
+  font-size:clamp(24px,2.45vw,31px);
+  line-height:1.45;
+}
+.hero-description{
+  display:block;
+}
+.section > .wrap > .lead{
+  width:100%;
+  max-width:none !important;
+  font-size:18px;
+  line-height:1.8;
+  text-wrap:nowrap !important;
+  white-space:nowrap !important;
+}
+#cases .lead{
+  max-width:none;
+  font-size:18px !important;
+}
+#cases .case-map-instruction{
+  font-size:15px !important;
+}
+#cases .case-map-detail-label{
+  font-size:20px;
+}
+#cases .case-map-detail-client{
+  font-size:15px;
+}
+#cases .case-map-detail-type{
+  font-size:14px;
+}
+#cases .case-map-detail p{
+  font-size:17px;
+  line-height:1.75;
+}
+#cases .case-map-counter{
+  font-size:14px;
+}
+.fixed-cta.is-hidden{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transform:translate(-50%,18px) !important;
+}
+.footer-company{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-certification{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 11px;
+  border:1px solid #c8d9ce;
+  border-radius:999px;
+  color:#355e49;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.3;
+}
+@media(max-width:1100px){
+  .section > .wrap > .lead{
+    text-wrap:wrap !important;
+    white-space:normal !important;
+  }
+}
+@media(max-width:620px){
+  .hero{
+    min-height:100vh !important;
+    min-height:100svh !important;
+  }
+  .hero h1{
+    font-size:clamp(27px,7.7vw,34px) !important;
+    line-height:1.2 !important;
+  }
+  .hero-logo{
+    width:172px;
+    padding:7px 10px;
+  }
+  .hero-copy strong{
+    font-size:clamp(20px,5.5vw,23px);
+    line-height:1.5;
+  }
+  .hero-description{
+    font-size:16px;
+    line-height:1.8;
+  }
+  #cases .lead{
+    font-size:16px !important;
+    line-height:1.7;
+  }
+  #cases .case-map-instruction{
+    font-size:14px !important;
+  }
+  #cases .case-map-detail-label{
+    font-size:18px;
+  }
+  #cases .case-map-detail-client{
+    font-size:14px;
+  }
+  #cases .case-map-detail-type{
+    font-size:13px;
+  }
+  #cases .case-map-detail p{
+    font-size:16px;
+  }
+  #cases .case-map-counter{
+    font-size:13px;
+  }
+  .footer-inner,
+  .footer-company{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .footer-company{
+    flex-direction:column;
+    gap:9px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5046,11 +5190,11 @@ p,
     <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.png')"></div>
   </div>
   <div class="hero-overlay"></div>
-  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.svg" alt="オモ謎"></a>
+  <a class="hero-logo" href="#top" aria-label="オモ謎 トップへ"><img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc."></a>
   <div class="wrap hero-inner">
     
-    <h1>謎解きで、<em>長野</em>の「面白い」を引き出す。</h1>
-    <p class="hero-copy"><strong>私たちは長野県に根ざす謎解き制作会社です。</strong>集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</p>
+    <h1><span class="hero-main-line">謎解きで、<em>長野</em>の</span><span class="hero-main-line">「面白い」を引き出す。</span></h1>
+    <p class="hero-copy"><strong><span class="hero-sub-line">私たちは長野県に根ざす</span><span class="hero-sub-line">謎解き制作会社です。</span></strong><span class="hero-description">集客・交流・学び・回遊の課題を、地域や企業の魅力を活かした体験に変え、目的に合わせたオリジナル謎解きを企画・制作します。</span></p>
     
 <div class="actions"><a class="btn primary" href="#contact">制作について相談する</a><a class="btn secondary" href="#cases">導入実績を見る</a></div>
   </div>
@@ -5380,14 +5524,17 @@ p,
 </div></form></div></div></section>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" id="site-footer">
   <div class="wrap footer-inner">
-    <a href="#" class="footer-link">運営会社：OMOMO Inc.</a>
+    <div class="footer-company">
+      <a href="https://omomo-inc.com/" class="footer-link" target="_blank" rel="noopener noreferrer">運営会社：株式会社OMOMO</a>
+      <span class="footer-certification">信州大学発スタートアップ認定企業</span>
+    </div>
     <small>© 2026 OMOMO Inc. All Rights Reserved.</small>
   </div>
 </footer>
 
-<div class="fixed-cta"><div class="fixed-actions">
+<div class="fixed-cta is-hidden"><div class="fixed-actions">
   <a class="btn primary" href="#contact">制作について相談する</a>
   <a class="btn secondary" href="#cases">導入実績を見る</a>
 </div></div>
@@ -5501,12 +5648,29 @@ startHeroSlideshow();
 const fixedCta = document.querySelector('.fixed-cta');
 const contactSection = document.querySelector('#contact');
 if (fixedCta && contactSection) {
+  let contactIsVisible = false;
+  let ctaFrameRequested = false;
+  const updateFixedCta = () => {
+    const revealPoint = Math.min(640,window.innerHeight * .7);
+    const shouldShow = window.scrollY >= revealPoint && !contactIsVisible;
+    fixedCta.classList.toggle('is-hidden',!shouldShow);
+    ctaFrameRequested = false;
+  };
+  const requestFixedCtaUpdate = () => {
+    if (ctaFrameRequested) return;
+    ctaFrameRequested = true;
+    window.requestAnimationFrame(updateFixedCta);
+  };
   const ctaObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      fixedCta.classList.toggle('is-hidden', entry.isIntersecting);
+      contactIsVisible = entry.isIntersecting;
+      requestFixedCtaUpdate();
     });
   }, { threshold: 0.08 });
   ctaObserver.observe(contactSection);
+  window.addEventListener('scroll',requestFixedCtaUpdate,{passive:true});
+  window.addEventListener('resize',requestFixedCtaUpdate);
+  updateFixedCta();
 }
 
 const contactForm = document.querySelector('#contactForm');
