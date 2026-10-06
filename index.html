@@ -5906,33 +5906,48 @@ section.section#flow.mint,
   padding-bottom:8px !important;
 }
 
-/* Stack format numbers above the copy so every text element shares one left edge. */
+/* Keep the number and title on one row while the body uses the full card width. */
 .format-card,
 .format-card-last{
-  grid-template-columns:minmax(0,1fr) !important;
-  grid-template-rows:auto auto auto !important;
-  gap:0;
-  padding:0;
+  grid-template-columns:auto minmax(0,1fr) !important;
+  grid-template-rows:auto auto auto auto !important;
+  column-gap:10px;
+  padding:20px 20px 0;
 }
 .format-card-no,
 .format-card-last .format-card-no{
   grid-column:1 !important;
   grid-row:1 !important;
-  padding:20px 20px 0 !important;
+  align-self:center;
+  padding:0 !important;
   text-align:left !important;
 }
 .format-card-copy,
 .format-card-last .format-card-copy{
-  grid-column:1 !important;
+  display:contents !important;
+  padding:0 !important;
+}
+.format-card-copy h3{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  align-self:center;
+  margin:0 !important;
+}
+.format-card-copy p{
+  grid-column:1 / -1 !important;
   grid-row:2 !important;
-  padding:6px 20px 18px !important;
+  margin-top:10px !important;
+}
+.format-tags{
+  grid-column:1 / -1 !important;
+  grid-row:3 !important;
 }
 .format-card-photo,
 .format-card-last .format-card-photo{
-  grid-column:1 !important;
-  grid-row:3 !important;
-  width:100% !important;
-  margin:0;
+  grid-column:1 / -1 !important;
+  grid-row:4 !important;
+  width:auto !important;
+  margin:18px -20px 0;
 }
 @media(max-width:620px){
   .fixed-cta{
@@ -5966,21 +5981,25 @@ section.section#flow.mint,
   }
   .format-card,
   .format-card-last{
-    grid-template-columns:minmax(0,1fr) !important;
-    padding:0;
+    grid-template-columns:auto minmax(0,1fr) !important;
+    column-gap:8px;
+    padding:14px 14px 0;
   }
   .format-card-no,
   .format-card-last .format-card-no{
-    padding:14px 14px 0 !important;
+    padding:0 !important;
     font-size:24px !important;
   }
   .format-card-copy,
   .format-card-last .format-card-copy{
-    padding:5px 14px 14px !important;
+    padding:0 !important;
+  }
+  .format-card-copy p{
+    margin-top:8px !important;
   }
   .format-card-photo,
   .format-card-last .format-card-photo{
-    margin:0;
+    margin:14px -14px 0;
   }
   .case-map-instruction{
     display:flex;
