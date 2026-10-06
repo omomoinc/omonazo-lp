@@ -5175,6 +5175,148 @@ p,
   }
 }
 
+/* ---- Takizawa background and compact content refinement ---- */
+/* Section backgrounds use only white or a subtle gray dot pattern. */
+.section:not(.contact-section){
+  background:#ffffff !important;
+  background-image:none !important;
+}
+#scene,
+#about,
+#cases,
+#flow{
+  background-color:#f5f6f7 !important;
+  background-image:radial-gradient(circle at 1px 1px,rgba(70,84,96,.13) 1.15px,transparent 1.25px) !important;
+  background-size:22px 22px !important;
+}
+.section > .wrap > .lead{
+  font-size:clamp(20px,1.8vw,22px) !important;
+  line-height:1.75;
+}
+
+/* Compact use-case cards without reducing readability. */
+#scene{
+  padding-block:82px;
+}
+#scene .use-grid{
+  gap:18px;
+  margin-top:30px;
+}
+#scene .use-card{
+  display:grid;
+  grid-template-columns:minmax(180px,42%) minmax(0,1fr);
+  min-height:218px;
+}
+#scene .use-photo{
+  height:100%;
+  min-height:218px;
+}
+#scene .use-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px 22px;
+}
+#scene .use-content h3{
+  margin-bottom:10px;
+  font-size:clamp(23px,2.2vw,28px);
+}
+#scene .tags{
+  gap:6px;
+}
+#scene .tag{
+  padding:5px 9px;
+  font-size:13px;
+}
+
+/* The photographic statement follows the same scale as section titles. */
+.photo-break-copy strong{
+  font-size:clamp(38px,4vw,50px) !important;
+  line-height:1.35 !important;
+  max-width:none !important;
+}
+.photo-break-title-line{
+  display:block;
+  white-space:nowrap;
+}
+
+/* Logo artwork should stand on its own without a card behind it. */
+.hero-logo{
+  padding:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+}
+
+/* Keep each problem statement at a deliberate two-line rhythm. */
+.reason-problem h3 .problem-line{
+  display:block;
+  white-space:nowrap;
+}
+
+@media(max-width:760px){
+  #scene .use-card{
+    grid-template-columns:minmax(130px,40%) minmax(0,1fr);
+    min-height:168px;
+  }
+  #scene .use-photo{
+    min-height:168px;
+  }
+}
+@media(max-width:620px){
+  .section h2,
+  .challenge-solution h2{
+    width:100% !important;
+    overflow-wrap:anywhere;
+  }
+  p{
+    overflow-wrap:anywhere;
+  }
+  .section > .wrap > .lead{
+    font-size:18px !important;
+    line-height:1.7;
+  }
+  #scene{
+    padding-block:56px;
+  }
+  #scene .use-grid{
+    gap:12px;
+    margin-top:22px;
+  }
+  #scene .use-card{
+    grid-template-columns:38% minmax(0,1fr);
+    min-height:146px;
+  }
+  #scene .use-photo{
+    min-height:146px;
+  }
+  #scene .use-content{
+    padding:14px 12px;
+  }
+  #scene .use-content h3{
+    margin-bottom:8px;
+    font-size:21px;
+  }
+  #scene .tag{
+    padding:3px 7px;
+    font-size:11px;
+  }
+  .photo-break{
+    height:430px !important;
+    min-height:0 !important;
+  }
+  .photo-break-overlay{
+    padding:42px 0 !important;
+  }
+  .photo-break-copy strong{
+    font-size:28px !important;
+    line-height:1.35 !important;
+    letter-spacing:-.04em;
+  }
+  .photo-break-title-line{
+    white-space:normal;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5233,32 +5375,32 @@ p,
 <section class="section challenge-solution" id="problem">
   <div class="wrap">
     <div class="eyebrow">SOLUTION</div>
-    <h2 class="balanced-copy">こんなお悩みありませんか？</h2>
+    <h2 class="balanced-copy">こんなお悩み<wbr>ありませんか？</h2>
 
     
 <div class="reason-problems">
   <article class="reason-problem">
     <span class="reason-category">集客</span>
     <div class="reason-illust has-photo ri-attraction" role="img" aria-label="集客の課題を表す人物のイラスト"></div>
-    <h3>イベントを告知しても人が集まらない</h3>
+    <h3><span class="problem-line">イベントを告知しても</span><span class="problem-line">人が集まらない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">交流</span>
     <div class="reason-illust has-photo ri-communication" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
-    <h3>初対面同士では会話が生まれない</h3>
+    <h3><span class="problem-line">初対面同士では</span><span class="problem-line">会話が生まれない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">学び</span>
     <div class="reason-illust has-photo ri-learning" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
-    <h3>講義では興味が続かず内容が記憶に残らない</h3>
+    <h3><span class="problem-line">講義では興味が続かず</span><span class="problem-line">内容が記憶に残らない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">回遊</span>
     <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
-    <h3>見どころを巡らず目的地だけで帰ってしまう</h3>
+    <h3><span class="problem-line">見どころを巡らず</span><span class="problem-line">目的地だけで帰ってしまう</span></h3>
   </article>
 </div>
 <div class="reason-bridge-marker" aria-hidden="true"><svg viewBox="0 0 120 40" focusable="false"><path d="M0 0H120L60 40Z"/></svg></div>
@@ -5292,7 +5434,7 @@ p,
 </section>
 
 
-<section class="photo-break photo"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong>目的に合わせた、オリジナルの謎解き体験を。</strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
+<section class="photo-break photo" id="statement"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong><span class="photo-break-title-line">目的に合わせた、</span><span class="photo-break-title-line">オリジナルの謎解き体験を。</span></strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
 
 
 <section class="section mint" id="about">
@@ -5303,7 +5445,7 @@ p,
     <div class="about-intro">
       <div class="about-overview">
         <strong>長野の「面白い」を、心に残る謎解き体験へ。</strong>
-        <p>オモ謎は、長野県に根ざした謎解き制作チームです。地域・企業・学校・観光施設が持つ魅力を丁寧にひも解き、参加する人が楽しみながらその価値に出会える体験へと変えていきます。</p>
+        <p>オモ謎は、株式会社OMOMOが提供する、長野県に根ざした謎解き制作サービスです。地域・企業・学校・観光施設が持つ魅力を丁寧にひも解き、参加する人が楽しみながらその価値に出会える体験へと変えていきます。</p>
         <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
       </div>
       <figure class="about-team-photo">
