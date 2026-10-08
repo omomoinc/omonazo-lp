@@ -21,7 +21,7 @@ header{position:absolute;z-index:10;inset:0 0 auto;padding:26px 0}.nav{display:f
 .cases-wrap{overflow:hidden;margin-top:40px}.cases{display:flex;gap:20px;width:max-content;animation:caseScroll 40s linear infinite}@keyframes caseScroll{to{transform:translateX(-50%)}}.case{width:350px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:none}.case-pic{height:225px}.case-body{padding:23px}.case-body h3{font-size:22px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.stat{background:var(--ink);color:#fff;border-radius:8px;padding:26px;text-align:center}.stat strong{display:block;font-size:36px}.stat small{opacity:.75}
 .prices{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:38px}.price{background:#fff;border-radius:8px;padding:23px;border:1px solid var(--line)}.price h3{font-size:20px}.price b{font-size:29px;color:var(--blue)}
 .flow{display:flex;gap:0;margin-top:42px;overflow-x:auto}.step{min-width:175px;flex:1;background:#fff;border-radius:8px;padding:21px;position:relative}.step:not(:last-child){margin-right:30px}.step:not(:last-child):after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);font-size:27px;font-weight:900;color:var(--green)}.step .s{font-size:12px;color:var(--blue);font-weight:900}.step h3{font-size:19px;margin:8px 0}
-.faq{display:grid;gap:13px;margin-top:36px}.qa{background:#fff;border-radius:8px;padding:24px 26px}.q{font-size:20px;font-weight:400}.a{font-size:18px;color:var(--muted);margin-top:8px}
+.faq{display:grid;gap:13px;margin-top:36px}.qa{background:#fff;border-radius:8px;padding:24px 26px}.q{font-size:20px;font-weight:700}.a{font-size:18px;color:var(--muted);margin-top:8px}
 .contact-section{background:linear-gradient(135deg,#123b68,#10775b);padding-bottom:145px}.contact-card{background:#fff;border-radius:0;overflow:hidden;box-shadow:none}.contact-photo{height:330px}.cta-panel{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:46px 48px 26px}.cta-panel h2{font-size:44px}.form-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;padding:0 48px 48px;width:100%}.field{width:100%;min-width:0;background:#fff8f2;border:1px solid #edd8cf;border-radius:6px;padding:14px 16px;color:#718494;min-height:55px}.field.full{grid-column:1/-1;min-height:120px}
 .fixed-cta{position:fixed;z-index:50;left:50%;transform:translateX(-50%);bottom:18px;width:min(930px,calc(100% - 24px));background:rgba(18,48,75,.95);backdrop-filter:blur(12px);color:#fff;border-radius:8px;padding:12px 14px 12px 21px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:none}.fixed-cta strong{display:block}.fixed-cta small{opacity:.76}.fixed-actions{display:flex;gap:8px}.fixed-actions .btn{padding:12px 18px}
 .note{font-size:13px;color:#738793;margin-top:14px}
@@ -6054,10 +6054,17 @@ section.section#flow.mint,
   flex-direction:column;
   gap:12px;
 }
+.case-map-layout{
+  display:block;
+}
 .case-map-extra-regions{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(6,minmax(0,1fr));
   gap:10px;
+  margin-bottom:22px;
+}
+.case-map-detail{
+  width:calc(100% - 104px);
 }
 .case-map-region-button{
   min-height:44px;
@@ -6086,6 +6093,15 @@ section.section#flow.mint,
   background:var(--blue);
   color:#ffffff;
 }
+@media(max-width:900px){
+  .case-map-extra-regions{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .case-map-detail{
+    width:100%;
+    margin-inline:0;
+  }
+}
 @media(max-width:620px){
   .hero h1{
     line-height:1.24 !important;
@@ -6101,7 +6117,9 @@ section.section#flow.mint,
     gap:9px;
   }
   .case-map-extra-regions{
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
+    margin-bottom:16px;
   }
   .case-map-region-button{
     min-height:40px;
@@ -6549,50 +6567,32 @@ body.reveal-ready .scroll-reveal.is-visible{
     <div class="eyebrow">CASE</div>
     <h2>長野県内の導入実績</h2>
     <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
-    <p class="case-map-instruction">地図のエリアをクリックすると実績が切り替わります</p>
+    <p class="case-map-instruction">エリアを選ぶと実績が切り替わります</p>
     <div class="case-map-layout">
       <div class="case-map-selector">
-        <div class="case-map-board" aria-label="長野県内の開催実績マップ">
-          <svg class="case-map-outline" viewBox="0 0 500 650" role="group" aria-label="長野県のエリア別導入実績">
-          <defs>
-            <path id="nagano-map-shape" transform="matrix(1.24 0 0 1.268 -102 -28.2)" d="M377 38C359 38 351 49 348 63C346 76 340 85 333 87C327 89 317 82 306 86C293 89 281 101 274 100C268 99 274 88 274 83C272 73 262 68 250 69C241 70 243 80 240 91C237 101 226 105 221 109C217 114 223 132 222 140C221 151 212 157 206 160C201 164 198 179 194 190C191 199 185 209 184 210C187 220 197 226 196 236C195 247 182 253 181 261C179 269 188 278 187 286C186 293 177 298 179 305C181 312 187 317 184 324C180 332 169 337 164 338C153 338 146 334 139 340C134 344 131 352 127 358C137 359 143 360 151 367C163 375 168 387 173 400C177 410 170 416 171 421C173 430 184 438 188 446C193 456 194 460 188 470C181 481 177 493 176 504C179 509 185 515 190 517C197 515 201 506 214 507C225 507 232 516 241 514C250 512 252 505 262 504C274 502 281 490 290 484C298 479 305 478 307 473C309 468 301 464 300 459C299 454 306 451 306 444C306 435 301 433 305 424C308 416 318 408 320 402C322 396 312 389 312 383C312 377 321 376 322 371C323 365 312 361 312 356C313 349 319 338 322 335C327 336 332 345 337 346C342 342 343 324 348 317C353 314 363 319 368 325C374 334 374 341 381 341C387 340 390 332 400 333C410 334 414 344 419 344C425 344 432 336 427 323C423 312 409 308 406 300C404 294 408 287 404 281C401 276 393 275 393 269C394 264 403 263 404 257C405 251 396 248 396 240C396 232 406 224 408 211C409 205 410 201 405 199C397 195 386 197 379 201C371 204 362 207 355 203C350 200 348 194 349 187C350 177 358 169 358 159C359 151 367 143 375 141C381 138 378 130 384 127C391 125 406 125 414 118C418 114 412 106 412 101C412 96 418 93 417 88C415 83 408 80 406 74C403 66 402 56 398 49C394 42 386 38 377 38Z"/>
-            <clipPath id="nagano-map-clip"><use href="#nagano-map-shape"/></clipPath>
-          </defs>
-          <g clip-path="url(#nagano-map-clip)">
-            <rect class="case-map-region case-map-area-central is-active" data-region="central" x="0" y="0" width="500" height="650" tabindex="0" role="button" aria-label="中信エリアの実績を表示" aria-pressed="true"/>
-            <path class="case-map-region case-map-area-north" data-region="north" tabindex="0" role="button" aria-label="北信エリアの実績を表示" aria-pressed="false" d="M238 0H500V216C445 205 392 202 347 211C319 216 297 229 278 248C258 237 250 219 237 201C223 181 215 163 225 146C234 132 228 116 238 99V0Z"/>
-            <path class="case-map-region case-map-area-east" data-region="east" tabindex="0" role="button" aria-label="東信エリアの実績を表示" aria-pressed="false" d="M500 216C445 205 392 202 347 211C319 216 297 229 278 248C284 276 284 309 304 345C328 362 350 382 371 405C411 412 457 424 500 438V216Z"/>
-            <path class="case-map-region case-map-area-south" data-region="south" tabindex="0" role="button" aria-label="南信エリアの実績を表示" aria-pressed="false" d="M0 520C69 510 124 499 174 482C190 458 199 439 214 420C230 398 251 375 269 352C280 339 292 338 304 345C328 362 350 382 371 405C411 412 457 424 500 438V650H0V520Z"/>
-          </g>
-          <use class="case-map-border" href="#nagano-map-shape"/>
-          <path class="case-map-area-line" clip-path="url(#nagano-map-clip)" d="M238 99C228 116 234 132 225 146C215 163 223 181 237 201C250 219 258 237 278 248C297 229 319 216 347 211C392 202 445 205 500 216M278 248C284 276 284 309 304 345M0 520C69 510 124 499 174 482C190 458 199 439 214 420C230 398 251 375 269 352C280 339 292 338 304 345C328 362 350 382 371 405C411 412 457 424 500 438"/>
-          <g clip-path="url(#nagano-map-clip)">
-            <text class="case-map-area-label" x="300" y="142">北信</text>
-            <text class="case-map-area-label" x="340" y="322">東信</text>
-            <text class="case-map-area-label is-central" x="195" y="326">中信</text>
-            <text class="case-map-area-label" x="210" y="535">南信</text>
-          </g>
-          </svg>
-        </div>
-        <div class="case-map-extra-regions" aria-label="地図外の実績区分">
-          <button class="case-map-region case-map-region-button" type="button" data-region="all" aria-pressed="false">全県</button>
+        <div class="case-map-extra-regions" aria-label="実績のエリアを選択">
+          <button class="case-map-region case-map-region-button is-active" type="button" data-region="all" aria-pressed="true">全県</button>
+          <button class="case-map-region case-map-region-button" type="button" data-region="north" aria-pressed="false">北信</button>
+          <button class="case-map-region case-map-region-button" type="button" data-region="central" aria-pressed="false">中信</button>
+          <button class="case-map-region case-map-region-button" type="button" data-region="east" aria-pressed="false">東信</button>
+          <button class="case-map-region case-map-region-button" type="button" data-region="south" aria-pressed="false">南信</button>
           <button class="case-map-region case-map-region-button" type="button" data-region="other" aria-pressed="false">その他</button>
         </div>
       </div>
       <article class="case-map-detail" aria-live="polite">
         <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
-        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="松本市の導入実績画像"><span>実績画像</span></div>
+        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="長野県全域の導入実績画像"><span>実績画像</span></div>
         <div class="case-map-detail-copy">
           <div class="case-map-meta">
-            <span class="case-map-detail-label" id="caseMapLocation">松本市</span>
-            <span class="case-map-detail-type" id="caseMapType">地域・施設イベント型</span>
+            <span class="case-map-detail-label" id="caseMapLocation">長野県全域</span>
+            <span class="case-map-detail-type" id="caseMapType">全県周遊型</span>
           </div>
-          <span class="case-map-detail-client" id="caseMapClient">株式会社〇〇（ダミー）様</span>
-          <h3 id="caseMapTitle">イベント名ダミー<br>サブタイトルダミー</h3>
-          <p id="caseMapDescription">地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。</p>
+          <span class="case-map-detail-client" id="caseMapClient">長野県〇〇事業（ダミー）様</span>
+          <h3 id="caseMapTitle">全県周遊イベントダミー<br>県内を巡る謎解き企画</h3>
+          <p id="caseMapDescription">長野県内の複数地域をつなぎ、各地の魅力を巡りながら発見できる全県規模の謎解きを実施しています。</p>
           <a class="case-map-external" id="caseMapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>詳細はこちら<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
           <div class="case-map-controls">
-            <span class="case-map-counter" id="caseMapCounter">1 / 3</span>
+            <span class="case-map-counter" id="caseMapCounter">1 / 2</span>
           </div>
         </div>
         <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
@@ -6730,11 +6730,11 @@ const registerReveal = (selector,{direction = ''} = {}) => {
 };
 
 registerReveal('.section > .wrap > .eyebrow, .section > .wrap > h2, .section > .wrap > .lead');
-registerReveal('.puzzle-guide-copy, .about-overview, .case-map-board',{direction:'left'});
+registerReveal('.puzzle-guide-copy, .about-overview',{direction:'left'});
 registerReveal('.puzzle-guide-visual, .about-team-photo, .case-map-detail',{direction:'right'});
 registerReveal('.reason-solution-intro, .photo-break-copy, .case-map-note, .case-map-instruction, .contact-card');
-registerReveal('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa');
-document.querySelectorAll('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa').forEach(element => {
+registerReveal('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa, .case-map-region-button');
+document.querySelectorAll('.use-card, .reason-problem, .reason-point, #about .feature, .format-card, .price, .flow-item, .qa, .case-map-region-button').forEach(element => {
   element.classList.add('reveal-card');
 });
 
@@ -6813,7 +6813,7 @@ const caseMapLink = document.querySelector('#caseMapLink');
 const caseMapCounter = document.querySelector('#caseMapCounter');
 const caseMapPrev = document.querySelector('#caseMapPrev');
 const caseMapNext = document.querySelector('#caseMapNext');
-let activeCaseRegion = 'central';
+let activeCaseRegion = 'all';
 let activeCaseIndex = 0;
 
 const renderCaseMapDetail = () => {
