@@ -43,28 +43,34 @@
       margin:0 auto;
     }
     .header-inner{
-      min-height:82px;
+      min-height:100px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:24px;
     }
     .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand img{display:block;width:150px;height:auto}
+    .brand img{display:block;width:138px;height:auto}
     .back-link{
       display:inline-flex;
       align-items:center;
-      color:var(--ink);
+      gap:8px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue-dark);
       font-size:13px;
       font-weight:700;
       text-decoration:none;
-      transition:color .2s ease;
+      transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
     }
-    .back-link:hover{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+    .back-link::before{content:"←";font-size:15px;line-height:1}
+    .back-link:hover{background:var(--blue-soft);border-color:#b7cbf4;color:var(--blue);transform:translateY(-1px)}
     .page-hero{
       position:relative;
       overflow:hidden;
-      padding:34px 24px 0;
+      padding:34px 24px 6px;
       background:var(--canvas);
     }
     .page-hero-inner{position:relative;width:min(860px,100%);margin:0 auto}
@@ -100,7 +106,7 @@
       background:var(--yellow);
       box-shadow:18px 13px 0 var(--blue),4px 28px 0 #89adff;
     }
-    main{padding:16px 24px 76px}
+    main{padding:18px 24px 76px}
     .policy-card{
       width:min(860px,100%);
       margin:0 auto;
@@ -161,13 +167,13 @@
     @media(max-width:620px){
       body{font-size:15px}
       .header-inner,.footer-inner{width:calc(100% - 36px)}
-      .header-inner{min-height:70px}
-      .brand img{width:122px}
-      .back-link{font-size:13px}
-      .page-hero{padding:26px 20px 0}
+      .header-inner{min-height:86px}
+      .brand img{width:112px}
+      .back-link{gap:6px;padding:7px 11px;font-size:12px}
+      .page-hero{padding:26px 20px 4px}
       h1{font-size:28px;padding-right:42px}
       h1::after{right:23px;width:10px;height:10px;box-shadow:14px 11px 0 var(--blue),3px 23px 0 #89adff}
-      main{padding:14px 14px 54px}
+      main{padding:16px 14px 54px}
       .policy-card{padding:24px 20px;border-radius:14px}
       .policy-intro{font-size:14px;margin-bottom:23px}
       .policy-section{grid-template-columns:32px minmax(0,1fr);gap:10px;padding:18px 0}
