@@ -6299,6 +6299,39 @@ body.reveal-ready .scroll-reveal.is-visible{
   }
 }
 
+/* ---- Combined Nazotoki and Omonazo introduction ---- */
+.puzzle-about{
+  margin-top:72px;
+  padding:56px;
+  border:2px solid var(--line);
+  border-radius:24px;
+  background-color:#f5f6f7 !important;
+  background-image:radial-gradient(circle at 1px 1px,rgba(70,84,96,.13) 1.15px,transparent 1.25px) !important;
+  background-size:22px 22px !important;
+}
+.puzzle-about-heading{
+  margin:10px 0 0;
+  font-size:clamp(32px,4vw,46px);
+  line-height:1.3;
+  letter-spacing:-.035em;
+}
+@media(max-width:900px){
+  .puzzle-about{
+    margin-top:56px;
+    padding:40px;
+  }
+}
+@media(max-width:620px){
+  .puzzle-about{
+    margin-top:44px;
+    padding:28px 18px;
+    border-radius:18px;
+  }
+  .puzzle-about-heading{
+    font-size:30px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -6373,6 +6406,48 @@ body.reveal-ready .scroll-reveal.is-visible{
       <figure class="puzzle-guide-visual">
         <img src="assets/images/hero_03_mystery_room.png" alt="部屋に隠された手がかりを探し、仲間と相談しながら謎を解く参加者">
       </figure>
+    </div>
+
+    <div class="puzzle-about" id="about">
+      <div class="eyebrow">ABOUT OMONAZO</div>
+      <h3 class="puzzle-about-heading">オモ謎がつくる謎解き</h3>
+
+      <div class="about-intro">
+        <div class="about-overview">
+          <strong>長野の「面白い」を、心に残る謎解き体験へ。</strong>
+          <p>オモ謎は、信州大学発スタートアップ認定企業である株式会社OMOMOが提供する、長野県に根ざした謎解き制作サービスです。地域・企業・学校・観光施設が持つ魅力を丁寧にひも解き、参加する人が楽しみながらその価値に出会える体験へと変えていきます。</p>
+          <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
+        </div>
+        <figure class="about-team-photo">
+          <img src="assets/images/about-omonazo-team.jpg" alt="オモ謎を運営する株式会社OMOMOのスタッフ集合写真">
+        </figure>
+      </div>
+
+      <div class="features" id="about-features">
+        <article class="feature">
+          <div class="n">1</div>
+          <h3>長野県に根ざした謎解き制作</h3>
+          <p>長野県内の地域・文化・観光・教育の現場に触れながら、その土地ならではの魅力を謎解きに落とし込みます。長野発のサービスとして、県外の案件にも対応します。</p>
+        </article>
+
+        <article class="feature">
+          <div class="n">2</div>
+          <h3>地元大学生も制作に参加</h3>
+          <p>信州大学の謎解きサークルでの活動を原点に、地元の大学生も制作に参加しています。学生ならではの柔軟な発想を取り入れつつ、経験あるスタッフが企画から品質管理まで一貫して担います。</p>
+        </article>
+
+        <article class="feature">
+          <div class="n">3</div>
+          <h3>完全オリジナル制作</h3>
+          <p>地域・施設・企業・学校などが持つ素材や特徴を、謎やストーリーに反映します。その場所・その組織だからこそ成立する体験をつくります。</p>
+        </article>
+
+        <article class="feature">
+          <div class="n">4</div>
+          <h3>目的から謎解きを設計</h3>
+          <p>謎をつくること自体を目的にせず、集客・回遊・交流・学びなど「何を実現したいか」から逆算して、形式や内容を設計します。</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -6451,53 +6526,6 @@ body.reveal-ready .scroll-reveal.is-visible{
 
 
 <section class="photo-break photo" id="statement"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong><span class="photo-break-title-line">目的に合わせた、</span><span class="photo-break-title-line">オリジナルの謎解き体験を。</span></strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
-
-
-<section class="section mint" id="about">
-  <div class="wrap">
-    <div class="eyebrow">ABOUT OMONAZO</div>
-    <h2 class="balanced-copy">オモ謎とは？</h2>
-
-    <div class="about-intro">
-      <div class="about-overview">
-        <strong>長野の「面白い」を、心に残る謎解き体験へ。</strong>
-        <p>オモ謎は、信州大学発スタートアップ認定企業である株式会社OMOMOが提供する、長野県に根ざした謎解き制作サービスです。地域・企業・学校・観光施設が持つ魅力を丁寧にひも解き、参加する人が楽しみながらその価値に出会える体験へと変えていきます。</p>
-        <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
-      </div>
-      <figure class="about-team-photo">
-        <img src="assets/images/about-omonazo-team.jpg" alt="オモ謎を運営する株式会社OMOMOのスタッフ集合写真">
-      </figure>
-    </div>
-
-    <div class="features" id="about-features">
-      <article class="feature">
-        <div class="n">1</div>
-        <h3>長野県に根ざした謎解き制作</h3>
-        <p>長野県内の地域・文化・観光・教育の現場に触れながら、その土地ならではの魅力を謎解きに落とし込みます。長野発のサービスとして、県外の案件にも対応します。</p>
-      </article>
-
-      <article class="feature">
-        <div class="n">2</div>
-        <h3>地元大学生も制作に参加</h3>
-        <p>信州大学の謎解きサークルでの活動を原点に、地元の大学生も制作に参加しています。学生ならではの柔軟な発想を取り入れつつ、経験あるスタッフが企画から品質管理まで一貫して担います。</p>
-      </article>
-
-      <article class="feature">
-        <div class="n">3</div>
-        <h3>完全オリジナル制作</h3>
-        <p>地域・施設・企業・学校などが持つ素材や特徴を、謎やストーリーに反映します。その場所・その組織だからこそ成立する体験をつくります。</p>
-      </article>
-
-      <article class="feature">
-        <div class="n">4</div>
-        <h3>目的から謎解きを設計</h3>
-        <p>謎をつくること自体を目的にせず、集客・回遊・交流・学びなど「何を実現したいか」から逆算して、形式や内容を設計します。</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
 
 
 <section class="section" id="format">
