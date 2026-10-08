@@ -6045,6 +6045,47 @@ section.section#flow.mint,
 .case-map-external{
   margin-top:16px;
 }
+#price .price h3{
+  margin-bottom:6px;
+}
+.case-map-selector{
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  gap:12px;
+}
+.case-map-extra-regions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.case-map-region-button{
+  min-height:44px;
+  border:2px solid var(--line);
+  border-radius:999px;
+  background:#ffffff;
+  color:var(--ink);
+  font:inherit;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.2;
+  cursor:pointer;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.case-map-region-button:hover,
+.case-map-region-button:focus-visible{
+  border-color:var(--blue);
+  color:var(--blue);
+  outline:none;
+  transform:translateY(-1px);
+}
+.case-map-region-button.is-active,
+.case-map-region-button.is-active:hover,
+.case-map-region-button.is-active:focus-visible{
+  border-color:var(--blue);
+  background:var(--blue);
+  color:#ffffff;
+}
 @media(max-width:620px){
   .hero h1{
     line-height:1.24 !important;
@@ -6055,6 +6096,16 @@ section.section#flow.mint,
   }
   .case-map-detail-copy{
     padding:2px 2px 0;
+  }
+  .case-map-selector{
+    gap:9px;
+  }
+  .case-map-extra-regions{
+    gap:8px;
+  }
+  .case-map-region-button{
+    min-height:40px;
+    font-size:14px;
   }
 }
 
@@ -6500,8 +6551,9 @@ body.reveal-ready .scroll-reveal.is-visible{
     <p class="lead">長野県内を中心に、学校・企業・自治体・観光施設・イベントなど、200件以上の謎解き企画・制作に携わってきました。</p>
     <p class="case-map-instruction">地図のエリアをクリックすると実績が切り替わります</p>
     <div class="case-map-layout">
-      <div class="case-map-board" aria-label="長野県内の開催実績マップ">
-        <svg class="case-map-outline" viewBox="0 0 500 650" role="group" aria-label="長野県のエリア別導入実績">
+      <div class="case-map-selector">
+        <div class="case-map-board" aria-label="長野県内の開催実績マップ">
+          <svg class="case-map-outline" viewBox="0 0 500 650" role="group" aria-label="長野県のエリア別導入実績">
           <defs>
             <path id="nagano-map-shape" transform="matrix(1.24 0 0 1.268 -102 -28.2)" d="M377 38C359 38 351 49 348 63C346 76 340 85 333 87C327 89 317 82 306 86C293 89 281 101 274 100C268 99 274 88 274 83C272 73 262 68 250 69C241 70 243 80 240 91C237 101 226 105 221 109C217 114 223 132 222 140C221 151 212 157 206 160C201 164 198 179 194 190C191 199 185 209 184 210C187 220 197 226 196 236C195 247 182 253 181 261C179 269 188 278 187 286C186 293 177 298 179 305C181 312 187 317 184 324C180 332 169 337 164 338C153 338 146 334 139 340C134 344 131 352 127 358C137 359 143 360 151 367C163 375 168 387 173 400C177 410 170 416 171 421C173 430 184 438 188 446C193 456 194 460 188 470C181 481 177 493 176 504C179 509 185 515 190 517C197 515 201 506 214 507C225 507 232 516 241 514C250 512 252 505 262 504C274 502 281 490 290 484C298 479 305 478 307 473C309 468 301 464 300 459C299 454 306 451 306 444C306 435 301 433 305 424C308 416 318 408 320 402C322 396 312 389 312 383C312 377 321 376 322 371C323 365 312 361 312 356C313 349 319 338 322 335C327 336 332 345 337 346C342 342 343 324 348 317C353 314 363 319 368 325C374 334 374 341 381 341C387 340 390 332 400 333C410 334 414 344 419 344C425 344 432 336 427 323C423 312 409 308 406 300C404 294 408 287 404 281C401 276 393 275 393 269C394 264 403 263 404 257C405 251 396 248 396 240C396 232 406 224 408 211C409 205 410 201 405 199C397 195 386 197 379 201C371 204 362 207 355 203C350 200 348 194 349 187C350 177 358 169 358 159C359 151 367 143 375 141C381 138 378 130 384 127C391 125 406 125 414 118C418 114 412 106 412 101C412 96 418 93 417 88C415 83 408 80 406 74C403 66 402 56 398 49C394 42 386 38 377 38Z"/>
             <clipPath id="nagano-map-clip"><use href="#nagano-map-shape"/></clipPath>
@@ -6520,7 +6572,12 @@ body.reveal-ready .scroll-reveal.is-visible{
             <text class="case-map-area-label is-central" x="195" y="326">中信</text>
             <text class="case-map-area-label" x="210" y="535">南信</text>
           </g>
-        </svg>
+          </svg>
+        </div>
+        <div class="case-map-extra-regions" aria-label="地図外の実績区分">
+          <button class="case-map-region case-map-region-button" type="button" data-region="all" aria-pressed="false">全県</button>
+          <button class="case-map-region case-map-region-button" type="button" data-region="other" aria-pressed="false">その他</button>
+        </div>
       </div>
       <article class="case-map-detail" aria-live="polite">
         <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
@@ -6720,6 +6777,10 @@ if (reduceMotion.matches) {
 }
 
 const caseMapData = {
+  all:[
+    {location:'長野県全域',client:'長野県〇〇事業（ダミー）',title:'全県周遊イベントダミー\n県内を巡る謎解き企画',type:'全県周遊型',description:'長野県内の複数地域をつなぎ、各地の魅力を巡りながら発見できる全県規模の謎解きを実施しています。',image:'',url:''},
+    {location:'長野県全域',client:'〇〇キャンペーン事務局（ダミー）',title:'広域キャンペーンダミー\n信州魅力発見プロジェクト',type:'広域キャンペーン型',description:'県内各地の施設や観光スポットを横断し、地域ごとの特色に触れられる広域企画を実施しています。',image:'',url:''}
+  ],
   north:[
     {location:'長野市',client:'〇〇市観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:'',url:''},
     {location:'須坂市',client:'〇〇実行委員会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:'',url:''}
@@ -6735,6 +6796,10 @@ const caseMapData = {
   south:[
     {location:'伊那市',client:'〇〇高等学校（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:'',url:''},
     {location:'飯田市',client:'〇〇まちづくり協議会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:'',url:''}
+  ],
+  other:[
+    {location:'東京都',client:'株式会社〇〇（ダミー）',title:'企業交流イベントダミー\nチーム謎解きプログラム',type:'企業研修・交流型',description:'所属や役職を越えたコミュニケーションを促す、企業イベント向けの謎解きを実施しています。',image:'',url:''},
+    {location:'オンライン',client:'〇〇実行委員会（ダミー）',title:'オンライン企画ダミー\nWeb謎解きキャンペーン',type:'Web・スマホ型',description:'場所を問わず参加できるWeb形式で、情報発信やキャンペーンにつながる謎解きを実施しています。',image:'',url:''}
   ]
 };
 const caseMapRegions = [...document.querySelectorAll('.case-map-region')];
