@@ -6169,6 +6169,13 @@ body.reveal-ready .scroll-reveal.is-visible{
 }
 
 /* ---- Client logo artwork ---- */
+:root{
+  --client-logo-strip-height:112px;
+}
+.hero{
+  min-height:calc(100vh - var(--client-logo-strip-height)) !important;
+  min-height:calc(100svh - var(--client-logo-strip-height)) !important;
+}
 .logo-strip{
   padding-block:18px !important;
 }
@@ -6203,6 +6210,9 @@ body.reveal-ready .scroll-reveal.is-visible{
   object-fit:contain;
 }
 @media(max-width:620px){
+  :root{
+    --client-logo-strip-height:94px;
+  }
   .logo-strip{
     padding-block:14px !important;
   }
