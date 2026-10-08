@@ -6168,6 +6168,58 @@ body.reveal-ready .scroll-reveal.is-visible{
   }
 }
 
+/* ---- Client logo artwork ---- */
+.logo-strip{
+  padding-block:18px !important;
+}
+.marquee{
+  animation-duration:42s !important;
+}
+.marquee-group{
+  min-width:max-content;
+  align-items:center;
+  justify-content:flex-start;
+  gap:14px;
+  padding-right:14px;
+}
+.marquee-group .logo-pill{
+  display:flex;
+  width:180px;
+  height:74px;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px !important;
+  overflow:hidden;
+  border:1px solid var(--line) !important;
+  border-radius:12px !important;
+  background:#ffffff !important;
+}
+.logo-pill img{
+  display:block;
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:100%;
+  object-fit:contain;
+}
+@media(max-width:620px){
+  .logo-strip{
+    padding-block:14px !important;
+  }
+  .marquee{
+    animation-duration:36s !important;
+  }
+  .marquee-group{
+    gap:10px;
+    padding-right:10px;
+  }
+  .marquee-group .logo-pill{
+    width:150px;
+    height:64px;
+    padding:9px 12px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -6196,10 +6248,36 @@ body.reveal-ready .scroll-reveal.is-visible{
 <section class="logo-strip" id="client-logos" aria-label="取引先・導入先ロゴ一覧">
   <div class="marquee">
     <div class="marquee-group">
-      <div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div>
+      <div class="logo-pill"><img src="assets/images/client-logo-01-shinshu-university.jpg" alt="信州大学"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-02-ministry-environment.png" alt="環境省"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-03-azumino-park.jpg" alt="国営アルプスあづみの公園"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-04-nagano-prefecture.png" alt="長野県"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-05-matsumoto-city.jpg" alt="松本市"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-06-tsuruga-city.jpeg" alt="敦賀市"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-07-hokuto-culture-hall.png" alt="ホクト文化ホール 長野県県民文化会館"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-08-matsumoto-airport.jpg" alt="信州まつもと空港"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-09-sbc.png" alt="SBC信越放送"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-10-takinoyu-hotel.jpg" alt="信州・蓼科グランドホテル 滝の湯"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-11-shoho-hotel.jpeg" alt="翔峰"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-12-tsugaike-mountain-resort.png" alt="栂池マウンテンリゾート"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-13-hoshimeguru-theater.png" alt="星めぐる高原の劇場"></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-14-iroha-grand-hotel.jpg" alt="IROHA GRAND HOTEL"></div>
     </div>
     <div class="marquee-group" aria-hidden="true">
-      <div class="logo-pill">企業・団体ロゴ A</div><div class="logo-pill">自治体ロゴ B</div><div class="logo-pill">学校ロゴ C</div><div class="logo-pill">施設ロゴ D</div><div class="logo-pill">企業ロゴ E</div><div class="logo-pill">観光団体 F</div>
+      <div class="logo-pill"><img src="assets/images/client-logo-01-shinshu-university.jpg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-02-ministry-environment.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-03-azumino-park.jpg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-04-nagano-prefecture.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-05-matsumoto-city.jpg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-06-tsuruga-city.jpeg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-07-hokuto-culture-hall.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-08-matsumoto-airport.jpg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-09-sbc.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-10-takinoyu-hotel.jpg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-11-shoho-hotel.jpeg" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-12-tsugaike-mountain-resort.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-13-hoshimeguru-theater.png" alt=""></div>
+      <div class="logo-pill"><img src="assets/images/client-logo-14-iroha-grand-hotel.jpg" alt=""></div>
     </div>
   </div>
 </section>
@@ -6308,7 +6386,7 @@ body.reveal-ready .scroll-reveal.is-visible{
         <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
       </div>
       <figure class="about-team-photo">
-        <img src="assets/images/hero_01_group_puzzle.png" alt="謎解き制作チームのイメージ">
+        <img src="assets/images/about-omonazo-team.jpg" alt="オモ謎を運営する株式会社OMOMOのスタッフ集合写真">
       </figure>
     </div>
 
