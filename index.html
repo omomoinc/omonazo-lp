@@ -865,7 +865,7 @@ body{
   background:#ffffff !important;
 }
 .hero-bg{
-  background:#d8f1df url("assets/images/hero_01_group_puzzle.png") center/cover no-repeat !important;
+  background:#d8f1df url("assets/images/hero_01_group_puzzle.jpg") center/cover no-repeat !important;
 }
 .hero-overlay{
   background:rgba(15,43,77,.46) !important;
@@ -1182,7 +1182,7 @@ body{
   background:#d8f1df !important;
 }
 .hero-bg{
-  background:#d8f1df url("assets/images/hero_01_group_puzzle.png") center/cover no-repeat !important;
+  background:#d8f1df url("assets/images/hero_01_group_puzzle.jpg") center/cover no-repeat !important;
 }
 .hero-overlay{
   background:rgba(18,68,45,.42) !important;
@@ -1317,7 +1317,7 @@ body{
   color:rgba(24,50,76,.14) !important;
 }
 .photo-break{
-  background-image:url("assets/images/10_large_puzzle_experience.png") !important;
+  background-image:var(--lazy-bg,none) !important;
   background-position:center !important;
   background-size:cover !important;
   background-repeat:no-repeat !important;
@@ -3757,17 +3757,8 @@ html{
   background-size:contain !important;
   background-repeat:no-repeat !important;
 }
-.reason-illust.ri-attraction{
-  background-image:url("assets/images/06_problem_attraction_lineart.png?v=20261001") !important;
-}
-.reason-illust.ri-communication{
-  background-image:url("assets/images/07_problem_communication_lineart.png?v=20261001") !important;
-}
-.reason-illust.ri-learning{
-  background-image:url("assets/images/08_problem_learning_lineart.png?v=20261001") !important;
-}
-.reason-illust.ri-circulation{
-  background-image:url("assets/images/09_problem_circulation_lineart.png?v=20261001") !important;
+.lazy-background.is-loaded{
+  background-image:var(--lazy-bg) !important;
 }
 .case-body .tag{
   display:inline-flex;
@@ -4443,8 +4434,11 @@ p,
   margin:0;
 }
 .case-map-detail-image.has-image{
-  background-size:cover;
-  background-repeat:no-repeat;
+  background-color:#fff !important;
+  background-image:var(--case-image) !important;
+  background-position:center !important;
+  background-size:contain !important;
+  background-repeat:no-repeat !important;
 }
 .case-map-detail-image.has-image span{
   display:none;
@@ -4478,6 +4472,15 @@ p,
   color:#176341;
   font-size:14px;
   font-weight:900;
+}
+.case-map-detail-types{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.case-map-detail-types .case-map-detail-type{
+  margin-bottom:0;
 }
 .case-map-detail p{
   margin:0;
@@ -5847,7 +5850,7 @@ section.section#flow.mint,
 
 /* ---- Case metadata, mobile map guidance and CTA hover refinement ---- */
 .case-map-meta{
-  align-items:baseline;
+  align-items:center;
 }
 .case-map-meta .case-map-detail-label,
 .case-map-meta .case-map-detail-type{
@@ -6332,7 +6335,103 @@ body.reveal-ready .scroll-reveal.is-visible{
   }
 }
 
+.footer-legal{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:7px;
+}
+.footer-policy-trigger{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:var(--blue) !important;
+  font:inherit;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  transition:color .2s ease,transform .2s ease;
+}
+.footer-policy-trigger:hover{
+  color:var(--blue-strong) !important;
+  transform:translateY(-1px);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.site-footer{
+  padding:30px 0 92px !important;
+}
+.footer-inner{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center !important;
+  gap:24px 40px !important;
+}
+.footer-company{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px 16px !important;
+  text-align:left !important;
+}
+.footer-certification{
+  padding:6px 12px;
+  background:var(--blue-soft);
+  border:0;
+  color:var(--blue-strong);
+  font-size:12px;
+  line-height:1.35;
+}
+.footer-legal small{
+  color:var(--muted) !important;
+  font-size:12px;
+  letter-spacing:.02em;
+}
+@media(max-width:620px){
+  .site-footer{
+    padding:28px 0 104px !important;
+  }
+  .footer-inner{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:20px !important;
+    text-align:center;
+  }
+  .footer-company{
+    flex-direction:column !important;
+    gap:9px !important;
+    text-align:center !important;
+  }
+  .footer-legal{
+    align-items:center;
+    gap:8px;
+  }
+}
+.tally-embed-wrap{
+  width:100%;
+  max-width:760px;
+  margin-inline:auto;
+  padding:0 48px 48px;
+}
+.contact-card{
+  max-width:800px;
+  margin-inline:auto;
+}
+.tally-embed-wrap iframe{
+  display:block;
+  width:100%;
+  min-height:200px;
+  border:0;
+  background:transparent;
+}
+@media(max-width:620px){
+  .tally-embed-wrap{padding:0 22px 29px}
+}
+
 </style>
+<link rel="stylesheet" href="site-footer.css">
 </head>
 <body>
 
@@ -6341,10 +6440,10 @@ body.reveal-ready .scroll-reveal.is-visible{
 
 <section class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-slide is-active" style="background-image:url('assets/images/hero_01_group_puzzle.png')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/hero_02_town_walk.png')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/hero_03_mystery_room.png')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.png')"></div>
+    <div class="hero-slide is-active" style="background-image:url('assets/images/hero_01_group_puzzle.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero_02_town_walk.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero_03_mystery_room.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero_04_classroom_puzzle.jpg')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
@@ -6404,7 +6503,7 @@ body.reveal-ready .scroll-reveal.is-visible{
         <p>知識の多さを競うクイズとは異なり、観察したり、組み合わせたり、仲間と相談したりしながら進めます。年齢や経験を問わず参加しやすく、楽しみながら自然に交流・学び・回遊が生まれることが特徴です。</p>
       </div>
       <figure class="puzzle-guide-visual">
-        <img src="assets/images/hero_03_mystery_room.png" alt="部屋に隠された手がかりを探し、仲間と相談しながら謎を解く参加者">
+        <img src="assets/images/what-is-nazotoki.jpg" alt="謎解きゲームを楽しむ参加者" loading="lazy" decoding="async">
       </figure>
     </div>
 
@@ -6419,7 +6518,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>企画、謎やストーリーの制作、デザイン、運営まで一貫して対応。目的や対象者、開催場所に合わせて、ここでしかできないオリジナルの謎解きをつくります。</p>
         </div>
         <figure class="about-team-photo">
-          <img src="assets/images/about-omonazo-team.jpg" alt="オモ謎を運営する株式会社OMOMOのスタッフ集合写真">
+          <img src="assets/images/about-omonazo-team.jpg" alt="オモ謎を運営する株式会社OMOMOのスタッフ集合写真" loading="lazy" decoding="async">
         </figure>
       </div>
 
@@ -6454,10 +6553,10 @@ body.reveal-ready .scroll-reveal.is-visible{
 
 <section class="section" id="scene"><div class="wrap"><div class="eyebrow">USE CASE</div><h2 class="balanced-copy">こんな場面で活用できます</h2><p class="lead">「謎解きをやる」と決めていなくても大丈夫。地域性や現場の課題に合わせて、その場所らしさが伝わる体験をつくります。</p>
 <div class="use-grid">
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/05_usecase_event_facility.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>イベント・施設</h3><div class="tags"><span class="tag">集客イベント</span><span class="tag">施設回遊</span><span class="tag">ファミリー企画</span><span class="tag">キャンペーン</span></div></div></article>
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/04_usecase_tourism_region.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>観光・地域</h3><div class="tags"><span class="tag">まち歩き</span><span class="tag">周遊促進</span><span class="tag">地域理解</span><span class="tag">観光コンテンツ</span></div></div></article>
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/03_usecase_company.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>企業・団体</h3><div class="tags"><span class="tag">交流会</span><span class="tag">研修</span><span class="tag">レクリエーション</span><span class="tag">周年企画</span></div></div></article>
-<article class="use-card"><div class="use-photo" style="background-image:url('assets/images/02_usecase_school.png');background-size:cover;background-position:center"></div><div class="use-content"><h3>教育現場</h3><div class="tags"><span class="tag">探究学習</span><span class="tag">地域学習</span><span class="tag">校外学習</span><span class="tag">チーム学習</span></div></div></article>
+<article class="use-card"><div class="use-photo lazy-background" data-bg="assets/images/05_usecase_event_facility.jpg" style="background-size:cover;background-position:center"></div><div class="use-content"><h3>イベント・施設</h3><div class="tags"><span class="tag">集客イベント</span><span class="tag">施設回遊</span><span class="tag">ファミリー企画</span><span class="tag">キャンペーン</span></div></div></article>
+<article class="use-card"><div class="use-photo lazy-background" data-bg="assets/images/04_usecase_tourism_region.jpg" style="background-size:cover;background-position:center"></div><div class="use-content"><h3>観光・地域</h3><div class="tags"><span class="tag">まち歩き</span><span class="tag">周遊促進</span><span class="tag">地域理解</span><span class="tag">観光コンテンツ</span></div></div></article>
+<article class="use-card"><div class="use-photo lazy-background" data-bg="assets/images/03_usecase_company.jpg" style="background-size:cover;background-position:center"></div><div class="use-content"><h3>企業・団体</h3><div class="tags"><span class="tag">交流会</span><span class="tag">研修</span><span class="tag">レクリエーション</span><span class="tag">周年企画</span></div></div></article>
+<article class="use-card"><div class="use-photo lazy-background" data-bg="assets/images/02_usecase_school.jpg" style="background-size:cover;background-position:center"></div><div class="use-content"><h3>教育現場</h3><div class="tags"><span class="tag">探究学習</span><span class="tag">地域学習</span><span class="tag">校外学習</span><span class="tag">チーム学習</span></div></div></article>
 </div></div></section>
 
 
@@ -6472,25 +6571,25 @@ body.reveal-ready .scroll-reveal.is-visible{
 <div class="reason-problems">
   <article class="reason-problem">
     <span class="reason-category">集客</span>
-    <div class="reason-illust has-photo ri-attraction" role="img" aria-label="集客の課題を表す人物のイラスト"></div>
+    <div class="reason-illust has-photo ri-attraction lazy-background" data-bg="assets/images/06_problem_attraction_lineart.png?v=20261001" role="img" aria-label="集客の課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">イベントを告知しても</span><span class="problem-line">人が集まらない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">回遊</span>
-    <div class="reason-illust has-photo ri-circulation" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
+    <div class="reason-illust has-photo ri-circulation lazy-background" data-bg="assets/images/09_problem_circulation_lineart.png?v=20261001" role="img" aria-label="回遊の課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">見どころを巡らず</span><span class="problem-line">目的地だけで帰ってしまう</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">交流</span>
-    <div class="reason-illust has-photo ri-communication" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
+    <div class="reason-illust has-photo ri-communication lazy-background" data-bg="assets/images/07_problem_communication_lineart.png?v=20261001" role="img" aria-label="交流の課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">初対面同士では</span><span class="problem-line">会話が生まれない</span></h3>
   </article>
 
   <article class="reason-problem">
     <span class="reason-category">学び</span>
-    <div class="reason-illust has-photo ri-learning" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
+    <div class="reason-illust has-photo ri-learning lazy-background" data-bg="assets/images/08_problem_learning_lineart.png?v=20261001" role="img" aria-label="学びの課題を表す人物のイラスト"></div>
     <h3><span class="problem-line">講義では興味が続かず</span><span class="problem-line">内容が記憶に残らない</span></h3>
   </article>
 </div>
@@ -6525,7 +6624,7 @@ body.reveal-ready .scroll-reveal.is-visible{
 </section>
 
 
-<section class="photo-break photo" id="statement"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong><span class="photo-break-title-line">目的に合わせた、</span><span class="photo-break-title-line">オリジナルの謎解き体験を。</span></strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
+<section class="photo-break photo lazy-background" id="statement" data-bg="assets/images/10_large_puzzle_experience.jpg"><div class="photo-break-overlay"><div class="wrap"><div class="photo-break-copy"><strong><span class="photo-break-title-line">まだ知らない魅力を、</span><span class="photo-break-title-line">夢中になれる物語へ。</span></strong><p>オモ謎は、長野県に根ざす謎解き制作会社として地域や企業の魅力をひも解き、その場所・その目的だからこそ生まれる体験をつくります。</p></div></div></div></section>
 
 
 <section class="section" id="format">
@@ -6542,7 +6641,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>地域や施設を巡りながら謎を解く形式です。まち歩きや施設回遊を促し、参加者に新しい場所や魅力を発見してもらえます。</p>
           <div class="format-tags"><span>まち歩き</span><span>施設回遊</span><span>観光</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/11_format_touring.png');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo lazy-background" data-bg="assets/images/11_format_touring.jpg" style="background-size:cover;background-position:center"></div>
       </article>
 
       <article class="format-card">
@@ -6552,7 +6651,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>同じ会場で参加者が一斉に謎へ挑戦する形式です。チームで相談する場面をつくりやすく、交流会や社内イベントに向いています。</p>
           <div class="format-tags"><span>交流会</span><span>研修</span><span>イベント</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/12_format_venue_performance.png?v=20261001');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo lazy-background" data-bg="assets/images/12_format_venue_performance.jpg?v=20261001" style="background-size:cover;background-position:center"></div>
       </article>
 
       <article class="format-card">
@@ -6562,7 +6661,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>部屋や空間そのものを使って謎を解く形式です。仕掛けや演出を組み合わせ、没入感のある特別な体験をつくることができます。</p>
           <div class="format-tags"><span>没入体験</span><span>空間演出</span><span>チーム体験</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/13_format_room.png');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo lazy-background" data-bg="assets/images/13_format_room.jpg" style="background-size:cover;background-position:center"></div>
       </article>
 
       <article class="format-card">
@@ -6572,7 +6671,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>冊子やカードを使い、自分のペースで楽しめる形式です。常設企画や配布型コンテンツにも向き、比較的運営しやすいのが特徴です。</p>
           <div class="format-tags"><span>常設</span><span>配布型</span><span>自由参加</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/14_format_booklet_kit.png');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo lazy-background" data-bg="assets/images/14_format_booklet_kit.jpg" style="background-size:cover;background-position:center"></div>
       </article>
 
       <article class="format-card">
@@ -6582,7 +6681,7 @@ body.reveal-ready .scroll-reveal.is-visible{
           <p>スマートフォンやWebを使って進める形式です。動画や音声なども組み合わせやすく、デジタルならではの体験を設計できます。</p>
           <div class="format-tags"><span>スマホ</span><span>Web</span><span>デジタル</span></div>
         </div>
-        <div class="format-card-photo" style="background-image:url('assets/images/15_format_web_smartphone.png');background-size:cover;background-position:center"></div>
+        <div class="format-card-photo lazy-background" data-bg="assets/images/15_format_web_smartphone.jpg" style="background-size:cover;background-position:center"></div>
       </article>
     </div>
   </div>
@@ -6609,18 +6708,18 @@ body.reveal-ready .scroll-reveal.is-visible{
       </div>
       <article class="case-map-detail" aria-live="polite">
         <button class="case-map-side-nav" type="button" id="caseMapPrev" aria-label="前の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
-        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="長野県全域の導入実績画像"><span>実績画像</span></div>
+        <div class="case-map-detail-image" id="caseMapImage" role="img" aria-label="長野県の導入実績画像"><span>実績画像</span></div>
         <div class="case-map-detail-copy">
           <div class="case-map-meta">
-            <span class="case-map-detail-label" id="caseMapLocation">長野県全域</span>
-            <span class="case-map-detail-type" id="caseMapType">全県周遊型</span>
+            <span class="case-map-detail-label" id="caseMapLocation">長野県</span>
+            <span class="case-map-detail-types" id="caseMapType"><span class="case-map-detail-type">観光周遊型</span><span class="case-map-detail-type">Web・スマホ型</span></span>
           </div>
-          <span class="case-map-detail-client" id="caseMapClient">長野県〇〇事業（ダミー）様</span>
-          <h3 id="caseMapTitle">全県周遊イベントダミー<br>県内を巡る謎解き企画</h3>
-          <p id="caseMapDescription">長野県内の複数地域をつなぎ、各地の魅力を巡りながら発見できる全県規模の謎解きを実施しています。</p>
+          <span class="case-map-detail-client" id="caseMapClient">長野県県民文化部様</span>
+          <h3 id="caseMapTitle">信州・時空探偵団</h3>
+          <p id="caseMapDescription">長野県内各地の観光スポットを巡り、歴史や地域の魅力に触れながら楽しめるデジタルスタンプラリーです。</p>
           <a class="case-map-external" id="caseMapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>詳細はこちら<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
           <div class="case-map-controls">
-            <span class="case-map-counter" id="caseMapCounter">1 / 2</span>
+            <span class="case-map-counter" id="caseMapCounter">1 / 1</span>
           </div>
         </div>
         <button class="case-map-side-nav" type="button" id="caseMapNext" aria-label="次の実績を見る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
@@ -6690,25 +6789,19 @@ body.reveal-ready .scroll-reveal.is-visible{
 
 <section class="section" id="faq"><div class="wrap"><div class="eyebrow">FAQ</div><h2>よくある質問</h2><div class="faq"><div class="qa"><div class="q">Q. 制作にはどれくらいの期間がかかりますか？</div><div class="a">目安は2〜4か月です。小規模な冊子・キット型は約2〜3か月、大規模な周遊型やシステム開発を伴う企画は約4〜6か月を想定しています。開催希望日の3か月前までのご相談がおすすめです。</div></div><div class="qa"><div class="q">Q. 料金はいくらくらいかかりますか？</div><div class="a">目安は、周遊型30万円〜、会場・公演型50万円〜、ルーム型100万円〜、冊子・キット型30万円〜、Web・スマホ型20万円〜です。謎の数やデザイン物、システム、当日運営の有無によって変動します。</div></div><div class="qa"><div class="q">Q. 企画内容が決まっていなくても相談できますか？</div><div class="a">はい。「何を実現したいか」という段階からご相談いただけます。打ち合わせでは過去の事例などもお見せしながら、目的やご予算に合う内容を一緒に考えます。</div></div><div class="qa"><div class="q">Q. 長野県外でも対応できますか？</div><div class="a">はい。長野県に根ざした制作会社として、信州で培った企画力を活かし、県外の案件にも対応可能です。</div></div><div class="qa"><div class="q">Q. 子ども向け・大人向けなど、難易度は調整できますか？</div><div class="a">対象年齢や参加者像に合わせて、謎の難易度を調整します。ヒントも紙・LINE・Webなどから柔軟に選び、誰でも楽しめる体験に設計します。</div></div><div class="qa"><div class="q">Q. 何人くらいまで参加できますか？</div><div class="a">10名程度の社内企画から、1,000名以上が参加する周遊イベントまで対応可能です。会場・公演型は1回30〜300名、ルーム型は1回4〜20名程度を目安に、人数に合う形式をご提案します。</div></div><div class="qa"><div class="q">Q. 冊子や印刷物などのデザインもお願いできますか？</div><div class="a">はい。必要な冊子・パネル・ツールなどのデザインから印刷発注まで、まとめてご相談いただけます。</div></div><div class="qa"><div class="q">Q. 当日の運営もお願いできますか？</div><div class="a">はい。開催場所や案件内容に応じて、現地での設営・受付・進行などの当日運営もご相談いただけます。</div></div></div></div></section>
 
-<section class="section contact-section" id="contact"><div class="wrap"><div class="contact-card"><div class="contact-photo" style="background-image:url('assets/images/16_contact_meeting.png');background-size:cover;background-position:center"></div><div class="cta-panel"><div><div class="eyebrow">CONTACT</div><h2 class="balanced-copy">「こんなことをしてみたい」から、一緒に考えます。</h2><p>長野県内で「何かしたい」という段階でも大丈夫です。目的・対象・場所・予算に合わせて、地域の魅力が伝わる謎解き体験をご提案します。</p></div></div><form class="form-preview" id="contactForm"><input class="field" type="text" name="name" aria-label="お名前" placeholder="お名前" autocomplete="name"><input class="field" type="text" name="organization" aria-label="会社・団体名" placeholder="会社・団体名" autocomplete="organization"><input class="field" type="email" name="email" aria-label="メールアドレス" placeholder="メールアドレス" autocomplete="email"><input class="field" type="tel" name="tel" aria-label="電話番号（任意）" placeholder="電話番号（任意）" autocomplete="tel"><input class="field" type="text" name="preferred_date" aria-label="実施予定時期（未定可）" placeholder="実施予定時期（未定可）"><input class="field" type="text" name="location" aria-label="実施予定場所（未定可）" placeholder="実施予定場所（未定可）"><input class="field" type="text" name="participants" aria-label="想定参加人数（未定可）" placeholder="想定参加人数（未定可）" inputmode="numeric"><textarea class="field full" name="message" aria-label="お問い合わせ内容" placeholder="お問い合わせ内容" rows="5"></textarea>
-
-<div class="form-submit">
-  <button class="submit-btn" type="submit">
-    <span>この内容で送信する</span>
-    <svg class="submit-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M3.5 4.5 21 12 3.5 19.5 6.6 13 15 12 6.6 11 3.5 4.5Z" fill="currentColor"/>
-    </svg>
-  </button>
-</div></form></div></div></section>
+<section class="section contact-section" id="contact"><div class="wrap"><div class="contact-card"><div class="cta-panel"><div><div class="eyebrow">CONTACT</div><h2 class="balanced-copy">「こんなことをしてみたい」から、<br class="desktop-break">一緒に考えます。</h2><p>長野県内で「何かしたい」という段階でも大丈夫です。地域の魅力発信はもちろん、集客・交流・学びなど、目的・対象・場所・予算に合わせた謎解き体験をご提案します。まずはお気軽にご相談ください。</p></div></div><div class="tally-embed-wrap"><iframe data-tally-src="https://tally.so/embed/VLkr0N?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせ"></iframe></div></div></div></section>
 </main>
 
 <footer class="site-footer" id="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-company">
-      <a href="https://omomo-inc.com/" class="footer-link" target="_blank" rel="noopener noreferrer">運営会社：株式会社OMOMO<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
+      <a href="https://omomo-inc.com/" class="footer-link" target="_blank" rel="noopener noreferrer">株式会社OMOMO<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
       <span class="footer-certification">信州大学発スタートアップ認定企業</span>
     </div>
-    <small>© 2026 OMOMO Inc. All Rights Reserved.</small>
+    <div class="footer-legal">
+      <a class="footer-policy-trigger" href="privacy-policy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+      <small>© OMOMO Inc. All Rights Reserved.</small>
+    </div>
   </div>
 </footer>
 
@@ -6804,30 +6897,50 @@ if (reduceMotion.matches) {
   requestOrderedReveal();
 }
 
+const lazyBackgrounds = [...document.querySelectorAll('.lazy-background[data-bg]')];
+const loadBackground = element => {
+  const source = element.dataset.bg;
+  if (!source) return;
+  element.style.setProperty('--lazy-bg',`url("${source}")`);
+  element.classList.add('is-loaded');
+  element.removeAttribute('data-bg');
+};
+if ('IntersectionObserver' in window) {
+  const backgroundObserver = new IntersectionObserver((entries,observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      loadBackground(entry.target);
+      observer.unobserve(entry.target);
+    });
+  },{rootMargin:'320px 0px'});
+  lazyBackgrounds.forEach(element => backgroundObserver.observe(element));
+} else {
+  lazyBackgrounds.forEach(loadBackground);
+}
+
 const caseMapData = {
   all:[
-    {location:'長野県全域',client:'長野県〇〇事業（ダミー）',title:'全県周遊イベントダミー\n県内を巡る謎解き企画',type:'全県周遊型',description:'長野県内の複数地域をつなぎ、各地の魅力を巡りながら発見できる全県規模の謎解きを実施しています。',image:'',url:''},
-    {location:'長野県全域',client:'〇〇キャンペーン事務局（ダミー）',title:'広域キャンペーンダミー\n信州魅力発見プロジェクト',type:'広域キャンペーン型',description:'県内各地の施設や観光スポットを横断し、地域ごとの特色に触れられる広域企画を実施しています。',image:'',url:''}
+    {location:'長野県',client:'長野県県民文化部',title:'信州・時空探偵団',type:'観光周遊型,Web・スマホ型',description:'長野県内各地の観光スポットを巡り、スマートフォンでスタンプを集めるデジタルスタンプラリー。LINEを使った謎解き「信州時空探偵団」も楽しめ、長野県の歴史や地域の魅力に触れながら周遊できます。',image:'assets/images/case-nagano-jiku-detectives.jpg',url:'https://150th.pref.nagano.lg.jp/stamprally/'}
   ],
   north:[
-    {location:'長野市',client:'〇〇市観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域周遊・イベント型',description:'地域や会場の魅力を巡りながら発見できる、周遊型・イベント型の謎解きを実施しています。',image:'',url:''},
-    {location:'須坂市',client:'〇〇実行委員会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'まち歩き・観光型',description:'まちなかの見どころへ自然に足を運べる、観光・回遊を目的とした謎解きを実施しています。',image:'',url:''}
+    {location:'小谷村（白馬バレー）',client:'株式会社栂池ゴンドラリフト',title:'栂池謎解きトレッキング',type:'観光周遊型',description:'長野県小谷村の栂池高原を舞台にした周遊型謎解きイベント。雄大な自然の中を散策しながら謎を解き明かします。家族向けと大人向けの2コースがあり、自然散策と謎解きを楽しめます。',image:'assets/images/case-otari-tsugaike-trekking.jpg',url:'https://www.tsugaike.gr.jp/lp/nazotoki/'},
+    {location:'長野市',client:'ホクト文化ホール（長野県県民文化会館）',title:'謎だらけ！ホールからの脱出!!',type:'館内周遊型',description:'ホールに閉じ込められてしまった参加者が、館内にちりばめられた謎を解き明かし、脱出を目指す体験型イベント。普段とは違うホールの空間を楽しみながら、ひらめきと発想力を駆使して挑戦します。',image:'assets/images/case-nagano-hokuto-hall.jpg',url:'https://www.cheerful-nagano.com/child/event/21097/'},
+    {location:'須坂市',client:'長野経済研究所',title:'臥竜公園探偵団',type:'園内周遊型',description:'消えたレシピの謎を追い、探偵団の一員となって公園内を巡る謎解きイベント。各所に隠された手がかりを探しながら謎を解き、次の目的地を目指します。クリア後にはお楽しみガチャガチャにも挑戦できます。',image:'assets/images/case-suzaka-garyu-park.jpg',url:'https://www.cheerful-nagano.com/child/event/21681/'}
   ],
-  east:[
-    {location:'上田市',client:'〇〇文化振興財団（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'歴史・まち歩き型',description:'地域の歴史や物語を手がかりに、まちの魅力をひも解く周遊企画を実施しています。',image:'',url:''}
-  ],
+  east:[],
   central:[
-    {location:'松本市',client:'株式会社〇〇（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域・施設イベント型',description:'地域イベントや施設の特徴に合わせて、参加者が一緒に楽しめる謎解きを実施しています。',image:'',url:'https://example.com/'},
-    {location:'安曇野市',client:'〇〇観光協会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'観光周遊型',description:'自然や観光スポットを巡り、新しい見どころに出会える周遊型の謎解きを実施しています。',image:'',url:''},
-    {location:'木曽地域',client:'〇〇地域振興局（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域資源活用型',description:'地域ならではの景観や文化を題材に、その土地を深く知る謎解き体験を実施しています。',image:'',url:''}
+    {location:'茅野市',client:'蓼科グランドホテル滝の湯',title:'時の揺らぎと百年の宿',type:'館内周遊型,Web・スマホ型',description:'創業100年を超える老舗ホテルで起こる不思議な現象「時空の揺らぎ」。参加者は館内を巡りながらさまざまな謎を解き、ホテルの歴史に隠された秘密を紐解き、未来を切り拓いていきます。',image:'assets/images/case-chino-takinoyu.jpg',url:'https://takinoyu.co.jp/nazotoki/'},
+    {location:'茅野市',client:'星めぐる高原の劇場『ライムライト』',title:'月陽のあわい',type:'宿泊周遊型',description:'月を知らないニッコウキスゲと、太陽を知らないツキミソウ。2つの花にまつわる物語を、宿泊しながら解き明かす謎解き体験。食事やお酒を楽しみながら、自分のペースで物語の結末を導き出します。',image:'assets/images/case-chino-tsukihi-no-awai.jpg',url:'https://www.chillnn.com/ja/199dcc41e8e333/plan/19f2655318011a'},
+    {location:'大町市',client:'国営アルプス安曇野公園（大町・松川地区）',title:'開幕！秋の謎解きフェスティバル',type:'園内周遊型',description:'園内各所に仕掛けられた謎に挑み、「幻の森のチャンピオン」を目指す謎解きイベント。豊かな自然の中を散策しながら、ひらめきと発想力を駆使してすべての謎のクリアに挑戦します。',image:'assets/images/case-omachi-azumino-park.jpg',url:'https://www.azumino-koen.jp/oomachi_matsukawa/new/topics.php?id=3194'},
+    {location:'松本市',client:'長野県松本県ヶ丘高校',title:'まつもと探究謎解きラリー',type:'探究周遊型',description:'松本の街を巡りながら、各所に仕掛けられた謎を解き明かす体験型イベント。高校の探究学習の一環として、生徒たちが協力して謎解きに挑戦し、楽しみながら地域の魅力や新たな発見に出会います。',image:'assets/images/case-matsumoto-agatagaoka.jpg',url:'https://omomo-inc.com/case/20260424'}
   ],
   south:[
-    {location:'伊那市',client:'〇〇高等学校（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'学校・探究学習型',description:'自分で考え、仲間と相談しながら学べる、学校・探究学習向けの謎解きを実施しています。',image:'',url:''},
-    {location:'飯田市',client:'〇〇まちづくり協議会（ダミー）',title:'イベント名ダミー\nサブタイトルダミー',type:'地域交流イベント型',description:'世代や所属を越えて自然に会話が生まれる、地域交流型の謎解きを実施しています。',image:'',url:''}
+    {location:'伊那市',client:'伊那市地域おこし協力隊',title:'構造君・ジオ博士と行く！謎解き調査団!!',type:'観光周遊型',description:'豊かな自然の中を散策しながら、看板や石碑をヒントに謎を解き明かす周遊型イベント。高遠と長谷の2エリアにそれぞれ4つの謎が仕掛けられ、両エリアをクリアすると追加の謎にも挑戦できます。',image:'assets/images/case-ina-geo-investigation.jpg',url:'https://ina.keizai.biz/headline/341/'},
+    {location:'平谷村',client:'平谷村地域おこし協力隊',title:'秘境に眠る黄金を探せ',type:'観光周遊型',description:'南信州の秘境に眠る黄金を探し求め、村のおすすめスポットを巡りながら謎を解く体験型イベント。豊かな自然や地域の魅力に触れながら、手ごたえのある謎解きを楽しめます。',image:'assets/images/case-hiraya-golden-treasure.jpg',url:'https://db.go-nagano.net/topics_detail11/id=19593'}
   ],
   other:[
-    {location:'東京都',client:'株式会社〇〇（ダミー）',title:'企業交流イベントダミー\nチーム謎解きプログラム',type:'企業研修・交流型',description:'所属や役職を越えたコミュニケーションを促す、企業イベント向けの謎解きを実施しています。',image:'',url:''},
-    {location:'オンライン',client:'〇〇実行委員会（ダミー）',title:'オンライン企画ダミー\nWeb謎解きキャンペーン',type:'Web・スマホ型',description:'場所を問わず参加できるWeb形式で、情報発信やキャンペーンにつながる謎解きを実施しています。',image:'',url:''}
+    {location:'北信〜新潟県',client:'環境省戸隠自然保護官事務所',title:'謎解き探検隊',type:'観光周遊型,Web・スマホ型',description:'妙高戸隠連山国立公園の4つのエリアを巡り、自然や歴史、文化にまつわる謎を解き明かす周遊型イベント。現地の景色や展示をヒントに謎を解き、すべてのエリアをクリアすると最後の謎に挑戦できます。',image:'assets/images/case-myoko-togakushi-national-park.jpg',url:'https://cocolomy.com/navi/nationalpark-nazotoki/'},
+    {location:'東京都青梅市',client:'岩藏エクスペリエンス株式会社',title:'フセギの草鞋と百年前の恋文',type:'観光周遊型,Web・スマホ型',description:'夢に現れた青年の願いを叶えるため、地域に残る6か所の「フセギの草鞋」を巡る謎解きイベント。スマートフォンを使って謎を解きながら、岩蔵の歴史や伝統文化に触れられます。',image:'assets/images/case-ome-iwakura.jpg',url:'https://iwakura-experience.tokyo/report/iwakura-nazotoki-walk/'}
   ]
 };
 const caseMapRegions = [...document.querySelectorAll('.case-map-region')];
@@ -6843,30 +6956,71 @@ const caseMapPrev = document.querySelector('#caseMapPrev');
 const caseMapNext = document.querySelector('#caseMapNext');
 let activeCaseRegion = 'all';
 let activeCaseIndex = 0;
+let caseImagesEnabled = !('IntersectionObserver' in window);
 
 const renderCaseMapDetail = () => {
   const cases = caseMapData[activeCaseRegion] || [];
   const currentCase = cases[activeCaseIndex];
-  if (!currentCase) return;
+  if (!currentCase) {
+    const regionName = caseMapRegions.find(element => element.dataset.region === activeCaseRegion)?.textContent?.trim() || '';
+    caseMapLocation.textContent = regionName;
+    caseMapClient.textContent = '';
+    caseMapClient.hidden = true;
+    caseMapTitle.textContent = '掲載準備中です';
+    caseMapType.replaceChildren();
+    caseMapType.hidden = true;
+    caseMapDescription.textContent = 'このエリアの実績は順次追加します。';
+    caseMapLink.hidden = true;
+    caseMapLink.removeAttribute('href');
+    caseMapCounter.textContent = '0 / 0';
+    caseMapImage.classList.remove('has-image');
+    caseMapImage.style.removeProperty('--case-image');
+    caseMapImage.setAttribute('aria-label',`${regionName}の導入実績画像`);
+    caseMapPrev.disabled = true;
+    caseMapNext.disabled = true;
+    return;
+  }
   caseMapLocation.textContent = currentCase.location;
   const clientName = currentCase.client?.trim() || '';
   caseMapClient.textContent = clientName ? `${clientName.replace(/様$/,'')}様` : '';
   caseMapClient.hidden = !clientName;
   caseMapTitle.textContent = currentCase.title;
-  caseMapType.textContent = currentCase.type;
+  const caseTypes = String(currentCase.type || '')
+    .split(/[,，]/)
+    .map(type => type.trim())
+    .filter(Boolean);
+  caseMapType.replaceChildren(...caseTypes.map(type => {
+    const tag = document.createElement('span');
+    tag.className = 'case-map-detail-type';
+    tag.textContent = type;
+    return tag;
+  }));
+  caseMapType.hidden = caseTypes.length === 0;
   caseMapDescription.textContent = currentCase.description;
   const hasLink = Boolean(currentCase.url);
   caseMapLink.hidden = !hasLink;
   if (hasLink) caseMapLink.href = currentCase.url;
   else caseMapLink.removeAttribute('href');
   caseMapCounter.textContent = `${activeCaseIndex + 1} / ${cases.length}`;
-  const hasImage = Boolean(currentCase.image);
+  const hasImage = Boolean(currentCase.image) && caseImagesEnabled;
   caseMapImage.classList.toggle('has-image',hasImage);
-  caseMapImage.style.backgroundImage = hasImage ? `url("${currentCase.image}")` : '';
+  if (hasImage) caseMapImage.style.setProperty('--case-image',`url("${currentCase.image}")`);
+  else caseMapImage.style.removeProperty('--case-image');
   caseMapImage.setAttribute('aria-label',`${currentCase.location}の導入実績画像`);
   caseMapPrev.disabled = cases.length < 2;
   caseMapNext.disabled = cases.length < 2;
 };
+
+const casesSection = document.querySelector('#cases');
+if (!caseImagesEnabled && casesSection) {
+  const caseImageObserver = new IntersectionObserver((entries,observer) => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    caseImagesEnabled = true;
+    renderCaseMapDetail();
+    observer.disconnect();
+  },{rootMargin:'320px 0px'});
+  caseImageObserver.observe(casesSection);
+}
 
 const selectCaseMapRegion = region => {
   if (!caseMapData[region]) return;
@@ -6980,11 +7134,24 @@ if (fixedCta && contactSection) {
   updateFixedCta();
 }
 
-const contactForm = document.querySelector('#contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', event => {
-    event.preventDefault();
+const tallyScriptUrl = 'https://tally.so/widgets/embed.js';
+const loadTallyEmbeds = () => {
+  if (typeof Tally !== 'undefined') {
+    Tally.loadEmbeds();
+    return;
+  }
+  document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(iframe => {
+    iframe.src = iframe.dataset.tallySrc;
   });
+};
+if (typeof Tally !== 'undefined') {
+  loadTallyEmbeds();
+} else if (!document.querySelector(`script[src="${tallyScriptUrl}"]`)) {
+  const tallyScript = document.createElement('script');
+  tallyScript.src = tallyScriptUrl;
+  tallyScript.onload = loadTallyEmbeds;
+  tallyScript.onerror = loadTallyEmbeds;
+  document.body.appendChild(tallyScript);
 }
 
 </script>

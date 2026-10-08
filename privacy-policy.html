@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="株式会社OMOMOのプライバシーポリシーです。">
+  <title>プライバシーポリシー | オモ謎</title>
+  <style>
+    :root{
+      color-scheme:light;
+      --blue:#0553dd;
+      --blue-strong:#003da8;
+      --blue-dark:#003da8;
+      --blue-soft:#eaf1ff;
+      --ink:#333333;
+      --muted:#555555;
+      --line:#cad8f2;
+      --paper:#ffffff;
+      --canvas:#f7f8fa;
+      --yellow:#ffd43b;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--canvas);
+      color:var(--ink);
+      font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      font-size:16px;
+      line-height:1.85;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}
+    .site-header{
+      position:relative;
+      z-index:1;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner,.footer-inner{
+      width:min(1120px,calc(100% - 48px));
+      margin:0 auto;
+    }
+    .header-inner{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .brand img{display:block;width:150px;height:auto}
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      color:var(--ink);
+      font-size:13px;
+      font-weight:700;
+      text-decoration:none;
+      transition:color .2s ease;
+    }
+    .back-link:hover{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+    .page-hero{
+      position:relative;
+      overflow:hidden;
+      padding:34px 24px 0;
+      background:var(--canvas);
+    }
+    .page-hero-inner{position:relative;width:min(860px,100%);margin:0 auto}
+    .eyebrow{
+      display:block;
+      margin:0;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.14em;
+    }
+    h1{
+      position:relative;
+      display:block;
+      width:fit-content;
+      max-width:100%;
+      margin:12px 0 0;
+      padding-right:52px;
+      color:var(--ink);
+      font-size:clamp(30px,3.1vw,40px);
+      font-weight:700;
+      letter-spacing:-.035em;
+      line-height:1.18;
+    }
+    h1::after{
+      content:"";
+      position:absolute;
+      top:6px;
+      right:30px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--yellow);
+      box-shadow:18px 13px 0 var(--blue),4px 28px 0 #89adff;
+    }
+    main{padding:16px 24px 76px}
+    .policy-card{
+      width:min(860px,100%);
+      margin:0 auto;
+      padding:clamp(26px,5vw,54px);
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--paper);
+      box-shadow:0 18px 56px rgba(23,46,87,.06);
+    }
+    .policy-intro{margin:0 0 28px;color:var(--muted);font-size:15px}
+    .policy-section{
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr);
+      gap:15px;
+      padding:22px 0 23px;
+      border-top:1px solid var(--line);
+    }
+    .section-number{
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      margin-top:1px;
+      border-radius:50%;
+      background:var(--blue-soft);
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+    }
+    h2{margin:0 0 5px;font-size:18px;font-weight:800;line-height:1.6;letter-spacing:.01em}
+    .policy-section p{margin:0;color:#555f70;font-size:15px;line-height:1.9}
+    .contact-note{
+      margin:30px 0 0;
+      padding:23px 25px;
+      border-radius:12px;
+      background:#f8f9fb;
+      text-align:center;
+    }
+    .contact-note p{margin:0 0 13px;color:var(--muted);font-size:14px}
+    .contact-button{
+      display:inline-flex;
+      min-height:46px;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 21px;
+      border:1px solid var(--blue);
+      border-radius:999px;
+      background:var(--blue);
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+      transition:background .2s ease,transform .2s ease;
+    }
+    .contact-button:hover{background:var(--blue-dark);transform:translateY(-2px)}
+    .contact-button::after{content:"↗";font-size:16px}
+    @media(max-width:620px){
+      body{font-size:15px}
+      .header-inner,.footer-inner{width:calc(100% - 36px)}
+      .header-inner{min-height:70px}
+      .brand img{width:122px}
+      .back-link{font-size:13px}
+      .page-hero{padding:26px 20px 0}
+      h1{font-size:28px;padding-right:42px}
+      h1::after{right:23px;width:10px;height:10px;box-shadow:14px 11px 0 var(--blue),3px 23px 0 #89adff}
+      main{padding:14px 14px 54px}
+      .policy-card{padding:24px 20px;border-radius:14px}
+      .policy-intro{font-size:14px;margin-bottom:23px}
+      .policy-section{grid-template-columns:32px minmax(0,1fr);gap:10px;padding:18px 0}
+      .section-number{width:29px;height:29px;font-size:12px}
+      h2{font-size:16px}
+      .policy-section p{font-size:14px}
+      .contact-note{padding:20px 15px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+  <link rel="stylesheet" href="site-footer.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="オモ謎 トップへ">
+        <img src="assets/images/logo_omonazo.png" alt="オモ謎 by OMOMO Inc.">
+      </a>
+      <a class="back-link" href="index.html">LPへ戻る</a>
+    </div>
+  </header>
+
+  <section class="page-hero" aria-labelledby="pageTitle">
+    <div class="page-hero-inner">
+      <p class="eyebrow">PRIVACY POLICY</p>
+      <h1 id="pageTitle">プライバシーポリシー</h1>
+    </div>
+  </section>
+
+  <main>
+    <article class="policy-card">
+      <p class="policy-intro">株式会社OMOMO（以下「当社」）は、当社のサービスおよびウェブサイトにおいて取得する個人情報を、個人情報の保護に関する法令等を遵守し、以下のとおり適切に取り扱います。</p>
+
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">01</span>
+        <div><h2>取得する情報</h2><p>当社は、お問い合わせフォーム等を通じて、氏名、会社・団体名、メールアドレス、電話番号、お問い合わせ内容などを取得することがあります。また、サイトの閲覧に伴い、IPアドレス、ブラウザ情報、閲覧日時等がサーバーに記録される場合があります。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">02</span>
+        <div><h2>利用目的</h2><p>取得した情報は、お問い合わせへの回答や必要な連絡、企画・サービスの提案および提供、契約の履行、サービスの改善・品質向上のために利用します。これらの目的の範囲を超えて利用する場合は、法令に基づく場合を除き、あらかじめご本人の同意を得ます。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">03</span>
+        <div><h2>第三者提供・業務委託</h2><p>当社は、法令に基づく場合等を除き、ご本人の同意なく個人データを第三者に提供しません。業務遂行に必要な範囲で取扱いを委託する場合は、委託先を適切に選定し、必要かつ適切な監督を行います。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">04</span>
+        <div><h2>お問い合わせフォームについて</h2><p>お問い合わせフォームには、Tally社が提供するフォームサービスを利用しています。フォームに入力された情報は、Tally社のサービスを経由して当社に送信されます。Tally社における情報の取扱いについては、<a href="https://tally.so/help/privacy-policy" target="_blank" rel="noopener noreferrer">Tallyのプライバシーに関する案内</a>をご確認ください。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">05</span>
+        <div><h2>安全管理</h2><p>当社は、個人情報の漏えい、滅失、毀損、不正アクセス等を防止するため、取扱い状況に応じた必要かつ適切な安全管理措置を講じます。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">06</span>
+        <div><h2>開示・訂正・利用停止等</h2><p>ご本人から、当社が保有する個人データの開示、訂正、追加、削除、利用停止等の請求があった場合、法令に従い、本人確認のうえ適切に対応します。ご希望の方は、下記のお問い合わせ窓口までご連絡ください。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">07</span>
+        <div><h2>Cookie等の利用</h2><p>本サイトでは、利便性の向上や利用状況の把握のため、Cookie等を使用する場合があります。ブラウザの設定によりCookieを無効にできますが、一部機能が利用できなくなることがあります。</p></div>
+      </section>
+      <section class="policy-section">
+        <span class="section-number" aria-hidden="true">08</span>
+        <div><h2>本ポリシーの改定</h2><p>当社は、法令の改正やサービス内容の変更等に応じて、本ポリシーを改定することがあります。改定後の内容は、本ページに掲載した時点から適用します。</p></div>
+      </section>
+
+      <div class="contact-note">
+        <p>お問い合わせやご相談は、オモ謎のフォームからご連絡ください。</p>
+        <a class="contact-button" href="index.html#contact">お問い合わせフォームへ</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-company">
+        <a href="https://omomo-inc.com/" class="footer-link" target="_blank" rel="noopener noreferrer">株式会社OMOMO<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
+        <span class="footer-certification">信州大学発スタートアップ認定企業</span>
+      </div>
+      <div class="footer-legal">
+        <a class="footer-policy-trigger" href="privacy-policy.html" aria-current="page">プライバシーポリシー</a>
+        <small>© OMOMO Inc. All Rights Reserved.</small>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

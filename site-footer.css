@@ -1,0 +1,108 @@
+/* Shared footer styling for the Omonazo landing and policy pages. */
+.site-footer{
+  background:#ffffff !important;
+  border-top:1px solid var(--line) !important;
+  padding:30px 0 92px !important;
+}
+.site-footer .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.site-footer .footer-inner{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  align-items:center !important;
+  gap:24px 40px !important;
+}
+.site-footer .footer-company{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px 16px !important;
+  text-align:left !important;
+}
+.site-footer .footer-link{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--blue) !important;
+  font-weight:800;
+  text-decoration:none !important;
+  transition:color .22s ease,transform .22s ease;
+}
+.site-footer .external-link-icon{
+  width:14px;
+  height:14px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:transform .22s ease;
+}
+.site-footer .footer-certification{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 12px;
+  border:0;
+  border-radius:999px;
+  background:var(--blue-soft);
+  color:var(--blue-strong);
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+}
+.site-footer .footer-legal{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:7px;
+}
+.site-footer .footer-policy-trigger{
+  display:inline-block;
+  color:var(--blue) !important;
+  font:inherit;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  transition:color .2s ease,transform .2s ease;
+}
+.site-footer .footer-legal small{
+  color:var(--muted) !important;
+  font-size:12px;
+  letter-spacing:.02em;
+}
+@media(hover:hover){
+  .site-footer .footer-link:hover{
+    color:var(--blue-strong) !important;
+    text-decoration:none !important;
+    transform:translateY(-1px);
+  }
+  .site-footer .footer-link:hover .external-link-icon{transform:translate(2px,-2px)}
+  .site-footer .footer-policy-trigger:hover{
+    color:var(--blue-strong) !important;
+    transform:translateY(-1px);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+}
+@media(max-width:620px){
+  .site-footer{padding:28px 0 104px !important}
+  .site-footer .wrap{width:min(100% - 28px,1180px);margin:0 auto}
+  .site-footer .footer-inner{
+    grid-template-columns:1fr !important;
+    justify-items:center;
+    gap:20px !important;
+    text-align:center;
+  }
+  .site-footer .footer-company{
+    flex-direction:column !important;
+    align-items:center;
+    justify-content:center;
+    gap:9px !important;
+    text-align:center !important;
+  }
+  .site-footer .footer-legal{align-items:center;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-footer .footer-link,.site-footer .external-link-icon,.site-footer .footer-policy-trigger{transition:none}
+}
