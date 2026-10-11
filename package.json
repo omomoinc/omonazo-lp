@@ -1,0 +1,10 @@
+{
+  "name": "omonazo-lp",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.cjs tests/*.test.mjs"
+  }
+}

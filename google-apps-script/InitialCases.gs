@@ -1,0 +1,178 @@
+/** Initial migration: writes only into an empty template; all rows are drafts. */
+function importInitialCases() {
+  const sheet = getSheet_();
+  const values = sheet.getDataRange().getDisplayValues();
+  const headerIndex = values.findIndex(row => row.includes("イベント名") && row.includes("画像ファイル名"));
+  if (headerIndex < 0) throw new Error("テンプレートの見出し行がありません。");
+  const headers = values[headerIndex].map(value => value.trim());
+  CASES_HEADERS.forEach(header => {
+    if (headers.indexOf(header) < 0 || headers.indexOf(header) !== headers.lastIndexOf(header)) throw new Error("列名を確認してください: " + header);
+  });
+  if (values.slice(headerIndex + 1).some(row => row.some(value => value.trim()))) {
+    throw new Error("既存の入力があります。上書きせず中止しました。");
+  }
+  const seed = [
+  [
+    "全県",
+    "長野県",
+    "長野県県民文化部",
+    "信州・時空探偵団",
+    "観光周遊型,Web・スマホ型",
+    "長野県内各地の観光スポットを巡り、スマートフォンでスタンプを集めるデジタルスタンプラリー。LINEを使った謎解き「信州時空探偵団」も楽しめ、長野県の歴史や地域の魅力に触れながら周遊できます。",
+    "case-nagano-jiku-detectives.jpg",
+    "https://150th.pref.nagano.lg.jp/stamprally/",
+    "下書き",
+    "10",
+    "長野県の信州・時空探偵団"
+  ],
+  [
+    "北信",
+    "小谷村（白馬バレー）",
+    "株式会社栂池ゴンドラリフト",
+    "栂池謎解きトレッキング",
+    "観光周遊型",
+    "長野県小谷村の栂池高原を舞台にした周遊型謎解きイベント。雄大な自然の中を散策しながら謎を解き明かします。家族向けと大人向けの2コースがあり、自然散策と謎解きを楽しめます。",
+    "case-otari-tsugaike-trekking.jpg",
+    "https://www.tsugaike.gr.jp/lp/nazotoki/",
+    "下書き",
+    "10",
+    "小谷村（白馬バレー）の栂池謎解きトレッキング"
+  ],
+  [
+    "北信",
+    "長野市",
+    "ホクト文化ホール（長野県県民文化会館）",
+    "謎だらけ！ホールからの脱出!!",
+    "館内周遊型",
+    "ホールに閉じ込められてしまった参加者が、館内にちりばめられた謎を解き明かし、脱出を目指す体験型イベント。普段とは違うホールの空間を楽しみながら、ひらめきと発想力を駆使して挑戦します。",
+    "case-nagano-hokuto-hall.jpg",
+    "https://www.cheerful-nagano.com/child/event/21097/",
+    "下書き",
+    "20",
+    "長野市の謎だらけ！ホールからの脱出!!"
+  ],
+  [
+    "北信",
+    "須坂市",
+    "長野経済研究所",
+    "臥竜公園探偵団",
+    "園内周遊型",
+    "消えたレシピの謎を追い、探偵団の一員となって公園内を巡る謎解きイベント。各所に隠された手がかりを探しながら謎を解き、次の目的地を目指します。クリア後にはお楽しみガチャガチャにも挑戦できます。",
+    "case-suzaka-garyu-park.jpg",
+    "https://www.cheerful-nagano.com/child/event/21681/",
+    "下書き",
+    "30",
+    "須坂市の臥竜公園探偵団"
+  ],
+  [
+    "中信",
+    "茅野市",
+    "蓼科グランドホテル滝の湯",
+    "時の揺らぎと百年の宿",
+    "館内周遊型,Web・スマホ型",
+    "創業100年を超える老舗ホテルで起こる不思議な現象「時空の揺らぎ」。参加者は館内を巡りながらさまざまな謎を解き、ホテルの歴史に隠された秘密を紐解き、未来を切り拓いていきます。",
+    "case-chino-takinoyu.jpg",
+    "https://takinoyu.co.jp/nazotoki/",
+    "下書き",
+    "10",
+    "茅野市の時の揺らぎと百年の宿"
+  ],
+  [
+    "中信",
+    "茅野市",
+    "星めぐる高原の劇場『ライムライト』",
+    "月陽のあわい",
+    "宿泊周遊型",
+    "月を知らないニッコウキスゲと、太陽を知らないツキミソウ。2つの花にまつわる物語を、宿泊しながら解き明かす謎解き体験。食事やお酒を楽しみながら、自分のペースで物語の結末を導き出します。",
+    "case-chino-tsukihi-no-awai.jpg",
+    "https://www.chillnn.com/ja/199dcc41e8e333/plan/19f2655318011a",
+    "下書き",
+    "20",
+    "茅野市の月陽のあわい"
+  ],
+  [
+    "中信",
+    "大町市",
+    "国営アルプス安曇野公園（大町・松川地区）",
+    "開幕！秋の謎解きフェスティバル",
+    "園内周遊型",
+    "園内各所に仕掛けられた謎に挑み、「幻の森のチャンピオン」を目指す謎解きイベント。豊かな自然の中を散策しながら、ひらめきと発想力を駆使してすべての謎のクリアに挑戦します。",
+    "case-omachi-azumino-park.jpg",
+    "https://www.azumino-koen.jp/oomachi_matsukawa/new/topics.php?id=3194",
+    "下書き",
+    "30",
+    "大町市の開幕！秋の謎解きフェスティバル"
+  ],
+  [
+    "中信",
+    "松本市",
+    "長野県松本県ヶ丘高校",
+    "まつもと探究謎解きラリー",
+    "探究周遊型",
+    "松本の街を巡りながら、各所に仕掛けられた謎を解き明かす体験型イベント。高校の探究学習の一環として、生徒たちが協力して謎解きに挑戦し、楽しみながら地域の魅力や新たな発見に出会います。",
+    "case-matsumoto-agatagaoka.jpg",
+    "https://omomo-inc.com/case/20260424",
+    "下書き",
+    "40",
+    "松本市のまつもと探究謎解きラリー"
+  ],
+  [
+    "南信",
+    "伊那市",
+    "伊那市地域おこし協力隊",
+    "構造君・ジオ博士と行く！謎解き調査団!!",
+    "観光周遊型",
+    "豊かな自然の中を散策しながら、看板や石碑をヒントに謎を解き明かす周遊型イベント。高遠と長谷の2エリアにそれぞれ4つの謎が仕掛けられ、両エリアをクリアすると追加の謎にも挑戦できます。",
+    "case-ina-geo-investigation.jpg",
+    "https://ina.keizai.biz/headline/341/",
+    "下書き",
+    "10",
+    "伊那市の構造君・ジオ博士と行く！謎解き調査団!!"
+  ],
+  [
+    "南信",
+    "平谷村",
+    "平谷村地域おこし協力隊",
+    "秘境に眠る黄金を探せ",
+    "観光周遊型",
+    "南信州の秘境に眠る黄金を探し求め、村のおすすめスポットを巡りながら謎を解く体験型イベント。豊かな自然や地域の魅力に触れながら、手ごたえのある謎解きを楽しめます。",
+    "case-hiraya-golden-treasure.jpg",
+    "https://db.go-nagano.net/topics_detail11/id=19593",
+    "下書き",
+    "20",
+    "平谷村の秘境に眠る黄金を探せ"
+  ],
+  [
+    "その他",
+    "北信〜新潟県",
+    "環境省戸隠自然保護官事務所",
+    "謎解き探検隊",
+    "観光周遊型,Web・スマホ型",
+    "妙高戸隠連山国立公園の4つのエリアを巡り、自然や歴史、文化にまつわる謎を解き明かす周遊型イベント。現地の景色や展示をヒントに謎を解き、すべてのエリアをクリアすると最後の謎に挑戦できます。",
+    "case-myoko-togakushi-national-park.jpg",
+    "https://cocolomy.com/navi/nationalpark-nazotoki/",
+    "下書き",
+    "10",
+    "北信〜新潟県の謎解き探検隊"
+  ],
+  [
+    "その他",
+    "東京都青梅市",
+    "岩藏エクスペリエンス株式会社",
+    "フセギの草鞋と百年前の恋文",
+    "観光周遊型,Web・スマホ型",
+    "夢に現れた青年の願いを叶えるため、地域に残る6か所の「フセギの草鞋」を巡る謎解きイベント。スマートフォンを使って謎を解きながら、岩蔵の歴史や伝統文化に触れられます。",
+    "case-ome-iwakura.jpg",
+    "https://iwakura-experience.tokyo/report/iwakura-nazotoki-walk/",
+    "下書き",
+    "20",
+    "東京都青梅市のフセギの草鞋と百年前の恋文"
+  ]
+];
+  const output = seed.map(row => headers.map(header => {
+    const index = CASES_HEADERS.indexOf(header);
+    return index < 0 ? "" : row[index];
+  }));
+  sheet.getRange(headerIndex + 2,1,output.length,headers.length).setValues(output);
+  console.log("既存12件を下書きで入力しました。画像と内容を確認し、公開状態を変更してください。");
+}

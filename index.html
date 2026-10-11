@@ -6436,6 +6436,7 @@ body.reveal-ready .scroll-reveal.is-visible{
 
 </style>
 <link rel="stylesheet" href="site-footer.css">
+<link rel="stylesheet" href="assets/cases-list.css">
 </head>
 <body>
 
@@ -6730,6 +6731,8 @@ body.reveal-ready .scroll-reveal.is-visible{
       </article>
     </div>
     <p class="case-map-note">※掲載実績は一部です。前身企業および前身団体での実績を含みます。</p>
+    <!-- CASES_STATIC_START -->
+    <!-- CASES_STATIC_END -->
   </div>
 </section>
 
@@ -6922,7 +6925,7 @@ if ('IntersectionObserver' in window) {
   lazyBackgrounds.forEach(loadBackground);
 }
 
-const caseMapData = {
+let caseMapData = {
   all:[
     {location:'長野県',client:'長野県県民文化部',title:'信州・時空探偵団',type:'観光周遊型,Web・スマホ型',description:'長野県内各地の観光スポットを巡り、スマートフォンでスタンプを集めるデジタルスタンプラリー。LINEを使った謎解き「信州時空探偵団」も楽しめ、長野県の歴史や地域の魅力に触れながら周遊できます。',image:'assets/images/case-nagano-jiku-detectives.jpg',url:'https://150th.pref.nagano.lg.jp/stamprally/'}
   ],
@@ -7010,7 +7013,7 @@ const renderCaseMapDetail = () => {
   caseMapImage.classList.toggle('has-image',hasImage);
   if (hasImage) caseMapImage.style.setProperty('--case-image',`url("${currentCase.image}")`);
   else caseMapImage.style.removeProperty('--case-image');
-  caseMapImage.setAttribute('aria-label',`${currentCase.location}の導入実績画像`);
+  caseMapImage.setAttribute('aria-label',currentCase.imageAlt || `${currentCase.location}の導入実績画像`);
   caseMapPrev.disabled = cases.length < 2;
   caseMapNext.disabled = cases.length < 2;
 };
