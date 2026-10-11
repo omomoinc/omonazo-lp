@@ -55,20 +55,6 @@ export function prepareSnapshot(snapshot,{local = false} = {}) {
   return {cases,groups,assets};
 }
 
-function staticList(cases) {
-  if (!cases.length) return '<p class="case-static-list">掲載準備中です。</p>';
-  return `<details class="case-static-list"><summary>掲載実績を一覧で見る（${cases.length}件）</summary>
-<div class="case-static-grid">${cases.map(item => `<article class="case-static-entry">
-${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}" width="1200" height="800" loading="lazy" decoding="async">` : ''}
-<p class="case-static-meta">${escapeHTML(regionNames[item.region])} / ${escapeHTML(item.location)}</p>
-${item.client ? `<p class="case-static-meta">${escapeHTML(item.client.replace(/様$/,'') + '様')}</p>` : ''}
-<h3>${escapeHTML(item.title)}</h3>
-${item.type ? `<p class="case-static-meta">${escapeHTML(item.type)}</p>` : ''}
-<p>${escapeHTML(item.description)}</p>
-${item.url ? `<a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">詳細はこちら</a>` : ''}
-</article>`).join('\n')}</div></details>`;
-}
-
 function initialCard(groups) {
   const item = groups.all[0];
   const hasImage = Boolean(item?.image);
@@ -93,7 +79,6 @@ function initialCard(groups) {
 export function renderPage(template,prepared) {
   const substitutions = [
     [/let caseMapData = \{[\s\S]*?\n\};/,`let caseMapData = ${safeJSON(prepared.groups)};`],
-    [/<!-- CASES_STATIC_START -->[\s\S]*?<!-- CASES_STATIC_END -->/,`<!-- CASES_STATIC_START -->\n${staticList(prepared.cases)}\n<!-- CASES_STATIC_END -->`],
     [/<article class="case-map-detail" aria-live="polite">[\s\S]*?<\/article>/,initialCard(prepared.groups)]
   ];
   let html = template;
@@ -140,7 +125,7 @@ export async function build({local = false} = {}) {
   const temporary = await mkdtemp(path.join(root,'.build-'));
   try {
     await cp(path.join(root,'assets'),path.join(temporary,'assets'),{recursive:true,filter:source => local || !/^case-.*\.jpg$/.test(path.basename(source))});
-    for (const filename of ['privacy-policy.html','site-footer.css']) await cp(path.join(root,filename),path.join(temporary,filename));
+    for (const filename of ['privacy-policy.html','site-footer.css','favicon.ico']) await cp(path.join(root,filename),path.join(temporary,filename));
     for (const [filename,bytes] of prepared.assets) {
       await mkdir(path.dirname(path.join(temporary,filename)),{recursive:true});
       await writeFile(path.join(temporary,filename),bytes);

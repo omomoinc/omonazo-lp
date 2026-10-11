@@ -4,17 +4,16 @@ import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
 import {prepareSnapshot,renderPage,build} from '../scripts/build.mjs';
 
-const row = overrides => ({region:'north',location:'長野市',client:'テスト',title:'新しい実績',type:'周遊型,Web型',description:'新しい説明',imageFile:'sample.jpg',url:'https://example.com/',...overrides});
+const row = overrides => ({region:'all',location:'長野市',client:'テスト',title:'新しい実績',type:'周遊型,Web型',description:'新しい説明',imageFile:'sample.jpg',url:'https://example.com/',...overrides});
 const snapshot = cases => ({ok:true,version:1,cases:cases || [row()],images:[{name:'sample.jpg',mimeType:'image/jpeg',base64:'AQID'}]});
 const template = await readFile(new URL('../index.html',import.meta.url),'utf8');
 
-test('all published cases are actual HTML text, with crawlable local image URLs',() => {
+test('published cases populate the interactive card with local image URLs',() => {
   const data=prepareSnapshot(snapshot([row(),row({region:'south',title:'南信の実績'})]));
   const html=renderPage(template,data);
-  const list=html.match(/<!-- CASES_STATIC_START -->([\s\S]*?)<!-- CASES_STATIC_END -->/)[1];
-  assert.match(list,/<h3>新しい実績<\/h3>/);
-  assert.match(list,/<h3>南信の実績<\/h3>/);
-  assert.match(list,/<img src="assets\/images\/cases\/[a-f0-9]+\.jpg"/);
+  assert.match(html,/<h3 id="caseMapTitle">新しい実績<\/h3>/);
+  assert.match(html,/--case-image:url\('assets\/images\/cases\/[a-f0-9]+\.jpg'\)/);
+  assert.equal(html.includes('掲載実績を一覧で見る'),false);
   assert.equal(data.assets.size,1);
   assert.equal(html.includes('OmonazoCasesAPI'),false);
   assert.equal(html.includes('script.google.com'),false);
@@ -65,7 +64,7 @@ test('production build exports only generated public assets and never includes b
     await build();
     const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');
     assert.equal(html.includes(process.env.CASES_BUILD_TOKEN),false);
-    const image=html.match(/<img src="(assets\/images\/cases\/[a-f0-9]+\.jpg)"/)[1];
+    const image=html.match(/--case-image:url\('(assets\/images\/cases\/[a-f0-9]+\.jpg)'\)/)[1];
     assert.deepEqual(await readFile(new URL('../dist/'+image,import.meta.url)),Buffer.from([1,2,3]));
     await assert.rejects(readFile(new URL('../dist/google-apps-script/Code.gs',import.meta.url)));
     await assert.rejects(readFile(new URL('../dist/assets/images/case-nagano-jiku-detectives.jpg',import.meta.url)));
