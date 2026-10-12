@@ -125,7 +125,7 @@ export async function build({local = false} = {}) {
   const temporary = await mkdtemp(path.join(root,'.build-'));
   try {
     await cp(path.join(root,'assets'),path.join(temporary,'assets'),{recursive:true,filter:source => local || !/^case-.*\.jpg$/.test(path.basename(source))});
-    for (const filename of ['privacy-policy.html','site-footer.css','favicon.ico']) await cp(path.join(root,filename),path.join(temporary,filename));
+    for (const filename of ['privacy-policy.html','site-footer.css','favicon.ico','robots.txt','sitemap.xml']) await cp(path.join(root,filename),path.join(temporary,filename));
     for (const [filename,bytes] of prepared.assets) {
       await mkdir(path.dirname(path.join(temporary,filename)),{recursive:true});
       await writeFile(path.join(temporary,filename),bytes);

@@ -20,6 +20,12 @@ test('published cases populate the interactive card with local image URLs',() =>
   assert.equal(html.includes('信州・時空探偵団'),false);
   for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
 });
+
+test('SEO crawl-control files are included in the generated site',async () => {
+  await build({local:true});
+  assert.match(await readFile(new URL('../dist/robots.txt',import.meta.url),'utf8'),/Sitemap: https:\/\/omonazo\.omomo-inc\.com\/sitemap\.xml/);
+  assert.match(await readFile(new URL('../dist/sitemap.xml',import.meta.url),'utf8'),/<loc>https:\/\/omonazo\.omomo-inc\.com\/<\/loc>/);
+});
 test('HTML, attribute and script injection is escaped, including replacement dollar patterns',() => {
   const title='</script><script>alert(1)</script> $& "';
   const html=renderPage(template,prepareSnapshot(snapshot([row({title,description:'<img onerror=alert(1)>'})])));
