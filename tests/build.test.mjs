@@ -25,6 +25,10 @@ test('SEO crawl-control files are included in the generated site',async () => {
   await build({local:true});
   assert.match(await readFile(new URL('../dist/robots.txt',import.meta.url),'utf8'),/Sitemap: https:\/\/omonazo\.omomo-inc\.com\/sitemap\.xml/);
   assert.match(await readFile(new URL('../dist/sitemap.xml',import.meta.url),'utf8'),/<loc>https:\/\/omonazo\.omomo-inc\.com\/<\/loc>/);
+  assert.deepEqual(
+    await readFile(new URL('../dist/google4387c98ecfcc9677.html',import.meta.url)),
+    await readFile(new URL('../google4387c98ecfcc9677.html',import.meta.url))
+  );
 });
 test('HTML, attribute and script injection is escaped, including replacement dollar patterns',() => {
   const title='</script><script>alert(1)</script> $& "';
